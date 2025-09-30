@@ -14,10 +14,22 @@ import { createTheme, DEFAULT_THEME, mergeMantineTheme } from '@mantine/core';
 
 const themeOverride = createTheme({
   /** Primary accent color - used sparingly for CTAs and highlights */
-  primaryColor: 'blue',
+  primaryColor: 'primary',
 
-  /** Custom color palette - professional blue accent */
+  /** Custom color palette - brand primary (indigo) + accent colors */
   colors: {
+    primary: [
+      '#E8E9FB', // 0 - lightest (derived from #6366F1)
+      '#C5C7F7', // 1
+      '#A3A5F3', // 2
+      '#818CF8', // 3 - primary-400
+      '#6366F1', // 4 - primary-500 (main brand)
+      '#4F46E5', // 5 - primary-600
+      '#4338CA', // 6
+      '#3730A3', // 7
+      '#312E81', // 8
+      '#1E1B4B', // 9 - darkest
+    ],
     blue: [
       '#e6f2ff', // 0 - lightest
       '#bfdbfe', // 1
@@ -30,14 +42,62 @@ const themeOverride = createTheme({
       '#1e3a8a', // 8
       '#172554', // 9 - darkest
     ],
+    cyan: [
+      '#ECFEFF', // 0
+      '#CFFAFE', // 1
+      '#A5F3FC', // 2
+      '#67E8F9', // 3
+      '#22D3EE', // 4
+      '#06B6D4', // 5 - accent-cyan
+      '#0891B2', // 6
+      '#0E7490', // 7
+      '#155E75', // 8
+      '#164E63', // 9
+    ],
+    grape: [
+      '#F3E8FF', // 0
+      '#E9D5FF', // 1
+      '#D8B4FE', // 2
+      '#C084FC', // 3
+      '#A855F7', // 4 - accent-purple
+      '#9333EA', // 5
+      '#7E22CE', // 6
+      '#6B21A8', // 7
+      '#581C87', // 8
+      '#3B0764', // 9
+    ],
+    teal: [
+      '#F0FDFA', // 0
+      '#CCFBF1', // 1
+      '#99F6E4', // 2
+      '#5EEAD4', // 3
+      '#2DD4BF', // 4
+      '#10B981', // 5 - accent-emerald
+      '#0D9488', // 6
+      '#0F766E', // 7
+      '#115E59', // 8
+      '#134E4A', // 9
+    ],
+    yellow: [
+      '#FEFCE8', // 0
+      '#FEF9C3', // 1
+      '#FEF08A', // 2
+      '#FDE047', // 3
+      '#FACC15', // 4
+      '#F59E0B', // 5 - accent-amber
+      '#D97706', // 6
+      '#B45309', // 7
+      '#92400E', // 8
+      '#78350F', // 9
+    ],
   },
 
   /** Typography scale for hierarchy and readability */
-  fontFamily: 'var(--font-geist-sans), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
-  fontFamilyMonospace: 'var(--font-geist-mono), ui-monospace, monospace',
+  fontFamily: 'var(--font-inter), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
+  fontFamilyMonospace: 'var(--font-jetbrains), ui-monospace, monospace',
 
   headings: {
-    fontFamily: 'var(--font-geist-sans), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
+    fontFamily: "'Satoshi', var(--font-inter), -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
     fontWeight: '600',
     sizes: {
       h1: { fontSize: '2.5rem', lineHeight: '1.2', fontWeight: '700' },

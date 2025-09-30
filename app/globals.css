@@ -1,13 +1,30 @@
 /* Global styles for the portfolio */
 
 :root {
-  /* Accent color - used sparingly for CTAs and highlights */
-  --accent-color: #2563eb;
-  --accent-color-hover: #1d4ed8;
-  --accent-color-light: #3b82f6;
+  /* Brand primary colors */
+  --brand-primary-400: #818CF8;
+  --brand-primary-500: #6366F1;
+  --brand-primary-600: #4F46E5;
+
+  /* Accent colors */
+  --accent-cyan: #06B6D4;
+  --accent-purple: #A855F7;
+  --accent-emerald: #10B981;
+  --accent-amber: #F59E0B;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+  --gradient-accent: linear-gradient(135deg, #06B6D4 0%, #10B981 100%);
+  --gradient-glow: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);
+  --gradient-dark: linear-gradient(135deg, #27272A 0%, #18181B 100%);
+
+  /* Legacy accent color - kept for backward compatibility */
+  --accent-color: #6366F1;
+  --accent-color-hover: #4F46E5;
+  --accent-color-light: #818CF8;
 
   /* Enhanced focus ring for accessibility */
-  --focus-ring-color: var(--accent-color);
+  --focus-ring-color: var(--brand-primary-500);
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
 }
@@ -72,4 +89,86 @@ html {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ============================================
+   Design System Animations
+   ============================================ */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation utility classes */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shine {
+  animation: shine 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
+  background-size: 200% auto;
+}
+
+/* Gradient background utilities */
+.bg-gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.bg-gradient-accent {
+  background: var(--gradient-accent);
+}
+
+.bg-gradient-glow {
+  background: var(--gradient-glow);
+}
+
+.bg-gradient-dark {
+  background: var(--gradient-dark);
+}
+
+/* Text gradient utility */
+.text-gradient-primary {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.text-gradient-accent {
+  background: var(--gradient-accent);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }

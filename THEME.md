@@ -1,68 +1,122 @@
-# Portfolio Theme Guide
+# Portfolio Theme Guide (2025 Refresh)
 
-This document outlines the design system and theme configuration for the portfolio website.
+This guide consolidates the visual design system and its Mantine mapping so the look & feel is consistent across the app. It translates the Tailwind-like tokens from `portfolio-design-system.md` into Mantine theme guidance, CSS variables, and usage examples.
 
 ## Design Principles
 
-1. **Generous Whitespace** - Clean, modern layout with breathing room
-2. **Single Accent Color** - Professional blue used sparingly for emphasis
-3. **Excellent Readability** - Clear typography hierarchy and contrast
-4. **Accessibility First** - WCAG AA compliant, visible focus states
-5. **Modern & Fast** - Subtle animations, optimized performance
+1. **Clean first, fun second** — Professional clarity with personality touches
+2. **Performance-focused** — Smooth, GPU-accelerated animations; minimal layout thrash
+3. **Accessible** — WCAG AA contrast, visible focus, reduced-motion support
+4. **Responsive** — Mobile-first with fluid typography
+5. **Subtle gamification (optional)** — Badges, progress bars, tasteful micro-interactions
 
-## Color Palette
+---
 
-### Primary Accent (Blue)
-Used sparingly for CTAs, highlights, and interactive elements.
+## Color System
+
+### Brand and Accents
+
+Use indigo as the primary brand color, supported by accent hues for highlights and semantic states.
 
 ```css
---accent-color: #2563eb;        /* Main accent (blue-600) */
---accent-color-hover: #1d4ed8;  /* Hover state (blue-700) */
---accent-color-light: #3b82f6;  /* Light variant (blue-500) */
+/* CSS tokens (can be referenced in styles and inline CSS vars) */
+--brand-primary-500: #6366F1; /* Indigo */
+--brand-primary-400: #818CF8;
+--brand-primary-600: #4F46E5;
+
+--accent-cyan:    #06B6D4;  /* CTAs, highlights */
+--accent-purple:  #A855F7;  /* Creative elements */
+--accent-emerald: #10B981;  /* Success */
+--accent-amber:   #F59E0B;  /* Warnings/attention */
 ```
 
-**Full Blue Scale:**
-- `#e6f2ff` - blue-0 (lightest)
-- `#bfdbfe` - blue-1
-- `#93c5fd` - blue-2
-- `#60a5fa` - blue-3
-- `#3b82f6` - blue-4
-- `#2563eb` - blue-5 (main)
-- `#1d4ed8` - blue-6
-- `#1e40af` - blue-7
-- `#1e3a8a` - blue-8
-- `#172554` - blue-9 (darkest)
+### Neutrals
 
-### Usage Guidelines
+```css
+--neutral-50:  #FAFAFA;
+--neutral-100: #F4F4F5;
+--neutral-200: #E4E4E7; /* borders */
+--neutral-300: #D4D4D8; /* disabled */
+--neutral-400: #A1A1AA; /* placeholder */
+--neutral-500: #71717A; /* secondary text */
+--neutral-600: #52525B; /* body text */
+--neutral-700: #3F3F46; /* headings */
+--neutral-800: #27272A; /* dark surfaces */
+--neutral-900: #18181B; /* darkest */
+```
 
-- **Primary CTAs**: Use main accent color (`#2563eb`)
-- **Links**: Accent color on hover
-- **Active States**: Accent color indicators (e.g., nav underline)
-- **Badges/Pills**: Light accent variants
-- **Focus Rings**: Accent color outline
+### Gradients
+
+```css
+--gradient-primary: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+--gradient-accent:  linear-gradient(135deg, #06B6D4 0%, #10B981 100%);
+--gradient-glow:    linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);
+--gradient-dark:    linear-gradient(135deg, #27272A 0%, #18181B 100%);
+```
+
+### Mantine Mapping
+
+- **primaryColor**: `indigo` (or define a custom `primary` color array around `#6366F1`).
+- Use `accent-cyan`, `accent-purple`, `accent-emerald`, `accent-amber` as semantic choices for `color` on `Badge`, `Button`, `Progress`, etc.
+- Prefer `withBorder` + neutral tokens for cards and surfaces.
+
+Usage examples:
+
+```tsx
+// CTAs
+<Button color="indigo">View projects</Button>
+<Button variant="gradient" gradient={{ from: 'indigo', to: 'grape' }}>Hire me</Button>
+
+// Semantic accents
+<Badge color="cyan">Next.js</Badge>
+<Badge color="grape">Design Systems</Badge>
+<Badge color="teal">CI/CD</Badge>
+<Badge color="yellow">New</Badge>
+```
+
+---
 
 ## Typography
 
 ### Font Stack
 
-```css
-/* Body & Headings */
-font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+Use **Satoshi** for headings (display), **Inter** for body text, and **JetBrains Mono** for code.
 
-/* Code/Monospace */
-font-family: var(--font-geist-mono), ui-monospace, monospace;
+- **Satoshi** (via [Fontshare](https://www.fontshare.com/fonts/satoshi)) - Modern geometric sans for headings
+- **Inter** (via `next/font/google`) - Clean, readable body text
+- **JetBrains Mono** (via `next/font/google`) - Monospace for code
+
+```tsx
+// Fonts setup in layout.tsx
+import { Inter, JetBrains_Mono } from 'next/font/google';
+export const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+export const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains' });
+
+// Satoshi loaded via link tag in head:
+// <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,600,700,900&display=swap" rel="stylesheet" />
 ```
 
-### Heading Scale
+Mantine theme configuration:
 
-| Element | Size | Line Height | Weight |
-|---------|------|-------------|--------|
-| H1 | 2.5rem (40px) | 1.2 | 700 |
-| H2 | 2rem (32px) | 1.3 | 600 |
-| H3 | 1.5rem (24px) | 1.4 | 600 |
-| H4 | 1.25rem (20px) | 1.5 | 600 |
-| H5 | 1.125rem (18px) | 1.5 | 600 |
-| H6 | 1rem (16px) | 1.5 | 600 |
+- `fontFamily` (body): `var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
+- `headings.fontFamily`: `'Satoshi', var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
+- `fontFamilyMonospace`: `var(--font-jetbrains), ui-monospace, monospace`
+- Headings weights (H1→H6): 700, 600, 600, 600, 600, 600
+
+### Fluid Type Scale (reference)
+
+```css
+--text-xs:  clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+--text-sm:  clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+--text-md:  clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+--text-lg:  clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+--text-xl:  clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+--text-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+--text-3xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+--text-4xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+```
+
+---
 
 ## Spacing Scale
 
@@ -76,9 +130,11 @@ Generous spacing for clean, modern layout:
 | lg | 1.5rem | 24px | Section spacing |
 | xl | 2rem | 32px | Large gaps |
 
-## Border Radius
+Mantine uses `theme.spacing` for these; match component `gap/spacing` to tokens above.
 
-Consistent rounding for modern, friendly feel:
+---
+
+## Radius
 
 | Token | Size | Pixels |
 |-------|------|--------|
@@ -88,9 +144,11 @@ Consistent rounding for modern, friendly feel:
 | lg | 0.75rem | 12px |
 | xl | 1rem | 16px |
 
-## Breakpoints
+Default component radius is `md`.
 
-Responsive layout breakpoints:
+---
+
+## Breakpoints
 
 | Name | Width | Pixels |
 |------|-------|--------|
@@ -100,107 +158,179 @@ Responsive layout breakpoints:
 | lg | 75em | 1200px |
 | xl | 88em | 1408px |
 
-## Component Styles
+These align to existing Mantine breakpoints; use `Container` sizes and `Hidden`/`Visible` utilities accordingly.
 
-### Cards
-- Default radius: `md` (8px)
-- Border: Yes
-- Hover effect: Subtle lift + shadow
-- Transition: 0.2s ease
+---
+
+## Animations
+
+Prefer transform/opacity animations; respect reduced motion.
+
+```css
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+@keyframes shine { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }
+@keyframes gradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-shine { animation: shine 3s ease-in-out infinite; }
+.animate-gradient { animation: gradient 3s ease infinite; }
+```
+
+Apply via `className` on wrappers or via `sx` with `animation` values.
+
+---
+
+## Component Patterns (Mantine)
 
 ### Buttons
-- Default radius: `md`
-- Font weight: 500
-- Transition: 0.2s ease
 
-### Badges
-- Radius: `sm` (6px)
-- Used for tech stack chips, status indicators
+- Primary: `color="indigo"`, `fw={600}`
+- Ghost/Light: `variant="light"` with neutral foreground
+- Gradient CTA: `variant="gradient"` using indigo → grape
 
-### Inputs & Forms
-- Radius: `md`
-- Clear focus states
+```tsx
+<Group>
+  <Button color="indigo" radius="md">Primary</Button>
+  <Button variant="light" color="indigo" radius="md">Ghost</Button>
+  <Button
+    variant="gradient"
+    gradient={{ from: 'indigo', to: 'grape', deg: 135 }}
+    radius="md"
+  >CTA</Button>
+  <ActionIcon variant="light" color="indigo" radius="md" aria-label="Next">
+    {/* Icon */}
+  </ActionIcon>
+  </Group>
+```
 
-## Accessibility Features
+### Cards
 
-### Focus States
+- `withBorder` + `radius="md"`
+- Hover: small lift + shadow
+
+```tsx
+<Card withBorder radius="md" shadow="sm" p="lg">
+  <Card.Section>
+    {/* Image or gradient header */}
+  </Card.Section>
+  <Stack gap="sm">
+    <Title order={3}>Project title</Title>
+    <Text c="dimmed" lineClamp={2}>Short description…</Text>
+    <Group gap="xs">
+      <Badge color="indigo" variant="light">TypeScript</Badge>
+      <Badge color="cyan" variant="light">Next.js</Badge>
+    </Group>
+  </Stack>
+  <Group justify="flex-end" mt="md">
+    <Button size="xs" variant="light">Live</Button>
+    <Button size="xs" color="indigo">Code</Button>
+  </Group>
+</Card>
+```
+
+### Skill/Progress (Gamified)
+
+```tsx
+<Stack>
+  <Group justify="space-between">
+    <Group gap="sm">
+      <ThemeIcon radius="md" size="lg" color="indigo"><span>JS</span></ThemeIcon>
+      <Text fw={600}>JavaScript</Text>
+    </Group>
+    <Text c="dimmed">Lv. 85</Text>
+  </Group>
+  <Progress value={85} color="indigo" radius="xl" />
+</Stack>
+```
+
+### Badges/Achievements (Optional)
+
+```tsx
+<Paper withBorder radius="lg" p="md" style={{ borderWidth: 2, borderColor: 'var(--mantine-color-yellow-5)' }}>
+  <Group>
+    <ThemeIcon radius="xl" size="lg" color="yellow">✓</ThemeIcon>
+    <div>
+      <Text fw={600}>100 Commits</Text>
+      <Text size="sm" c="dimmed">Consistent contributions</Text>
+    </div>
+  </Group>
+</Paper>
+```
+
+---
+
+## Accessibility
+
+- Visible focus rings (match accent):
+
 ```css
---focus-ring-color: #2563eb;
+--focus-ring-color: var(--brand-primary-500);
 --focus-ring-width: 2px;
 --focus-ring-offset: 2px;
 ```
 
-- Visible focus rings on all interactive elements
-- High contrast for keyboard navigation
-- Consistent across components
+- Respect `prefers-reduced-motion`; disable non-essential animations.
+- Maintain AA contrast in light/dark modes.
 
-### Color Contrast
-- All text meets WCAG AA standards
-- Accent color has sufficient contrast in both light and dark modes
+---
 
-### Motion
-- Respects `prefers-reduced-motion`
-- All animations disabled when user preference is set
-- Smooth scroll disabled for reduced motion
+## Iconography
 
-## Dark Mode Support
+Use FontAwesome (already installed) or Tabler Icons. Replace inline SVGs from the design system with reusable icon components for size/color consistency.
 
-- Automatic dark mode detection via `prefers-color-scheme`
-- Manual toggle available (ColorSchemeToggle component)
-- All colors adapt appropriately
-- Custom scrollbar styling for both modes
+---
 
-## Performance Considerations
+## Dark Mode
 
-- Font smoothing enabled for crisp text
-- Respects reduced motion preferences
-- Smooth transitions (0.2s standard)
-- No heavy animations or parallax effects
+- Automatic via system preference; manual toggle available.
+- Neutrals and brand adapt; avoid pure black/white.
+- Provide subtle shadows and borders for depth in dark mode.
 
-## Usage Examples
+---
 
-### Using the Accent Color
+## Performance
 
-```tsx
-// Primary CTA
-<Button color="blue">Book 15-min intro</Button>
+- Load fonts via `next/font`.
+- Prefer CSS transforms/opacity for animations.
+- Avoid large parallax/background video; keep hero effects lightweight.
 
-// Secondary action
-<Button variant="light" color="blue">View Projects</Button>
+---
 
-// Badge with accent
-<Badge color="blue">TypeScript</Badge>
-```
+## Implementation Notes (Mantine Theme)
 
-### Spacing
+- Set `primaryColor` to `indigo` or define a custom `primary` scale around `#6366F1`.
+- Update `fontFamily` to Inter and `fontFamilyMonospace` to JetBrains Mono.
+- Keep `defaultRadius="md"`, spacing tokens as specified, and breakpoints as listed.
 
-```tsx
-// Large section gap
-<Stack gap="xl">...</Stack>
+---
 
-// Card grid with generous spacing
-<SimpleGrid spacing="lg">...</SimpleGrid>
+## Tailwind vs Mantine
 
-// Tight inline spacing
-<Group gap="sm">...</Group>
-```
+- Mantine is sufficient to implement this system using `sx`, variants, and theme tokens. Use Mantine for consistency and speed.
+- Tailwind can be added if you want utility-first classes for micro-layouts and quick animations, but it’s optional and increases stack complexity.
+- Recommendation: **Stay Mantine-only** for now; revisit Tailwind if we hit styling friction that’s cumbersome in Mantine.
 
-### Typography
+---
+
+## Quick Snippets
 
 ```tsx
-// Page title
-<Title order={1}>Welcome</Title>
+// Gradient CTA
+<Button variant="gradient" gradient={{ from: 'indigo', to: 'grape', deg: 135 }}>Get in touch</Button>
 
-// Section heading
-<Title order={2}>Projects</Title>
+// Tech chip
+<Badge variant="light" color="indigo" radius="sm">TypeScript</Badge>
 
-// Subsection
-<Title order={3}>Featured Work</Title>
+// Section wrapper with subtle gradient bg
+<Paper radius="lg" p="xl" style={{ background: 'var(--gradient-primary)' }}>
+  <Title order={2}>Featured Projects</Title>
+</Paper>
 ```
+
+---
 
 ## Future Considerations
 
-- Consider adding custom fonts (currently using system defaults)
-- May introduce secondary accent for specific use cases
-- Could add custom shadows for depth hierarchy
-- Possible addition of gradient variants for hero sections
+- Add custom color scale for `primary` that precisely tracks `#6366F1` family.
+- Consider animated gradient utilities for hero sections (CSS-only).
+- Expand semantic tokens (success/info/warning) mapped to accents.
