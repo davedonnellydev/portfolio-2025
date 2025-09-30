@@ -47,17 +47,6 @@ export function Footer() {
         <Group justify="space-between" align="center" wrap="wrap">
           {/* Left side: Contact actions */}
           <Group gap="md">
-            <Tooltip label="Send me an email" zIndex={1001}>
-              <ActionIcon
-                variant="subtle"
-                size="lg"
-                onClick={handleEmailClick}
-                aria-label="Email"
-              >
-                <FontAwesomeIcon icon={faEnvelope} style={{ width: '18px', height: '18px' }} />
-              </ActionIcon>
-            </Tooltip>
-
             <Tooltip label="Download my CV" zIndex={1001}>
               <ActionIcon
                 component="a"
@@ -74,25 +63,38 @@ export function Footer() {
                 />
               </ActionIcon>
             </Tooltip>
+            <Tooltip label="Send me an email" zIndex={1001}>
+              <ActionIcon
+                variant="subtle"
+                size="lg"
+                onClick={handleEmailClick}
+                aria-label="Email"
+              >
+                <FontAwesomeIcon icon={faEnvelope} style={{ width: '18px', height: '18px' }} />
+              </ActionIcon>
+            </Tooltip>
 
+            <Tooltip label="I live in Redfern but am open to remote working" zIndex={1001}>
             <Group gap="xs">
               <FontAwesomeIcon
                 icon={faLocationDot}
                 style={{ width: '14px', height: '14px', opacity: 0.6 }}
               />
               <Text size="sm" c="dimmed">
-                Sydney
+                Sydney, Australia
               </Text>
             </Group>
+            </Tooltip>
+
 
             <Group gap="xs">
               <FontAwesomeIcon
                 icon={faClock}
                 style={{ width: '14px', height: '14px', opacity: 0.6 }}
               />
-              <Tooltip label="Typical response time" zIndex={1001}>
+              <Tooltip label="I should get back to you within 48 hours" zIndex={1001}>
                 <Badge variant="light" size="sm">
-                  24h response
+                  48h response
                 </Badge>
               </Tooltip>
             </Group>

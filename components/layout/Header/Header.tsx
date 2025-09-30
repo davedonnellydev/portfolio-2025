@@ -16,7 +16,7 @@ export function Header() {
       onMouseLeave={handleMouseLeave}
     >
       <Container size="xl">
-        <Group justify="space-between" h="100%">
+        <Group justify="space-between" align="center">
           <Logo />
           <Navbar />
         </Group>

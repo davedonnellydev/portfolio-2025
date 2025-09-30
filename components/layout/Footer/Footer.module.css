@@ -3,7 +3,6 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60px;
   background-color: light-dark(
     rgba(255, 255, 255, 0.95),
     rgba(26, 27, 30, 0.95)
@@ -15,8 +14,14 @@
   );
   z-index: 999;
   transition: transform 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
+  padding: clamp(0.75rem, 2vw, 1rem) 0;
+}
+
+/* Support devices with bottom safe areas (e.g., iPhone home indicator) */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .footer {
+    padding-bottom: max(clamp(0.75rem, 2vw, 1rem), env(safe-area-inset-bottom));
+  }
 }
 
 .footer.visible {
@@ -25,11 +30,4 @@
 
 .footer.hidden {
   transform: translateY(100%);
-}
-
-@media (max-width: 768px) {
-  .footer {
-    height: auto;
-    padding: 12px 0;
-  }
 }

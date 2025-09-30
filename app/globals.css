@@ -31,10 +31,19 @@
 
 /* Add padding to account for fixed header and footer */
 body {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  /* Responsive padding that adapts to header/footer height */
+  padding-top: clamp(3rem, 4vw + 2rem, 4.5rem);
+  padding-bottom: clamp(3rem, 4vw + 2rem, 4.5rem);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Account for safe areas on mobile devices */
+@supports (padding-top: env(safe-area-inset-top)) {
+  body {
+    padding-top: max(clamp(3rem, 4vw + 2rem, 4.5rem), calc(env(safe-area-inset-top) + 2.5rem));
+    padding-bottom: max(clamp(3rem, 4vw + 2rem, 4.5rem), calc(env(safe-area-inset-bottom) + 2.5rem));
+  }
 }
 
 /* Smooth scrolling for anchor links */

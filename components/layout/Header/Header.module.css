@@ -3,7 +3,6 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
   background-color: light-dark(
     rgba(255, 255, 255, 0.95),
     rgba(26, 27, 30, 0.95)
@@ -15,6 +14,14 @@
   );
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
+  padding: clamp(0.75rem, 2vw, 1rem) 0;
+}
+
+/* Support devices with notches */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .header {
+    padding-top: max(clamp(0.75rem, 2vw, 1rem), env(safe-area-inset-top));
+  }
 }
 
 .header.visible {
