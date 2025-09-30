@@ -1,0 +1,75 @@
+/* Global styles for the portfolio */
+
+:root {
+  /* Accent color - used sparingly for CTAs and highlights */
+  --accent-color: #2563eb;
+  --accent-color-hover: #1d4ed8;
+  --accent-color-light: #3b82f6;
+
+  /* Enhanced focus ring for accessibility */
+  --focus-ring-color: var(--accent-color);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+}
+
+/* Add padding to account for fixed header and footer */
+body {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced focus styles for accessibility */
+*:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: 4px;
+}
+
+/* Custom scrollbar for modern look */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: light-dark(#f1f1f1, #2d2d2d);
+}
+
+::-webkit-scrollbar-thumb {
+  background: light-dark(#c1c1c1, #555);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: light-dark(#a8a8a8, #777);
+}
+
+/* Selection color */
+::selection {
+  background-color: light-dark(#bfdbfe, #1e3a8a);
+  color: light-dark(#1e3a8a, #e6f2ff);
+}
+
+::-moz-selection {
+  background-color: light-dark(#bfdbfe, #1e3a8a);
+  color: light-dark(#1e3a8a, #e6f2ff);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

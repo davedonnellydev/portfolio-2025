@@ -1,0 +1,91 @@
+---
+description: Outlines purpose of app and goals & guidelines for build
+alwaysApply: false
+---
+## About
+
+The purpose of this repository is to contain a portfolio website (multi-page app) for myself as a junior web developer. All pages on this portfolio should have the following common components:
+
+- **Header:** This header should contain a logo with a link back to the root homepage
+- **Navbar:** This should be within the header of each page and should contain routing links to each of the following pages, and should highlight which page the user is currently on: Home, Projects, About, Blog (external link).
+- **Footer:** This should contain the following icons/buttons/links as CTAs: email; downloadable CV; location (Sydney), response time; icons that are links to my github profile, my linkedin profile.
+
+The header should be stuck to the top of each page, but should also appear from the top whenever the user is further down the page and scrolls up, and should hide again a few seconds after the user has stopped scrolling (unless the user’s mouse is within the header).
+
+The footer should be stuck to the bottom of each page but should also appear from the bottom whenever the user’s mouse hits the bottom of the viewport and should disappear a few seconds later (unless the user’s mouse is within the footer).
+
+The site should have the following pages:
+
+### Home
+
+This will be the landing page. It will have the following sections:
+
+**Hero**
+
+Hero section first with a 1 liner, a photo and 2-3 credibility points, along with a selection of CTAs (Primary CTA: **Book 15-min intro**; Secondary: **View top projects**; Tertiary: **Download CV**)
+
+**Signature Projects**
+
+- Each card: 1 sentence description, outcome metric, 1 screenshot, tech stack chips, “Read case study” + “Live” + “Code”.
+- Add a **“See all projects”** link to `/projects`.
+
+**Why You Should Hire Me (Hiring manager cheatsheet)**
+
+- 3 pillars: *Ship quickly*, *Communicate clearly*, *Leverage AI responsibly*.
+- Map strengths to role needs (frontend, testing, accessibility, data).
+
+**Social proof / Signals**
+
+- Logos (education sector), a short testimonial, GitHub activity sparkline.
+
+**About (micro-bio)**
+
+- 2–3 sentences + “More about me” link to `/about`.
+
+### Projects
+
+This will contain a list of the projects featured. This list should be made up of cards similar to what was on the Homepage, with the following elements: 1 sentence description, outcome metric, 1 screenshot, tech stack chips, “Read case study” + “Live” + “Code”.
+
+The list should be filterable (by tech stack chips) and searchable by title and text
+
+**/projects/<slug>**
+
+Each project in the list will have it’s own page (/projects/<slug>) which will explain the following:
+
+- **Title + 1-sentence outcome** (who benefited and how).
+- **TL;DR** block at top for skimmers.
+- **Role, timeframe, stack, repo, live link.**
+- **Problem → Approach → Result** (use numbers or clear before/after).
+- **Architecture & key decisions** (diagrams/screens, not walls of text).
+- **AI usage** (what it enabled, not just “used OpenAI”).
+- **Code excerpts** (small, focused: a11y, testing, performance).
+- **What I’d do next** (shows product sense).
+
+### About
+
+This will be a page about my work goals & history. It should include the following sections:
+
+- **Mission:** A short mission statement which gives the reader an idea of my career goals.
+- **Background:** A longer couple of paragraphs about my background as it relates to what I want to do now.
+- **Certificates:** A list of links to various certificates I’ve achieved.
+
+### Blog
+
+This will be an external link to a blog site I manage. Just have a placeholder link in there for the moment.
+
+## **Visual & UX guidelines**
+
+- **Layout:** generous whitespace, 12-column grid, 1 accent colour used sparingly.
+- **UI**: fast, modern, not busy.
+- **Components:** Card grid for projects; sticky CTA; compact top nav.
+- **Screenshots:** device frames only on the case-study pages (not on the home grid).
+- **Performance:** static/ISR pages, optimised images, font loading (swap), Lighthouse ≥ 95.
+- **Accessibility:** semantic headings, focus states, colour contrast, skip links, alt text.
+- **Micro-interactions:** subtle hover on cards; no parallax or heavy animations.
+
+## Tech implementation
+
+- **Next.js App Router**, TypeScript, image optimisation.
+- **SEO:** canonical URLs, `schema.org` for `Person`,  `CreativeWork`, sitemap & RSS.
+- **Analytics + goals:** track clicks on **Book intro**, **Email**, **CV download**, **Repo/Live**.
+- **Search:** simple keyword search over posts/projects (client-side) if volume grows.
