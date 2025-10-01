@@ -3,17 +3,15 @@ import '@mantine/notifications/styles.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import './globals.css';
 
-
 import React from 'react';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from '@mantine/notifications';
-import { theme } from '../theme';
-import { Header } from '@/components/layout/Header/Header';
 import { Footer } from '@/components/layout/Footer/Footer';
-
+import { Header } from '@/components/layout/Header/Header';
+import { theme } from '../theme';
 
 config.autoAddCss = false;
 

@@ -1,19 +1,16 @@
 'use client';
 
-import { ActionIcon, Badge, Container, Group, Text, Tooltip } from '@mantine/core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@awesome.me/kit-7f37d33478/icons/classic/brands';
 import {
+  faClock,
   faEnvelope,
   faFileArrowDown,
   faLocationDot,
-  faClock,
 } from '@awesome.me/kit-7f37d33478/icons/classic/light';
-import {
-  faGithub,
-  faLinkedin,
-} from '@awesome.me/kit-7f37d33478/icons/classic/brands';
-import { useFooterVisibility } from '@/lib/hooks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ActionIcon, Badge, Container, Group, Text, Tooltip } from '@mantine/core';
 import { trackEvent } from '@/lib/analytics';
+import { useFooterVisibility } from '@/lib/hooks';
 import classes from './Footer.module.css';
 
 const CONTACT_EMAIL = 'hello@davedonnelly.dev';
@@ -57,35 +54,26 @@ export function Footer() {
                 onClick={handleCVDownload}
                 aria-label="Download CV"
               >
-                <FontAwesomeIcon
-                  icon={faFileArrowDown}
-                  style={{ width: '18px', height: '18px' }}
-                />
+                <FontAwesomeIcon icon={faFileArrowDown} style={{ width: '18px', height: '18px' }} />
               </ActionIcon>
             </Tooltip>
             <Tooltip label="Send me an email" zIndex={1001}>
-              <ActionIcon
-                variant="subtle"
-                size="lg"
-                onClick={handleEmailClick}
-                aria-label="Email"
-              >
+              <ActionIcon variant="subtle" size="lg" onClick={handleEmailClick} aria-label="Email">
                 <FontAwesomeIcon icon={faEnvelope} style={{ width: '18px', height: '18px' }} />
               </ActionIcon>
             </Tooltip>
 
             <Tooltip label="I live in Redfern but am open to remote working" zIndex={1001}>
-            <Group gap="xs">
-              <FontAwesomeIcon
-                icon={faLocationDot}
-                style={{ width: '14px', height: '14px', opacity: 0.6 }}
-              />
-              <Text size="sm" c="dimmed">
-                Sydney, Australia
-              </Text>
-            </Group>
+              <Group gap="xs">
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  style={{ width: '14px', height: '14px', opacity: 0.6 }}
+                />
+                <Text size="sm" c="dimmed">
+                  Sydney, Australia
+                </Text>
+              </Group>
             </Tooltip>
-
 
             <Group gap="xs">
               <FontAwesomeIcon

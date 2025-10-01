@@ -97,7 +97,8 @@ const themeOverride = createTheme({
   fontFamilyMonospace: 'var(--font-jetbrains), ui-monospace, monospace',
 
   headings: {
-    fontFamily: "'Satoshi', var(--font-inter), -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+    fontFamily:
+      "'Satoshi', var(--font-inter), -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
     fontWeight: '600',
     sizes: {
       h1: { fontSize: '2.5rem', lineHeight: '1.2', fontWeight: '700' },
@@ -111,20 +112,20 @@ const themeOverride = createTheme({
 
   /** Generous spacing scale */
   spacing: {
-    xs: '0.5rem',   // 8px
-    sm: '0.75rem',  // 12px
-    md: '1rem',     // 16px
-    lg: '1.5rem',   // 24px
-    xl: '2rem',     // 32px
+    xs: '0.5rem', // 8px
+    sm: '0.75rem', // 12px
+    md: '1rem', // 16px
+    lg: '1.5rem', // 24px
+    xl: '2rem', // 32px
   },
 
   /** Border radius for modern, friendly feel */
   radius: {
-    xs: '0.25rem',  // 4px
+    xs: '0.25rem', // 4px
     sm: '0.375rem', // 6px
-    md: '0.5rem',   // 8px
-    lg: '0.75rem',  // 12px
-    xl: '1rem',     // 16px
+    md: '0.5rem', // 8px
+    lg: '0.75rem', // 12px
+    xl: '1rem', // 16px
   },
 
   /** Focus ring styles for accessibility */
@@ -136,11 +137,11 @@ const themeOverride = createTheme({
 
   /** Container sizes for responsive layout */
   breakpoints: {
-    xs: '36em',   // 576px
-    sm: '48em',   // 768px
-    md: '62em',   // 992px
-    lg: '75em',   // 1200px
-    xl: '88em',   // 1408px
+    xs: '36em', // 576px
+    sm: '48em', // 768px
+    md: '62em', // 992px
+    lg: '75em', // 1200px
+    xl: '88em', // 1408px
   },
 
   /** Component-specific overrides */

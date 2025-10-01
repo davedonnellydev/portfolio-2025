@@ -1,4 +1,4 @@
-import { Container, Title, Text, Stack, Box } from '@mantine/core';
+import { Box, Container, Stack, Text, Title } from '@mantine/core';
 import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
 
 export default function HomePage() {

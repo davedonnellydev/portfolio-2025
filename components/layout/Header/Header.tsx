@@ -1,8 +1,8 @@
 'use client';
 
 import { Container, Group } from '@mantine/core';
-import { useHeaderVisibility } from '@/lib/hooks';
 import { Logo } from '@/components/shared/Logo/Logo';
+import { useHeaderVisibility } from '@/lib/hooks';
 import { Navbar } from './Navbar';
 import classes from './Header.module.css';
 

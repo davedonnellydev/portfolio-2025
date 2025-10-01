@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 // @ts-ignore - OGL has non-standard module exports
-import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
+import { Color, Mesh, Program, Renderer, Triangle } from 'ogl';
 
 import './Aurora.module.css';
 
@@ -129,12 +129,14 @@ export default function Aurora(props: AuroraProps) {
 
   useEffect(() => {
     const ctn = ctnDom.current;
-    if (!ctn) return;
+    if (!ctn) {
+      return;
+    }
 
     const renderer = new Renderer({
       alpha: true,
       premultipliedAlpha: true,
-      antialias: true
+      antialias: true,
     });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
@@ -142,10 +144,12 @@ export default function Aurora(props: AuroraProps) {
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = 'transparent';
 
-    let program: Program | undefined;
+    let program: Program | undefined; /* eslint-disable-line prefer-const */
 
     function resize() {
-      if (!ctn) return;
+      if (!ctn) {
+        return;
+      }
       const width = ctn.offsetWidth;
       const height = ctn.offsetHeight;
       renderer.setSize(width, height);
@@ -160,7 +164,7 @@ export default function Aurora(props: AuroraProps) {
       delete geometry.attributes.uv;
     }
 
-    const colorStopsArray = colorStops.map(hex => {
+    const colorStopsArray = colorStops.map((hex) => {
       const c = new Color(hex);
       return [c.r, c.g, c.b];
     });
@@ -173,8 +177,8 @@ export default function Aurora(props: AuroraProps) {
         uAmplitude: { value: amplitude },
         uColorStops: { value: colorStopsArray },
         uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
-        uBlend: { value: blend }
-      }
+        uBlend: { value: blend },
+      },
     });
 
     const mesh = new Mesh(gl, { geometry, program });
