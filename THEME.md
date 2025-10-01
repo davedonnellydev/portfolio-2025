@@ -162,6 +162,210 @@ These align to existing Mantine breakpoints; use `Container` sizes and `Hidden`/
 
 ---
 
+## Modern CSS Best Practices
+
+### Responsive Sizing
+
+**Use `clamp()` for fluid, responsive values** instead of fixed sizes or media query breakpoints:
+
+```css
+/* ✅ Good - Fluid, responsive */
+padding: clamp(0.75rem, 2vw, 1rem);
+font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+gap: clamp(1rem, 2vw + 0.5rem, 2rem);
+
+/* ❌ Avoid - Fixed values that don't adapt */
+padding: 16px;
+font-size: 18px;
+```
+
+**Benefits:**
+- Smooth scaling across all viewport sizes
+- Fewer media queries needed
+- Better performance (no layout recalculation at breakpoints)
+- Natural responsiveness
+
+### Content-Driven Spacing
+
+**Let content determine height and spacing** rather than fixing dimensions:
+
+```css
+/* ✅ Good - Content-driven */
+.header {
+  padding: clamp(0.75rem, 2vw, 1rem) 0;
+  /* Height determined by content + padding */
+}
+
+/* ❌ Avoid - Fixed height can clip content */
+.header {
+  height: 60px;
+}
+```
+
+**Apply to:**
+- Headers, footers, navigation
+- Cards, containers, sections
+- Modal dialogs, dropdowns
+
+**Exception:** Fixed heights are acceptable for decorative elements, avatars, icons, or where content overflow is handled.
+
+### Mobile-First Approach
+
+**Design and code for mobile first**, then enhance for larger screens:
+
+```css
+/* ✅ Good - Mobile-first */
+.container {
+  padding: 1rem;
+  gap: 0.75rem;
+}
+
+@media (min-width: 48em) {
+  .container {
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+}
+
+/* ❌ Avoid - Desktop-first (harder to scale down) */
+.container {
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+@media (max-width: 48em) {
+  .container {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+}
+```
+
+### Safe Area Support
+
+**Account for device notches and safe areas** (iPhone X+, Android with notches):
+
+```css
+/* Support for safe areas */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .header {
+    padding-top: max(clamp(0.75rem, 2vw, 1rem), env(safe-area-inset-top));
+  }
+
+  .footer {
+    padding-bottom: max(clamp(0.75rem, 2vw, 1rem), env(safe-area-inset-bottom));
+  }
+}
+```
+
+### Accessibility-First Spacing
+
+**Ensure touch targets meet minimum sizes** (44×44px minimum for WCAG AAA):
+
+```tsx
+// ✅ Good - Adequate touch target
+<ActionIcon size="lg" /> // 36px minimum, better with padding
+
+// Better - explicit minimum
+<ActionIcon size="lg" style={{ minWidth: 44, minHeight: 44 }} />
+
+// ❌ Avoid - Too small for reliable touch
+<ActionIcon size="xs" /> // May be too small on mobile
+```
+
+**Readable line lengths** - Limit text width for readability (45-75 characters):
+
+```tsx
+<Text maw="65ch">Long-form content should be constrained...</Text>
+```
+
+### Performance Considerations
+
+**Use GPU-accelerated properties** for animations:
+
+```css
+/* ✅ Good - GPU accelerated */
+transform: translateY(-100%);
+opacity: 0;
+
+/* ❌ Avoid - CPU intensive, causes reflow */
+top: -100px;
+visibility: hidden;
+```
+
+**Prefer `padding` over `margin` for spacing** when possible (easier to predict, no margin collapse):
+
+```tsx
+// ✅ Good - Predictable spacing
+<Stack gap="md"> // Uses padding/gap
+  <Card p="lg">...</Card>
+</Stack>
+
+// ⚠️ Use sparingly - Can cause collapse issues
+<Box mb="md">...</Box>
+```
+
+### Responsive Typography
+
+**Use relative units** (`rem`, `em`, `%`) instead of `px`:
+
+```css
+/* ✅ Good - Scales with user preferences */
+font-size: 1rem;        /* 16px default */
+line-height: 1.5;       /* Unitless for better scaling */
+margin-bottom: 1.5em;   /* Relative to font size */
+
+/* ❌ Avoid - Ignores user font size preferences */
+font-size: 16px;
+line-height: 24px;
+```
+
+### Logical Properties
+
+**Use logical properties** for better internationalization (RTL support):
+
+```css
+/* ✅ Good - Works in LTR and RTL */
+margin-inline-start: 1rem;
+padding-block: 2rem;
+border-inline-end: 1px solid;
+
+/* ❌ Avoid - Assumes LTR layout */
+margin-left: 1rem;
+padding-top: 2rem;
+padding-bottom: 2rem;
+border-right: 1px solid;
+```
+
+### Container Queries (Future-Ready)
+
+For component-level responsiveness (when browser support improves):
+
+```css
+/* Modern approach - responds to container, not viewport */
+@container (min-width: 400px) {
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+}
+```
+
+### Checklist for Every Component
+
+- [ ] Uses `clamp()` for responsive sizing where appropriate
+- [ ] Content determines height (no fixed heights unless necessary)
+- [ ] Mobile-first media queries (if any)
+- [ ] Safe area insets considered for fixed elements
+- [ ] Touch targets minimum 44×44px on mobile
+- [ ] Uses relative units (`rem`, `em`, `%`)
+- [ ] Animations use `transform`/`opacity` only
+- [ ] Respects `prefers-reduced-motion`
+- [ ] Adequate color contrast (WCAG AA minimum)
+- [ ] Visible focus states for keyboard navigation
+
+---
+
 ## Animations
 
 Prefer transform/opacity animations; respect reduced motion.

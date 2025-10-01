@@ -1,0 +1,176 @@
+/* Hero Section Styles */
+
+.hero {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 12-column responsive grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  margin: 0 1em;
+}
+
+/* Desktop: Two-column layout */
+@media (min-width: 62em) {
+  .grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+/* Content Column */
+.content {
+  /* Content determines height, no fixed dimensions */
+}
+
+/* Headline */
+.headline {
+  font-size: clamp(2rem, 4vw + 1rem, 3.5rem) !important;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.gradientText {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+}
+
+.subheadline {
+  max-width: 65ch;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.6;
+}
+
+/* Credibility List */
+.credibilityList {
+  max-width: 65ch;
+}
+
+.credibilityList li {
+  font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+  line-height: 1.6;
+}
+
+/* CTA Buttons */
+.ctaGroup {
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  justify-content: center;
+}
+
+.primaryCta {
+  min-width: 200px;
+  font-weight: 600;
+}
+
+/* Ensure adequate touch targets on mobile */
+.ctaGroup button,
+.ctaGroup a {
+  min-height: 44px;
+}
+
+/* Image Column */
+.imageWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  max-width: min(400px, 90vw);
+  aspect-ratio: 1;
+}
+
+/* Image border with gradient */
+.imageBorder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  overflow: hidden;
+  background: var(--gradient-primary);
+  padding: 4px; /* Creates the border effect */
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: clamp(0.875rem, 1.8vw, 1.375rem);
+  display: block;
+}
+
+/* Decorative gradient accent behind image */
+.gradientAccent {
+  position: absolute;
+  top: 5%;
+  right: -5%;
+  width: 80%;
+  height: 80%;
+  background: var(--gradient-accent);
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  z-index: -1;
+  opacity: 0.2;
+  filter: blur(40px);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 48em) {
+  .hero {
+    padding-block: clamp(2rem, 6vw, 4rem);
+  }
+
+  .ctaGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ctaGroup button,
+  .ctaGroup a {
+    width: 100%;
+  }
+
+  .imageContainer {
+    max-width: min(300px, 80vw);
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 48em) and (max-width: 62em) {
+  .imageContainer {
+    max-width: min(350px, 85vw);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .gradientAccent {
+    animation: none;
+  }
+
+  .primaryCta,
+  .ctaGroup button {
+    transition: none;
+  }
+}
+
+/* Focus states for accessibility */
+.ctaGroup button:focus-visible,
+.ctaGroup a:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
