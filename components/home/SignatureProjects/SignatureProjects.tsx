@@ -1,10 +1,10 @@
 'use client';
 
-import { Container, Title, Text, Stack, Button, SimpleGrid } from '@mantine/core';
-import { IconArrowRight } from '@tabler/icons-react';
 import Link from 'next/link';
-import { Project } from '@/data/projects';
+import { IconArrowRight } from '@tabler/icons-react';
+import { Button, Container, SimpleGrid, Stack, Text, Title } from '@mantine/core';
 import { ProjectCard } from '@/components/projects/ProjectCard';
+import { Project } from '@/data/projects';
 import classes from './SignatureProjects.module.css';
 
 interface SignatureProjectsProps {

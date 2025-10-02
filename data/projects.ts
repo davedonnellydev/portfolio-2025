@@ -51,10 +51,8 @@ export const projects: Project[] = [
       tldr: 'Built a scalable learning platform that serves 10,000+ students with AI-powered features.',
       role: 'Full-stack Developer',
       timeframe: '6 months',
-      problem:
-        'Teachers were spending too much time on administrative tasks instead of teaching.',
-      approach:
-        'Developed automated workflows and AI-powered grading to streamline processes.',
+      problem: 'Teachers were spending too much time on administrative tasks instead of teaching.',
+      approach: 'Developed automated workflows and AI-powered grading to streamline processes.',
       result:
         'Reduced admin time by 30% and increased student engagement through personalized learning paths.',
     },
@@ -74,10 +72,10 @@ export const projects: Project[] = [
     },
     featured: true,
     content: {
-      tldr: 'Analytics platform that helps educators identify struggling students before it's too late.',
+      tldr: "Analytics platform that helps educators identify struggling students before it's too late.",
       role: 'Frontend Developer',
       timeframe: '4 months',
-      problem: 'Teachers couldn't easily spot students who were falling behind.',
+      problem: "Teachers couldn't easily spot students who were falling behind.",
       approach: 'Created visual dashboards with predictive analytics and early warning indicators.',
       result: 'Improved student retention by 25% through early intervention.',
     },

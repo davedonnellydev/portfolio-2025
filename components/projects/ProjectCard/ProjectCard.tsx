@@ -1,6 +1,6 @@
-import { Card, Stack, Title, Text, Group, Badge, Button } from '@mantine/core';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Badge, Button, Card, Group, Stack, Text, Title } from '@mantine/core';
 import { Project } from '@/data/projects';
 import styles from './ProjectCard.module.css';
 
@@ -10,13 +10,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card
-      withBorder
-      radius="md"
-      shadow="sm"
-      p="lg"
-      className={styles.card}
-    >
+    <Card withBorder radius="md" shadow="sm" p="lg" className={styles.card}>
       {/* Screenshot */}
       <Card.Section className={styles.imageSection}>
         <div className={styles.imageWrapper}>
@@ -54,13 +48,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* Tech Stack Chips */}
         <Group gap="xs" className={styles.techStack}>
           {project.techStack.map((tech) => (
-            <Badge
-              key={tech}
-              variant="light"
-              color="indigo"
-              radius="sm"
-              size="sm"
-            >
+            <Badge key={tech} variant="light" color="indigo" radius="sm" size="sm">
               {tech}
             </Badge>
           ))}
