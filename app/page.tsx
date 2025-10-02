@@ -1,25 +1,16 @@
 import { Box, Text, Title } from '@mantine/core';
 import { Hero } from '../components/home/Hero';
+import { SignatureProjects } from '../components/home/SignatureProjects';
+import { projects } from '../data/projects';
 
 export default function HomePage() {
   return (
     <>
       <Hero />
 
-      {/* Temporary content to enable scrolling and test header/footer behavior */}
-      <Box
-        component="section"
-        id="signature-projects"
-        style={{ minHeight: '100vh', padding: '2rem' }}
-      >
-        <Title order={2} ta="center" mb="xl">
-          Signature Projects (Coming Soon)
-        </Title>
-        <Text c="dimmed" ta="center">
-          This section will showcase featured projects
-        </Text>
-      </Box>
+      <SignatureProjects projects={projects} />
 
+      {/* Temporary content to enable scrolling and test header/footer behavior */}
       {Array.from({ length: 10 }, (_, i) => (
         <Box
           key={i}

@@ -1,0 +1,77 @@
+/* Signature Projects Section */
+
+.section {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  background: var(--mantine-color-body);
+  position: relative;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.title {
+  font-size: clamp(2rem, 4vw + 0.5rem, 3rem);
+  font-weight: 700;
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  background: linear-gradient(135deg, var(--mantine-color-indigo-6) 0%, var(--mantine-color-grape-6) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  margin: 0 auto;
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+  line-height: 1.6;
+}
+
+/* Grid */
+.grid {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* Footer with CTA */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: clamp(1rem, 2vw, 2rem);
+}
+
+.seeAllButton {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.seeAllButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--mantine-shadow-md);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .seeAllButton {
+    transition: none;
+  }
+
+  .seeAllButton:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .section {
+    background: var(--mantine-color-dark-8);
+  }
+
+  .title {
+    background: linear-gradient(135deg, var(--mantine-color-indigo-4) 0%, var(--mantine-color-grape-4) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+

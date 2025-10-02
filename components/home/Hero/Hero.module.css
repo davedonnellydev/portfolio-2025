@@ -12,7 +12,6 @@
   grid-template-columns: 1fr;
   gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
-  margin: 0 1em;
 }
 
 /* Desktop: Two-column layout */
