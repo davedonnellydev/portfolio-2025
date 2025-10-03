@@ -1,8 +1,29 @@
+'use client';
+
+import { useEffect } from 'react';
 import Image from 'next/image';
-import { Box, Container, Group, Paper, Stack, Text } from '@mantine/core';
+import { Anchor, Box, Container, Group, Loader, Paper, Stack, Text } from '@mantine/core';
 import { SocialProofProps } from './types';
 
-export function SocialProof({ logos, testimonial, githubActivity }: SocialProofProps) {
+declare global {
+  interface Window {
+    GitHubCalendar: (selector: string, username: string, options?: any) => void;
+  }
+}
+
+export function SocialProof({ logos, testimonial }: SocialProofProps) {
+  useEffect(() => {
+    // Initialize GitHub Calendar when component mounts
+    if (typeof window !== 'undefined' && window.GitHubCalendar) {
+      window.GitHubCalendar('.calendar', 'davedonnellydev', {
+        responsive: true,
+        tooltips: true,
+        global_stats: false,
+        cache: 24 * 60 * 60 * 1000, // Cache for 24 hours
+      });
+    }
+  }, []);
+
   return (
     <Box py="xl" style={{ backgroundColor: 'var(--mantine-color-gray-0)' }}>
       <Container size="lg">
@@ -64,29 +85,44 @@ export function SocialProof({ logos, testimonial, githubActivity }: SocialProofP
           )}
 
           {/* GitHub Activity */}
-          {githubActivity && (
-            <Box>
-              <Text ta="center" c="dimmed" size="sm" mb="md">
-                Recent development activity
-              </Text>
-              <Group justify="center">
+          <Box>
+            <Text ta="center" c="dimmed" size="sm" mb="md">
+              Recent development activity
+            </Text>
+            <Group justify="center">
+              <Anchor
+                href="https://github.com/davedonnellydev"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none' }}
+              >
                 <Paper
                   withBorder
                   radius="md"
                   p="md"
-                  style={{ backgroundColor: 'var(--mantine-color-dark-8)' }}
+                  style={{
+                    backgroundColor: 'var(--neutral-50)',
+                    cursor: 'pointer',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                  }}
+                  className="hover:transform hover:scale-105 hover:shadow-lg"
                 >
-                  <Image
-                    src={githubActivity.sparkline}
-                    alt="GitHub activity sparkline"
-                    width={githubActivity.width}
-                    height={githubActivity.height}
-                    style={{ objectFit: 'contain' }}
-                  />
+                  <div className="calendar">
+                    <Stack
+                      align="center"
+                      gap="sm"
+                      style={{ minHeight: '120px', justifyContent: 'center' }}
+                    >
+                      <Loader size="sm" color="indigo" />
+                      <Text size="sm" c="dimmed">
+                        Loading GitHub activity...
+                      </Text>
+                    </Stack>
+                  </div>
                 </Paper>
-              </Group>
-            </Box>
-          )}
+              </Anchor>
+            </Group>
+          </Box>
         </Stack>
       </Container>
     </Box>

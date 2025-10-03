@@ -46,6 +46,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://api.fontshare.com/v2/css?f[]=satoshi@500,600,700,900&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+        />
+        <script defer src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js" />
       </head>
       <body>
         <MantineProvider theme={theme}>

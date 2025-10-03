@@ -27,9 +27,4 @@ export const socialProofData: SocialProofProps = {
     author: 'Sarah Johnson',
     role: 'Head of Technology, Education Solutions',
   },
-  githubActivity: {
-    sparkline: '/images/github-activity.svg',
-    width: 400,
-    height: 100,
-  },
 };
