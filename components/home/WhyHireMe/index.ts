@@ -1,0 +1,1 @@
+export { WhyHireMe } from './WhyHireMe';

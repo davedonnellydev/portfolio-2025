@@ -39,7 +39,7 @@ export const projects: Project[] = [
       'A comprehensive e-learning platform with real-time collaboration, progress tracking, and AI-powered recommendations.',
     outcome: 'Increased student engagement by 45% and reduced teacher admin time by 30%',
     metrics: ['45% increase in engagement', '30% reduction in admin time', '10,000+ active users'],
-    screenshot: '/images/projects/learning-platform.jpg',
+    screenshot: '/images/projects/learning-platform.svg',
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'OpenAI'],
     links: {
       live: 'https://example.com',
@@ -64,7 +64,7 @@ export const projects: Project[] = [
       'Real-time analytics dashboard for educators to track student progress and identify at-risk learners early.',
     outcome: 'Helped identify and support 200+ at-risk students, improving retention by 25%',
     metrics: ['200+ at-risk students identified', '25% retention improvement', '50+ schools using'],
-    screenshot: '/images/projects/analytics-dashboard.jpg',
+    screenshot: '/images/projects/analytics-dashboard.svg',
     techStack: ['React', 'TypeScript', 'D3.js', 'Node.js', 'MongoDB'],
     links: {
       live: 'https://example.com',
@@ -91,7 +91,7 @@ export const projects: Project[] = [
       '5,000+ students with disabilities served',
       '0 accessibility complaints',
     ],
-    screenshot: '/images/projects/course-builder.jpg',
+    screenshot: '/images/projects/course-builder.svg',
     techStack: ['Next.js', 'TypeScript', 'MDX', 'Jest', 'Testing Library'],
     links: {
       repo: 'https://github.com/example/course-builder',
