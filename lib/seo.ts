@@ -99,3 +99,43 @@ export function generateProjectSchema(project: {
     datePublished: project.datePublished,
   };
 }
+
+/**
+ * Generate CollectionPage schema for projects listing page
+ */
+export function generateProjectsPageSchema(
+  projects: Array<{
+    title: string;
+    description: string;
+    url: string;
+    image: string;
+  }>
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Projects - Dave Donnelly',
+    description:
+      'A collection of web development projects showcasing skills in education technology, accessibility, and modern web frameworks.',
+    url: `${SITE_URL}/projects`,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: projects.length,
+      itemListElement: projects.map((project, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'CreativeWork',
+          name: project.title,
+          description: project.description,
+          url: project.url,
+          image: project.image,
+          author: {
+            '@type': 'Person',
+            name: 'Dave Donnelly',
+          },
+        },
+      })),
+    },
+  };
+}
