@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Button, Container, Grid, Group, Stack, Text, Title } from '@mantine/core';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { ProjectFilters } from '@/components/projects/ProjectFilters';
@@ -9,8 +10,29 @@ import { ProjectsStructuredData } from '@/components/projects/ProjectsStructured
 import { projects } from '@/data/projects';
 
 export function ProjectsPageClient() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedTech, setSelectedTech] = useState<string[]>([]);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // Initialize state from URL parameters
+  const [searchQuery, setSearchQuery] = useState(() => searchParams.get('search') || '');
+  const [selectedTech, setSelectedTech] = useState<string[]>(() => {
+    const techParam = searchParams.get('tech');
+    return techParam ? techParam.split(',') : [];
+  });
+
+  // Update URL when filters change
+  const updateURL = (search: string, tech: string[]) => {
+    const params = new URLSearchParams();
+    if (search.trim()) {
+      params.set('search', search.trim());
+    }
+    if (tech.length > 0) {
+      params.set('tech', tech.join(','));
+    }
+
+    const newURL = params.toString() ? `?${params.toString()}` : '/projects';
+    router.replace(newURL, { scroll: false });
+  };
 
   // Filter and search logic
   const filteredProjects = useMemo(() => {
@@ -37,15 +59,24 @@ export function ProjectsPageClient() {
     return filtered;
   }, [searchQuery, selectedTech]);
 
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    updateURL(query, selectedTech);
+  };
+
   const handleTechToggle = (tech: string) => {
-    setSelectedTech((prev) =>
-      prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
-    );
+    const newSelectedTech = selectedTech.includes(tech)
+      ? selectedTech.filter((t) => t !== tech)
+      : [...selectedTech, tech];
+
+    setSelectedTech(newSelectedTech);
+    updateURL(searchQuery, newSelectedTech);
   };
 
   const clearAllFilters = () => {
     setSearchQuery('');
     setSelectedTech([]);
+    router.replace('/projects', { scroll: false });
   };
 
   const hasActiveFilters = searchQuery.trim() || selectedTech.length > 0;
@@ -70,7 +101,7 @@ export function ProjectsPageClient() {
           <Stack gap="lg">
             <ProjectSearch
               searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
+              onSearchChange={handleSearchChange}
               resultCount={filteredProjects.length}
             />
 
@@ -99,7 +130,7 @@ export function ProjectsPageClient() {
             <Grid gutter="lg">
               {filteredProjects.map((project) => (
                 <Grid.Col key={project.slug} span={{ base: 12, sm: 6, lg: 4 }}>
-                  <ProjectCard project={project} />
+                  <ProjectCard project={project} currentSearchParams={searchParams.toString()} />
                 </Grid.Col>
               ))}
             </Grid>

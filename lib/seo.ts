@@ -101,6 +101,28 @@ export function generateProjectSchema(project: {
 }
 
 /**
+ * Generate metadata for individual project pages
+ */
+export function generateProjectMetadata(project: {
+  title: string;
+  description: string;
+  slug: string;
+  screenshot: string;
+  outcome: string;
+}) {
+  const path = `/projects/${project.slug}`;
+  const description = `${project.outcome} - ${project.description}`;
+
+  return generateMetadata({
+    title: project.title,
+    description,
+    path,
+    image: project.screenshot,
+    type: 'article',
+  });
+}
+
+/**
  * Generate CollectionPage schema for projects listing page
  */
 export function generateProjectsPageSchema(

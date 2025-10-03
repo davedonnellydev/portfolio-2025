@@ -6,9 +6,14 @@ import styles from './ProjectCard.module.css';
 
 interface ProjectCardProps {
   project: Project;
+  currentSearchParams?: string;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, currentSearchParams }: ProjectCardProps) {
+  // Build the case study URL with current search parameters
+  const caseStudyUrl = currentSearchParams
+    ? `${project.links.caseStudy}?${currentSearchParams}`
+    : project.links.caseStudy;
   return (
     <Card withBorder radius="md" shadow="sm" p="lg" className={styles.card}>
       {/* Screenshot */}
@@ -59,7 +64,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <Group gap="sm" justify="space-between" className={styles.actions}>
           <Button
             component={Link}
-            href={project.links.caseStudy}
+            href={caseStudyUrl}
             variant="light"
             color="indigo"
             size="sm"
