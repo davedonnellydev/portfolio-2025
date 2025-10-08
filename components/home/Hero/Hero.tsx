@@ -2,7 +2,18 @@
 
 import Image from 'next/image';
 import { IconCalendar, IconCheck, IconChevronDown, IconFileDownload } from '@tabler/icons-react';
-import { Box, Button, Container, Group, List, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import {
+  Box,
+  Button,
+  Container,
+  Group,
+  List,
+  Overlay,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
 import classes from './Hero.module.css';
 
 export function Hero() {

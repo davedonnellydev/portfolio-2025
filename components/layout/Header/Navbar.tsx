@@ -2,9 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { faArrowUpRightFromSquare } from '@awesome.me/kit-7f37d33478/icons/classic/light';
+import {
+  faArrowUpRightFromSquare,
+  faMoon,
+  faSunBright,
+} from '@awesome.me/kit-7f37d33478/icons/classic/light';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Group, Text } from '@mantine/core';
+import { ActionIcon, Group, Text, Tooltip, useMantineColorScheme } from '@mantine/core';
 import classes from './Navbar.module.css';
 
 const navLinks = [
@@ -16,6 +20,13 @@ const navLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const { colorScheme, setColorScheme } = useMantineColorScheme();
+
+  const toggleColorScheme = () => {
+    setColorScheme(colorScheme === 'dark' ? 'light' : 'dark');
+  };
+
+  const isDark = colorScheme === 'dark';
 
   return (
     <nav>
@@ -53,6 +64,25 @@ export function Navbar() {
             </Link>
           );
         })}
+
+        <Tooltip
+          label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          position="bottom"
+          withArrow
+        >
+          <ActionIcon
+            onClick={toggleColorScheme}
+            variant="subtle"
+            size="lg"
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            className={classes.colorSchemeToggle}
+          >
+            <FontAwesomeIcon
+              icon={isDark ? faSunBright : faMoon}
+              style={{ width: '18px', height: '18px' }}
+            />
+          </ActionIcon>
+        </Tooltip>
       </Group>
     </nav>
   );

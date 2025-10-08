@@ -2,7 +2,6 @@
 
 .section {
   padding: clamp(3rem, 8vw, 6rem) 0;
-  background: var(--mantine-color-body);
   position: relative;
 }
 
@@ -74,4 +73,3 @@
     -webkit-text-fill-color: transparent;
   }
 }
-

@@ -25,7 +25,7 @@ export function SocialProof({ logos, testimonial }: SocialProofProps) {
   }, []);
 
   return (
-    <Box py="xl" style={{ backgroundColor: 'var(--mantine-color-gray-0)' }}>
+    <Box py="xl">
       <Container size="lg">
         <Stack gap="xl">
           {/* Education Sector Logos */}
