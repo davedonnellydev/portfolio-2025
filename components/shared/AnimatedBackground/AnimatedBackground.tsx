@@ -39,8 +39,8 @@ interface AnimatedBackgroundProps {
 
 export function AnimatedBackground({
   dotSpacing = 10,
-  dotRadius = 2,
-  cloudSpeed = 2,
+  dotRadius = 3,
+  cloudSpeed = 5,
   cloudCount = 3,
   mouseAttraction = false,
   mouseAttractionStrength = 0.0005,

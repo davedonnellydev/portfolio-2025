@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Button, Container, Image } from '@mantine/core';
 import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
+import { generateProjectSchema } from '@/lib/seo';
 import { projects } from '@/data/projects';
 import { BackToProjectsButton } from './BackToProjectsButton';
 import { ProjectContent } from './ProjectContent';
@@ -33,9 +34,30 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
+  const description = `${project.outcome} ${project.description}`;
+
   return {
-    title: `${project.title} | Dave Donnelly`,
-    description: project.outcome,
+    title: `${project.title}`,
+    description,
+    openGraph: {
+      title: `${project.title} | Dave Donnelly`,
+      description,
+      images: [
+        {
+          url: project.screenshot,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title}`,
+      description,
+      images: [project.screenshot],
+    },
   };
 }
 
@@ -47,9 +69,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  // Generate CreativeWork schema for the project
+  const projectSchema = generateProjectSchema({
+    title: project.title,
+    description: project.description,
+    url: `/projects/${project.slug}`,
+    image: project.screenshot,
+  });
+
   return (
     <>
       <AnimatedBackground />
+      {/* CreativeWork Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
+      />
       <Container size="lg">
         {/* Back Button */}
         <Suspense

@@ -28,8 +28,65 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: 'Dave Donnelly - Web Developer',
-  description: 'Portfolio of Dave Donnelly, a junior web developer based in Sydney.',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://davedonnelly.dev'),
+  title: {
+    default: 'Dave Donnelly - Web Developer',
+    template: '%s | Dave Donnelly',
+  },
+  description:
+    'Portfolio of Dave Donnelly, a junior web developer based in Sydney. Specializing in Next.js, React, TypeScript, and accessible web applications.',
+  keywords: [
+    'web developer',
+    'frontend developer',
+    'React developer',
+    'Next.js developer',
+    'TypeScript',
+    'Sydney',
+    'education technology',
+    'accessible web design',
+    'portfolio',
+  ],
+  authors: [{ name: 'Dave Donnelly' }],
+  creator: 'Dave Donnelly',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    siteName: 'Dave Donnelly - Web Developer',
+    title: 'Dave Donnelly - Web Developer',
+    description:
+      'Portfolio of Dave Donnelly, a junior web developer based in Sydney. Specializing in Next.js, React, TypeScript, and accessible web applications.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Dave Donnelly - Web Developer Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dave Donnelly - Web Developer',
+    description:
+      'Portfolio of Dave Donnelly, a junior web developer based in Sydney. Specializing in Next.js, React, TypeScript, and accessible web applications.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // Add Google Search Console verification when available
+    // google: 'verification-code',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
