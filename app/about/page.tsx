@@ -1,6 +1,6 @@
-import { Anchor, Container, Group, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@awesome.me/kit-7f37d33478/icons/classic/light';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Container, Group, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core';
 import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 import { aboutContent } from '@/data/about';
 import styles from './About.module.css';

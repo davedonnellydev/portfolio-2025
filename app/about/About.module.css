@@ -1,38 +1,38 @@
 /* About Page Component */
 .contentContainer {
   /* Frosted glass effect for main content */
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   border-radius: clamp(0.75rem, 2vw, 1rem);
-  border: 1px solid rgba(228, 228, 231, 0.4);
-  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(228, 228, 231, 0.4);
+  box-shadow: 0 12px 40px 0 rgb(0, 0, 0, 0.1);
   padding: clamp(2rem, 4vw, 3rem);
   position: relative;
   isolation: isolate;
 }
 
 [data-mantine-color-scheme='dark'] .contentContainer {
-  background: rgba(18, 18, 27, 0.3);
-  border: 1px solid rgba(63, 63, 70, 0.4);
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.4);
 }
 
 .sectionContainer {
   /* Frosted glass effect for sections */
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: clamp(0.5rem, 1.5vw, 0.75rem);
-  border: 1px solid rgba(228, 228, 231, 0.3);
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid rgb(228, 228, 231, 0.3);
+  box-shadow: 0 4px 16px 0 rgb(0, 0, 0, 0.06);
   padding: clamp(1.5rem, 3vw, 2rem);
   position: relative;
   isolation: isolate;
 }
 
 [data-mantine-color-scheme='dark'] .sectionContainer {
-  background: rgba(18, 18, 27, 0.3);
-  border: 1px solid rgba(63, 63, 70, 0.3);
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
 }
 
 /* Section Titles */
@@ -58,12 +58,12 @@
 /* Certificate Cards */
 .certificateCard {
   /* Frosted glass effect for certificate cards */
-  background: rgba(255, 255, 255, 0.3) !important;
+  background: rgb(255, 255, 255, 0.3) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: clamp(0.5rem, 1.5vw, 0.75rem) !important;
-  border: 1px solid rgba(228, 228, 231, 0.3) !important;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgb(228, 228, 231, 0.3) !important;
+  box-shadow: 0 2px 8px 0 rgb(0, 0, 0, 0.05) !important;
   padding: clamp(1rem, 2vw, 1.25rem);
   position: relative;
   isolation: isolate;
@@ -73,18 +73,18 @@
 }
 
 [data-mantine-color-scheme='dark'] .certificateCard {
-  background: rgba(18, 18, 27, 0.3) !important;
-  border: 1px solid rgba(63, 63, 70, 0.3) !important;
+  background: rgb(18, 18, 27, 0.3) !important;
+  border: 1px solid rgb(63, 63, 70, 0.3) !important;
 }
 
 .certificateCard:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.12) !important;
-  border-color: light-dark(rgba(6, 182, 212, 0.4), rgba(103, 232, 249, 0.4)) !important;
+  box-shadow: 0 8px 24px 0 rgb(0, 0, 0, 0.12) !important;
+  border-color: light-dark(rgb(6, 182, 212, 0.4), rgb(103, 232, 249, 0.4)) !important;
 }
 
 [data-mantine-color-scheme='dark'] .certificateCard:hover {
-  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 8px 24px 0 rgb(0, 0, 0, 0.3) !important;
 }
 
 /* Certificate name */
@@ -110,31 +110,31 @@
 /* Fallback for browsers without backdrop-filter support */
 @supports not (backdrop-filter: blur(16px)) {
   .contentContainer {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgb(255, 255, 255, 0.95);
   }
 
   [data-mantine-color-scheme='dark'] .contentContainer {
-    background: rgba(18, 18, 27, 0.95);
+    background: rgb(18, 18, 27, 0.95);
   }
 }
 
 @supports not (backdrop-filter: blur(12px)) {
   .sectionContainer {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgb(255, 255, 255, 0.95);
   }
 
   [data-mantine-color-scheme='dark'] .sectionContainer {
-    background: rgba(18, 18, 27, 0.95);
+    background: rgb(18, 18, 27, 0.95);
   }
 }
 
 @supports not (backdrop-filter: blur(8px)) {
   .certificateCard {
-    background: rgba(255, 255, 255, 0.95) !important;
+    background: rgb(255, 255, 255, 0.95) !important;
   }
 
   [data-mantine-color-scheme='dark'] .certificateCard {
-    background: rgba(18, 18, 27, 0.95) !important;
+    background: rgb(18, 18, 27, 0.95) !important;
   }
 }
 
