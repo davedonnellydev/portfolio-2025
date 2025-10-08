@@ -1,9 +1,12 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Button, Container, Paper, Text, Title } from '@mantine/core';
+import { Button, Container, Image } from '@mantine/core';
 import { projects } from '@/data/projects';
 import { BackToProjectsButton } from './BackToProjectsButton';
+import { ProjectContent } from './ProjectContent';
+import { ProjectHero } from './ProjectHero';
+import { ProjectRecap } from './ProjectRecap';
 
 interface ProjectPageProps {
   params: Promise<{
@@ -45,43 +48,55 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
-      <Container size="lg" py="xl">
+      <Container size="lg">
+        {/* Back Button */}
         <Suspense
           fallback={
-            <Button variant="light" color="indigo" size="sm" disabled>
+            <Button variant="light" color="indigo" size="sm" disabled mb="xl">
               Back to Projects
             </Button>
           }
         >
           <BackToProjectsButton />
         </Suspense>
+      </Container>
+      {/* Hero Image - Full Width */}
+      <Container fluid px={0}>
+        <Image
+          src={project.screenshot}
+          alt={`${project.title} screenshot`}
+          height={300}
+          fit="cover"
+          radius={0}
+        />
+      </Container>
 
-        <Title order={1}>{project.title}</Title>
-        <Text>{project.outcome}</Text>
-        {project.content?.tldr && (
-          <Paper withBorder p="md" mt="md">
-            <Text fw={600}>TL;DR</Text>
-            <Text>{project.content.tldr}</Text>
-          </Paper>
-        )}
-        {project.content?.problem && (
-          <Paper withBorder p="md" mt="md">
-            <Title order={2}>The Problem</Title>
-            <Text>{project.content.problem}</Text>
-          </Paper>
-        )}
-        {project.content?.approach && (
-          <Paper withBorder p="md" mt="md">
-            <Title order={2}>My Approach</Title>
-            <Text>{project.content.approach}</Text>
-          </Paper>
-        )}
-        {project.content?.result && (
-          <Paper withBorder p="md" mt="md">
-            <Title order={2}>The Result</Title>
-            <Text>{project.content.result}</Text>
-          </Paper>
-        )}
+      {/* Main Content */}
+      <Container size="lg" py="xl">
+        {/* Project Hero Section */}
+        <ProjectHero
+          title={project.title}
+          description={project.description}
+          outcome={project.outcome}
+          metrics={project.metrics}
+        />
+        <ProjectRecap
+          role={project.content?.role}
+          timeframe={project.content?.timeframe}
+          links={project.links}
+          techstack={project.techStack}
+          tldr={project.content?.tldr}
+        />
+
+        <ProjectContent
+          problem={project.content?.problem}
+          approach={project.content?.approach}
+          result={project.content?.result}
+          architecture={project.content?.architecture}
+          aiUsage={project.content?.aiUsage}
+          codeExcerpts={project.content?.codeExcerpts}
+          nextSteps={project.content?.nextSteps}
+        />
       </Container>
     </>
   );

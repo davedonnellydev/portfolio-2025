@@ -90,6 +90,30 @@ const themeOverride = createTheme({
       '#92400E', // 8
       '#78350F', // 9
     ],
+    pink: [
+      '#FDF2F8', // 0 - lightest
+      '#FCE7F3', // 1
+      '#FBCFE8', // 2
+      '#F9A8D4', // 3
+      '#F472B6', // 4
+      '#EC4899', // 5 - accent-pink
+      '#DB2777', // 6
+      '#BE185D', // 7
+      '#9D174D', // 8
+      '#831843', // 9 - darkest
+    ],
+    neutral: [
+      '#FAFAFA' /* --neutral-50 */,
+      '#F4F4F5' /* --neutral-100 */,
+      '#E4E4E7' /* --neutral-200: borders */,
+      '#D4D4D8' /* --neutral-300: disabled */,
+      '#A1A1AA' /* --neutral-400: placeholder */,
+      '#71717A' /* --neutral-500: secondary text */,
+      '#52525B' /* --neutral-600: body text */,
+      '#3F3F46' /* --neutral-700: headings */,
+      '#27272A' /* --neutral-800: dark surfaces */,
+      '#18181B' /* --neutral-900 */,
+    ],
   },
 
   /** Typography scale for hierarchy and readability */
