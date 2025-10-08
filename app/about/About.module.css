@@ -1,57 +1,57 @@
 /* About Page Component */
 .contentContainer {
   /* Frosted glass effect for main content */
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-radius: clamp(0.75rem, 2vw, 1rem);
-  border: 1px solid rgba(228, 228, 231, 0.4);
-  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(228, 228, 231, 0.4);
+  box-shadow: 0 12px 40px 0 rgb(0, 0, 0, 0.1);
   padding: clamp(2rem, 4vw, 3rem);
   position: relative;
   isolation: isolate;
 }
 
 [data-mantine-color-scheme='dark'] .contentContainer {
-  background: rgba(18, 18, 27, 0.3);
-  border: 1px solid rgba(63, 63, 70, 0.4);
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.4);
 }
 
 .sectionContainer {
   /* Frosted glass effect for sections */
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: clamp(0.5rem, 1.5vw, 0.75rem);
-  border: 1px solid rgba(228, 228, 231, 0.3);
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid rgb(228, 228, 231, 0.3);
+  box-shadow: 0 4px 16px 0 rgb(0, 0, 0, 0.06);
   padding: clamp(1.5rem, 3vw, 2rem);
   position: relative;
   isolation: isolate;
 }
 
 [data-mantine-color-scheme='dark'] .sectionContainer {
-  background: rgba(18, 18, 27, 0.3);
-  border: 1px solid rgba(63, 63, 70, 0.3);
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
 }
 
 /* Fallback for browsers without backdrop-filter support */
 @supports not (backdrop-filter: blur(16px)) {
   .contentContainer {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgb(255, 255, 255, 0.3);
   }
 
   [data-mantine-color-scheme='dark'] .contentContainer {
-    background: rgba(18, 18, 27, 0.3);
+    background: rgb(18, 18, 27, 0.3);
   }
 }
 
 @supports not (backdrop-filter: blur(12px)) {
   .sectionContainer {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgb(255, 255, 255, 0.3);
   }
 
   [data-mantine-color-scheme='dark'] .sectionContainer {
-    background: rgba(18, 18, 27, 0.3);
+    background: rgb(18, 18, 27, 0.3);
   }
 }

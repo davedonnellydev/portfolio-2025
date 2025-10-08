@@ -1,5 +1,7 @@
 'use client';
 
+import { faBullseyeArrow } from '@awesome.me/kit-7f37d33478/icons/classic/light';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Badge, Grid, Group, Paper, Stack, Text, Title } from '@mantine/core';
 import styles from './ProjectHero.module.css';
 
@@ -12,13 +14,7 @@ interface ProjectHeroProps {
 
 export function ProjectHero({ title, description, outcome, metrics }: ProjectHeroProps) {
   return (
-    <Paper
-      radius="lg"
-      p="xl"
-      mb="xl"
-      shadow="md"
-      className={styles.heroPaper}
-    >
+    <Paper radius="lg" p="xl" mb="xl" shadow="md" className={styles.heroPaper}>
       <Grid gutter="lg">
         <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
           <Stack gap="lg">
@@ -38,13 +34,9 @@ export function ProjectHero({ title, description, outcome, metrics }: ProjectHer
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
           <Stack gap="md">
-            <Paper
-              radius="md"
-              p="md"
-              className={styles.outcomePaper}
-            >
+            <Paper radius="md" p="md" className={styles.outcomePaper}>
               <Text fw={600} c="indigo" size="lg">
-                🎯 {outcome}
+                <FontAwesomeIcon icon={faBullseyeArrow} /> {outcome}
               </Text>
             </Paper>
 

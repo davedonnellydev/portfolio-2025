@@ -1,12 +1,12 @@
 /* Back to Projects Button Component */
 .buttonContainer {
   /* Frosted glass effect for button container */
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: clamp(0.5rem, 1vw, 0.75rem);
-  border: 1px solid rgba(228, 228, 231, 0.3);
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid rgb(228, 228, 231, 0.3);
+  box-shadow: 0 4px 16px 0 rgb(0, 0, 0, 0.06);
   padding: clamp(0.5rem, 1vw, 0.75rem);
   margin-bottom: clamp(1rem, 2vw, 1.5rem);
   position: relative;
@@ -14,17 +14,17 @@
 }
 
 [data-mantine-color-scheme='dark'] .buttonContainer {
-  background: rgba(18, 18, 27, 0.3);
-  border: 1px solid rgba(63, 63, 70, 0.3);
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
 }
 
 /* Fallback for browsers without backdrop-filter support */
 @supports not (backdrop-filter: blur(12px)) {
   .buttonContainer {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgb(255, 255, 255, 0.3);
   }
 
   [data-mantine-color-scheme='dark'] .buttonContainer {
-    background: rgba(18, 18, 27, 0.3);
+    background: rgb(18, 18, 27, 0.3);
   }
 }

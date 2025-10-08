@@ -4,29 +4,18 @@ import { faGithub } from '@awesome.me/kit-7f37d33478/icons/classic/brands';
 import {
   faArrowUpRightFromSquare,
   faCalendar,
-  faCode,
   faHeadSideSpeak,
+  faScrewdriverWrench,
   faUser,
 } from '@awesome.me/kit-7f37d33478/icons/classic/light';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  Anchor,
-  Badge,
-  Button,
-  Grid,
-  Group,
-  Paper,
-  Stack,
-  Text,
-  ThemeIcon,
-  Title,
-} from '@mantine/core';
+import { Anchor, Badge, Button, Grid, Group, Paper, Stack, Text, Title } from '@mantine/core';
 import { Project } from '@/data/projects';
-import styles from './ProjectRecap.module.css';
+import styles from './ProjectOverview.module.css';
 
 type ProjectLinks = Project['links'];
 
-interface ProjectRecapProps {
+interface ProjectOverviewProps {
   role?: string | undefined;
   timeframe?: string | undefined;
   links: ProjectLinks;
@@ -34,87 +23,75 @@ interface ProjectRecapProps {
   tldr?: string | undefined;
 }
 
-export function ProjectRecap({ role, timeframe, links, techstack, tldr }: ProjectRecapProps) {
+export function ProjectOverview({ role, timeframe, links, techstack, tldr }: ProjectOverviewProps) {
   return (
-    <Paper
-      radius="lg"
-      p="xl"
-      mb="xl"
-      shadow="md"
-      className={styles.recapPaper}
-    >
+    <Paper radius="lg" p="xl" mb="xl" shadow="md" className={styles.recapPaper}>
       <Grid gutter="lg">
         <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
-          <Stack gap="lg">
+          <Stack gap="md">
             <Title
               order={2}
               size="h2"
               fw={700}
+              c="cyan"
               style={{ fontFamily: 'Satoshi, var(--mantine-font-family)' }}
             >
               Overview
             </Title>
 
             {role && (
-              <Group gap="sm">
-                <ThemeIcon radius="md" color="cyan" variant="light">
-                  <FontAwesomeIcon icon={faUser} />
-                </ThemeIcon>
-                <Text size="md" c="cyan" maw="65ch">
-                  Role -{' '}
-                  <Text span c="var(--mantine-color-neutral-6)">
-                    {role}
+              <Group gap="xs">
+                {/* <ThemeIcon radius="md" color="cyan" variant="light">
+
+                </ThemeIcon> */}
+                <Text size="md" maw="65ch">
+                  <Text span c="cyan" fw="600">
+                    <FontAwesomeIcon icon={faUser} /> Role:{' '}
                   </Text>
+                  {role}
                 </Text>
               </Group>
             )}
 
             {timeframe && (
-              <Group gap="sm">
-                <ThemeIcon radius="md" color="cyan" variant="light">
-                  <FontAwesomeIcon icon={faCalendar} />
-                </ThemeIcon>
-                <Text size="md" c="cyan" maw="65ch">
-                  Timeframe -{' '}
-                  <Text span c="var(--mantine-color-neutral-6)">
-                    {timeframe}
+              <Group gap="xs">
+                {/* <ThemeIcon radius="md" color="cyan" variant="light">
+
+                </ThemeIcon> */}
+                <Text size="md" c="var(--mantine-color-neutral-6)" maw="65ch">
+                  <Text span c="cyan" fw="600">
+                    <FontAwesomeIcon icon={faCalendar} /> Timeframe:{' '}
                   </Text>
+                  {timeframe}
                 </Text>
               </Group>
             )}
 
             {tldr && (
-              <Stack gap="sm">
-                <Group gap="sm">
-                  <ThemeIcon radius="md" color="cyan" variant="light">
-                    <FontAwesomeIcon icon={faHeadSideSpeak} />
-                  </ThemeIcon>
-                  <Text size="md" c="cyan" maw="65ch">
-                    TL;DR -
+              <Group gap="xs">
+                <Text span size="md" c="var(--mantine-color-neutral-6)" maw="65ch">
+                  {/* <ThemeIcon radius="md" color="cyan" variant="light" mr="0.5rem">
+
+                  </ThemeIcon> */}
+                  <Text span c="cyan" fw="600">
+                    <FontAwesomeIcon icon={faHeadSideSpeak} /> TL;DR:{' '}
                   </Text>
-                </Group>
-                <Text span c="var(--mantine-color-neutral-6)">
                   {tldr}
                 </Text>
-              </Stack>
+              </Group>
             )}
           </Stack>
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
-          <Paper
-            radius="md"
-            p="md"
-            h="100%"
-            className={styles.techStackPaper}
-          >
+          <Paper radius="md" p="md" h="100%" className={styles.techStackPaper}>
             <Stack h="100%" justify="space-around">
               <Stack gap="sm">
                 <Group gap="sm">
-                  <ThemeIcon radius="md" color="cyan" variant="light">
-                    <FontAwesomeIcon icon={faCode} />
-                  </ThemeIcon>
+                  {/* <ThemeIcon radius="md" color="cyan" variant="light">
+
+                  </ThemeIcon> */}
                   <Title order={3} c="cyan">
-                    Tech Stack
+                    <FontAwesomeIcon icon={faScrewdriverWrench} /> Tech Stack
                   </Title>
                 </Group>
                 <Group mb="sm">
@@ -129,8 +106,8 @@ export function ProjectRecap({ role, timeframe, links, techstack, tldr }: Projec
                 {links.live && (
                   <Anchor href={links.live} target="_blank" rel="noopener noreferrer">
                     <Button
-                      variant="light"
-                      color="indigo"
+                      variant="filled"
+                      color="cyan.7"
                       radius="md"
                       leftSection={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
                     >
@@ -141,8 +118,8 @@ export function ProjectRecap({ role, timeframe, links, techstack, tldr }: Projec
                 {links.repo && (
                   <Anchor href={links.repo} target="_blank" rel="noopener noreferrer">
                     <Button
-                      variant="light"
-                      color="grape"
+                      variant="filled"
+                      color="cyan.7"
                       radius="md"
                       leftSection={<FontAwesomeIcon icon={faGithub} />}
                     >

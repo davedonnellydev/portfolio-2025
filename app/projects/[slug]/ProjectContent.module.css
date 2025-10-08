@@ -1,85 +1,86 @@
 /* Project Content Component */
 .mainPaper {
   /* Frosted glass effect for readability */
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(228, 228, 231, 0.4);
+  border: 1px solid rgb(228, 228, 231, 0.4);
   position: relative;
   isolation: isolate;
 }
 
 [data-mantine-color-scheme='dark'] .mainPaper {
-  background: rgba(18, 18, 27, 0.3);
-  border: 1px solid rgba(63, 63, 70, 0.4);
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.4);
 }
 
 .technicalPaper {
   /* Frosted glass effect for technical details */
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(228, 228, 231, 0.3);
+  border: 1px solid rgb(228, 228, 231, 0.3);
   position: relative;
   isolation: isolate;
 }
 
 [data-mantine-color-scheme='dark'] .technicalPaper {
-  background: rgba(18, 18, 27, 0.3);
-  border: 1px solid rgba(63, 63, 70, 0.3);
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
 }
 
 .codePaper {
   /* Frosted glass effect for code excerpts */
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(228, 228, 231, 0.3);
+  border: 0;
+  box-shadow: none;
   position: relative;
   isolation: isolate;
 }
 
 [data-mantine-color-scheme='dark'] .codePaper {
-  background: rgba(18, 18, 27, 0.3);
-  border: 1px solid rgba(63, 63, 70, 0.3);
+  background: transparent;
+  border: 1px solid rgb(63, 63, 70, 0.3);
 }
 
 .nextStepsPaper {
   /* Frosted glass effect for next steps */
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(228, 228, 231, 0.4);
+  border: 1px solid rgb(228, 228, 231, 0.4);
   position: relative;
   isolation: isolate;
 }
 
 [data-mantine-color-scheme='dark'] .nextStepsPaper {
-  background: rgba(18, 18, 27, 0.3);
-  border: 1px solid rgba(63, 63, 70, 0.4);
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.4);
 }
 
 /* Fallback for browsers without backdrop-filter support */
 @supports not (backdrop-filter: blur(16px)) {
   .mainPaper,
   .nextStepsPaper {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgb(255, 255, 255, 0.3);
   }
 
   [data-mantine-color-scheme='dark'] .mainPaper,
   [data-mantine-color-scheme='dark'] .nextStepsPaper {
-    background: rgba(18, 18, 27, 0.3);
+    background: rgb(18, 18, 27, 0.3);
   }
 }
 
 @supports not (backdrop-filter: blur(12px)) {
   .technicalPaper,
   .codePaper {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgb(255, 255, 255, 0.3);
   }
 
   [data-mantine-color-scheme='dark'] .technicalPaper,
   [data-mantine-color-scheme='dark'] .codePaper {
-    background: rgba(18, 18, 27, 0.3);
+    background: rgb(18, 18, 27, 0.3);
   }
 }

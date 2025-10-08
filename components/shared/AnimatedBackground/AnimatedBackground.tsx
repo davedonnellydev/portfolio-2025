@@ -56,10 +56,14 @@ export function AnimatedBackground({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      return;
+    }
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) {
+      return;
+    }
 
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -131,7 +135,7 @@ export function AnimatedBackground({
           vy: (Math.random() - 0.5) * cloudSpeed * 0.5,
           color: cloudColors[i % cloudColors.length],
           radius: 150 + Math.random() * 100, // Cloud influence radius
-          shapeOffsets: shapeOffsets,
+          shapeOffsets,
           shapeVariation: 0.3 + Math.random() * 0.2, // 30-50% shape variation
         });
       }
@@ -144,14 +148,15 @@ export function AnimatedBackground({
     const getBaseColor = (isDark: boolean) => {
       if (isDark) {
         return `hsla(240, 15%, 45%, 0.15)`; // Very subtle gray-blue (reduced from 0.2)
-      } else {
-        return `hsla(240, 20%, 65%, 0.18)`; // Very subtle light blue-gray (reduced from 0.25)
       }
+      return `hsla(240, 20%, 65%, 0.18)`; // Very subtle light blue-gray (reduced from 0.25)
     };
 
     // Animation loop
     const animate = () => {
-      if (!ctx || !canvas) return;
+      if (!ctx || !canvas) {
+        return;
+      }
 
       // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);

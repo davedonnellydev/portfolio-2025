@@ -1,29 +1,29 @@
 /* Project Filters Component */
 .filtersContainer {
   /* Frosted glass effect for readability */
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: clamp(0.75rem, 2vw, 1rem);
-  border: 1px solid rgba(228, 228, 231, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  border: 1px solid rgb(228, 228, 231, 0.3);
+  box-shadow: 0 8px 32px 0 rgb(0, 0, 0, 0.08);
   padding: clamp(1rem, 2vw, 1.5rem);
   position: relative;
   isolation: isolate;
 }
 
 [data-mantine-color-scheme='dark'] .filtersContainer {
-  background: rgba(18, 18, 27, 0.3);
-  border: 1px solid rgba(63, 63, 70, 0.3);
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
 }
 
 /* Fallback for browsers without backdrop-filter support */
 @supports not (backdrop-filter: blur(12px)) {
   .filtersContainer {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgb(255, 255, 255, 0.3);
   }
 
   [data-mantine-color-scheme='dark'] .filtersContainer {
-    background: rgba(18, 18, 27, 0.3);
+    background: rgb(18, 18, 27, 0.3);
   }
 }

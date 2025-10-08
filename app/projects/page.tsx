@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { Container, Skeleton, Stack } from '@mantine/core';
+import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { ProjectsPageClient } from './ProjectsPageClient';
-import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 
 export const metadata: Metadata = generateSEOMetadata({
   title: 'Projects',

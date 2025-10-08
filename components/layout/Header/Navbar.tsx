@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -21,6 +22,12 @@ const navLinks = [
 export function Navbar() {
   const pathname = usePathname();
   const { colorScheme, setColorScheme } = useMantineColorScheme();
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Prevent hydration mismatch by only showing dynamic content after hydration
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   const toggleColorScheme = () => {
     setColorScheme(colorScheme === 'dark' ? 'light' : 'dark');
@@ -66,7 +73,13 @@ export function Navbar() {
         })}
 
         <Tooltip
-          label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          label={
+            isHydrated
+              ? isDark
+                ? 'Switch to light mode'
+                : 'Switch to dark mode'
+              : 'Toggle color scheme'
+          }
           position="bottom"
           withArrow
         >
@@ -74,13 +87,23 @@ export function Navbar() {
             onClick={toggleColorScheme}
             variant="subtle"
             size="lg"
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-label={
+              isHydrated
+                ? isDark
+                  ? 'Switch to light mode'
+                  : 'Switch to dark mode'
+                : 'Toggle color scheme'
+            }
             className={classes.colorSchemeToggle}
           >
-            <FontAwesomeIcon
-              icon={isDark ? faSunBright : faMoon}
-              style={{ width: '18px', height: '18px' }}
-            />
+            {isHydrated ? (
+              <FontAwesomeIcon
+                icon={isDark ? faSunBright : faMoon}
+                style={{ width: '18px', height: '18px' }}
+              />
+            ) : (
+              <FontAwesomeIcon icon={faMoon} style={{ width: '18px', height: '18px' }} />
+            )}
           </ActionIcon>
         </Tooltip>
       </Group>
