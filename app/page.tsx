@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
+import { FeaturedProjects } from '../components/home/FeaturedProjects';
 import { Hero } from '../components/home/Hero';
 import { MicroBio } from '../components/home/MicroBio';
-import { SignatureProjects } from '../components/home/SignatureProjects';
 import { WhyHireMe } from '../components/home/WhyHireMe';
 import { AnimatedBackground } from '../components/shared/AnimatedBackground';
 import { microBioData } from '../data/microBio';
@@ -22,7 +22,7 @@ export default function HomePage() {
 
       <Hero />
 
-      <SignatureProjects projects={projects} />
+      <FeaturedProjects projects={projects} />
 
       <WhyHireMe />
 

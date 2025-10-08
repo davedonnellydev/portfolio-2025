@@ -41,7 +41,7 @@ const navLinks: NavLink[] = [
     href: '/',
     label: 'Home',
     dropdown: [
-      { label: 'Signature Projects', href: '/#signature-projects' },
+      { label: 'Featured Projects', href: '/#featured-projects' },
       { label: 'Why Hire Me', href: '/#why-hire-me' },
       { label: 'About Me', href: '/#micro-bio' },
     ],

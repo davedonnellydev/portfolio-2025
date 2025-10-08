@@ -12,7 +12,7 @@ import { analytics } from '@/lib/analytics';
 import { useFooterVisibility } from '@/lib/hooks';
 import classes from './Footer.module.css';
 
-const CONTACT_EMAIL = 'hello@davedonnelly.dev';
+const CONTACT_EMAIL = 'davepauldonnelly@gmail.com';
 const GITHUB_URL = 'https://github.com/davedonnellydev';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/dave-donnelly-dev/';
 const CV_PATH = '/CV - D_DONNELLY.pdf';
@@ -46,29 +46,45 @@ export function Footer() {
       <Container size="lg">
         <Group gap="md" justify="center" wrap="wrap" className={classes.actionsSet}>
           {/* Location Info */}
-          <Tooltip label="I live in Redfern but am open to remote working" zIndex={1001}>
-            <Group gap="xs" className={classes.locationInfo}>
-              <FontAwesomeIcon icon={faLocationDot} style={{ width: '16px', height: '16px' }} />
-              <Text size="sm" fw={500}>
-                Sydney, Australia
-              </Text>
-            </Group>
-          </Tooltip>
+          <div className={classes.locationWrapper}>
+            <Tooltip label="Live in Redfern, open to remote working" zIndex={1001}>
+              <Group gap="xs" className={classes.locationInfo}>
+                <FontAwesomeIcon icon={faLocationDot} style={{ width: '16px', height: '16px' }} />
+                <Text size="sm" fw={500}>
+                  Sydney, Australia
+                </Text>
+              </Group>
+            </Tooltip>
+          </div>
 
           {/* Primary CTA - Email Button */}
-          <Button
-            size="xl"
-            variant="gradient"
-            gradient={{ from: 'indigo', to: 'grape', deg: 135 }}
-            onClick={handleEmailClick}
-            leftSection={
-              <FontAwesomeIcon icon={faEnvelope} style={{ width: '20px', height: '20px' }} />
-            }
-            className={classes.primaryCta}
-            aria-label="Send email to hello@davedonnelly.dev"
-          >
-            Get in Touch
-          </Button>
+          <div className={classes.primaryCtaDesktopWrapper}>
+            <Button
+              size="xl"
+              variant="gradient"
+              gradient={{ from: 'indigo', to: 'grape', deg: 135 }}
+              onClick={handleEmailClick}
+              leftSection={<FontAwesomeIcon icon={faEnvelope} />}
+              className={classes.primaryCta}
+              aria-label="Send email to davepauldonnelly@gmail.com"
+            >
+              Get in Touch
+            </Button>
+          </div>
+
+          {/* Primary CTA - Email Button for Mobile */}
+          <div className={classes.primaryCtaMobileWrapper}>
+            <Button
+              size="md"
+              variant="gradient"
+              gradient={{ from: 'indigo', to: 'grape', deg: 135 }}
+              onClick={handleEmailClick}
+              className={classes.primaryCtaMobile}
+              aria-label="Send email to davepauldonnelly@gmail.com"
+            >
+              <FontAwesomeIcon icon={faEnvelope} />
+            </Button>
+          </div>
 
           {/* CV Download */}
           <Tooltip label="Download my CV" zIndex={1001}>

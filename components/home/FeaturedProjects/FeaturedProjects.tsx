@@ -5,13 +5,13 @@ import { IconArrowRight } from '@tabler/icons-react';
 import { Button, Container, SimpleGrid, Stack, Text, Title } from '@mantine/core';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { Project } from '@/data/projects';
-import classes from './SignatureProjects.module.css';
+import classes from './FeaturedProjects.module.css';
 
-interface SignatureProjectsProps {
+interface FeaturedProjectsProps {
   projects: Project[];
 }
 
-export function SignatureProjects({ projects }: SignatureProjectsProps) {
+export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   // Filter for featured projects (limit to 3-4)
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
 
@@ -20,13 +20,13 @@ export function SignatureProjects({ projects }: SignatureProjectsProps) {
   }
 
   return (
-    <section className={classes.section} id="signature-projects">
+    <section className={classes.section} id="featured-projects">
       <Container size="xl">
         <Stack gap="xl">
           {/* Section Header */}
           <div className={classes.header}>
             <Title order={2} className={classes.title}>
-              Signature Projects
+              Featured Projects
             </Title>
             <Text size="lg" c="dimmed" maw="65ch" className={classes.subtitle}>
               A selection of my best work—showcasing real-world impact, modern tech stacks, and
