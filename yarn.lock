@@ -2920,11 +2920,6 @@ acorn-walk@^8.0.0:
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.15.0.tgz"
   integrity sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==
 
-add-subtract-date@^1.0.15:
-  version "1.0.16"
-  resolved "https://registry.npmjs.org/add-subtract-date/-/add-subtract-date-1.0.16.tgz"
-  integrity sha512-pmGFYgOmVhZ7R47PB/h/BLt/f77rVZL3WXvxSUWKSd6RTe7lHu7ZalQUYWJ2RXNIuv9KKZjstyuKnNQqbqtoGw==
-
 adjust-sourcemap-loader@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/adjust-sourcemap-loader/-/adjust-sourcemap-loader-4.0.0.tgz"
@@ -4013,11 +4008,6 @@ data-view-byte-offset@^1.0.1:
     es-errors "^1.3.0"
     is-data-view "^1.0.1"
 
-days@^1.0.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/days/-/days-1.1.1.tgz"
-  integrity sha512-vzeIwVsEIyA35GH4+mPd4hjVDNI87wYANyZFs0BHjBr5kIBH5zEl7LfD6Wr4SFZca4D3CU9IH1w4DuZLlXzKRw==
-
 debounce@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/debounce/-/debounce-1.2.1.tgz"
@@ -4252,14 +4242,6 @@ elliptic@^6.5.3, elliptic@^6.6.1:
     inherits "^2.0.4"
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
-
-elly@^1.1.11:
-  version "1.1.11"
-  resolved "https://registry.npmjs.org/elly/-/elly-1.1.11.tgz"
-  integrity sha512-WFKVcEKEOjdSOhNYFKWQoJDk0Sb0re6v0fIsGkePn97dmPpKM/YoOKRdYIb34T1R13KPRNzDBDmT/Flb/54NXg==
-  dependencies:
-    iterate-object "^1.3.2"
-    sliced "^1.0.1"
 
 emittery@^0.13.1:
   version "0.13.1"
@@ -4913,11 +4895,6 @@ fill-range@^7.1.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-fillo@^1.0.0:
-  version "1.0.15"
-  resolved "https://registry.npmjs.org/fillo/-/fillo-1.0.15.tgz"
-  integrity sha512-AU9+1s5J2halrmGGe9On+a8TXfbaXsY9JLz/sxPsmcISaqcGn0M9Pt6cQzKPesqdzQdSQ08JJHH5RZR9HdF2Jw==
-
 filter-obj@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/filter-obj/-/filter-obj-2.0.2.tgz"
@@ -5050,16 +5027,6 @@ fork-ts-checker-webpack-plugin@^8.0.0:
     semver "^7.3.5"
     tapable "^2.2.1"
 
-formatoid@^1.2.4:
-  version "1.2.5"
-  resolved "https://registry.npmjs.org/formatoid/-/formatoid-1.2.5.tgz"
-  integrity sha512-ADuqDTwrQd0800jF0G6tL3mWwO8aGStjypqvrwkhTnoQc2fD1hc9reGtrMiRmWK7ti1n2NUfy+6WKfJ+AJUsvA==
-  dependencies:
-    days "^1.0.1"
-    fillo "^1.0.0"
-    months "^1.0.0"
-    parse-it "^1.0.0"
-
 fs-extra@^10.0.0:
   version "10.1.0"
   resolved "https://registry.npmjs.org/fs-extra/-/fs-extra-10.1.0.tgz"
@@ -5178,28 +5145,6 @@ get-tsconfig@^4.10.0:
   integrity sha512-auHyJ4AgMz7vgS8Hp3N6HXSmlMdUyhSUrfBF16w153rxtLIEOE+HGqaBppczZvnHLqQJfiHotCYpNhl0lUROFQ==
   dependencies:
     resolve-pkg-maps "^1.0.0"
-
-github-calendar-legend@^1.0.11:
-  version "1.0.12"
-  resolved "https://registry.npmjs.org/github-calendar-legend/-/github-calendar-legend-1.0.12.tgz"
-  integrity sha512-dVsVt22egxG3VEkJdQTdgphQkDj4FyQ1Sen4o4GteEz4SA7s2rX9j2fDR46fZaPLU8IXfL4Ig0h3z/zmb6ORWA==
-
-github-calendar-parser@^1.2.2:
-  version "1.2.3"
-  resolved "https://registry.npmjs.org/github-calendar-parser/-/github-calendar-parser-1.2.3.tgz"
-  integrity sha512-yd7GcKibU01nfD82h5dxLVUOaNDySABhYN/Y29OP1p03h38UpJxy23qe2hheIHbtZAwvQ15ErPAapgVGXmbYnQ==
-  dependencies:
-    github-calendar-legend "^1.0.11"
-
-github-calendar@^2.3.4:
-  version "2.3.4"
-  resolved "https://registry.npmjs.org/github-calendar/-/github-calendar-2.3.4.tgz"
-  integrity sha512-B2szQw0xVOluHYeuamkVtJXCHk5TaVyPjw2z4ynfnGlQ/jr2cb66SPgeNDcDHlGONOipQccWxv/VNVN5Gqr14A==
-  dependencies:
-    add-subtract-date "^1.0.15"
-    elly "^1.1.11"
-    formatoid "^1.2.4"
-    github-calendar-parser "^1.2.2"
 
 glob-parent@^5.1.2:
   version "5.1.2"
@@ -5920,11 +5865,6 @@ istanbul-reports@^3.1.3:
   dependencies:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
-
-iterate-object@^1.3.2:
-  version "1.3.5"
-  resolved "https://registry.npmjs.org/iterate-object/-/iterate-object-1.3.5.tgz"
-  integrity sha512-eL23u8oFooYTq6TtJKjp2RYjZnCkUYQvC0T/6fJfWykXJ3quvdDdzKZ3CEjy8b3JGOvLTjDYMEMIp5243R906A==
 
 iterator.prototype@^1.1.4:
   version "1.1.5"
@@ -6770,11 +6710,6 @@ minimist@^1.2.0, minimist@^1.2.5, minimist@^1.2.6:
   resolved "https://registry.npmjs.org/minipass/-/minipass-7.1.2.tgz"
   integrity sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==
 
-months@^1.0.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/months/-/months-1.2.0.tgz"
-  integrity sha512-zFM7hUpziSYGk2DNObYGWgHdRRxAOgjl8CC1Rbl50p/q0rGDsREfk0nbxxmSIquVi/lEAuUY8nwbwkZ8biNCOQ==
-
 mrmime@^2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/mrmime/-/mrmime-2.0.1.tgz"
@@ -7124,13 +7059,6 @@ parse-asn1@^5.0.0, parse-asn1@^5.1.9:
     evp_bytestokey "^1.0.3"
     pbkdf2 "^3.1.5"
     safe-buffer "^5.2.1"
-
-parse-it@^1.0.0:
-  version "1.0.11"
-  resolved "https://registry.npmjs.org/parse-it/-/parse-it-1.0.11.tgz"
-  integrity sha512-1OWDPQNF7eUxkqPdP4vFu96QnVwQjy2zag5CZcF3Ipd12s1iu8nPpgNBsda0tgZlj04vSrIZ5DQr2bqp5Cn6UQ==
-  dependencies:
-    regex-escape "^3.4.0"
 
 parse-json@^5.0.0, parse-json@^5.2.0:
   version "5.2.0"
@@ -7712,11 +7640,6 @@ regenerate@^1.4.2:
   resolved "https://registry.npmjs.org/regenerate/-/regenerate-1.4.2.tgz"
   integrity sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
 
-regex-escape@^3.4.0:
-  version "3.4.11"
-  resolved "https://registry.npmjs.org/regex-escape/-/regex-escape-3.4.11.tgz"
-  integrity sha512-051l4Hl/0HoJwTvNztrWVjoxLiseSfCrDgWqwR1cnGM/nyQSeIjmvti5zZ7HzOmsXDPaJ2k0iFxQ6/WNpJD5wQ==
-
 regex-parser@^2.2.11:
   version "2.3.1"
   resolved "https://registry.npmjs.org/regex-parser/-/regex-parser-2.3.1.tgz"
@@ -8171,11 +8094,6 @@ slice-ansi@^4.0.0:
     ansi-styles "^4.0.0"
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
-
-sliced@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/sliced/-/sliced-1.0.1.tgz"
-  integrity sha512-VZBmZP8WU3sMOZm1bdgTadsQbcscK0UM8oKxKVBs4XAhUo2Xxzm/OFMGBkPusxw9xL3Uy8LrzEqGqJhclsr0yA==
 
 source-map-js@^1.0.1, source-map-js@^1.0.2, source-map-js@^1.2.1:
   version "1.2.1"
