@@ -1,19 +1,40 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Badge, Button, Card, Group, Stack, Text, Title } from '@mantine/core';
 import { Project } from '@/data/projects';
+import { analytics } from '@/lib/analytics';
 import styles from './ProjectCard.module.css';
 
 interface ProjectCardProps {
   project: Project;
   currentSearchParams?: string;
+  location?: 'home' | 'projects';
 }
 
-export function ProjectCard({ project, currentSearchParams }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  currentSearchParams,
+  location = 'projects',
+}: ProjectCardProps) {
   // Build the case study URL with current search parameters
   const caseStudyUrl = currentSearchParams
     ? `${project.links.caseStudy}?${currentSearchParams}`
     : project.links.caseStudy;
+
+  const handleCaseStudyClick = () => {
+    analytics.trackCaseStudyClick(project.slug, project.title, location);
+  };
+
+  const handleLiveDemoClick = () => {
+    analytics.trackLiveDemoClick(project.slug, project.title);
+  };
+
+  const handleRepoClick = () => {
+    analytics.trackRepoClick(project.slug, project.title);
+  };
+
   return (
     <Card withBorder radius="md" shadow="sm" p="lg" className={styles.card}>
       {/* Screenshot */}
@@ -70,6 +91,7 @@ export function ProjectCard({ project, currentSearchParams }: ProjectCardProps) 
             size="sm"
             radius="md"
             className={styles.actionButton}
+            onClick={handleCaseStudyClick}
           >
             Read case study
           </Button>
@@ -85,6 +107,7 @@ export function ProjectCard({ project, currentSearchParams }: ProjectCardProps) 
                 color="indigo"
                 size="sm"
                 radius="md"
+                onClick={handleLiveDemoClick}
               >
                 Live
               </Button>
@@ -100,6 +123,7 @@ export function ProjectCard({ project, currentSearchParams }: ProjectCardProps) 
                 color="indigo"
                 size="sm"
                 radius="md"
+                onClick={handleRepoClick}
               >
                 Code
               </Button>

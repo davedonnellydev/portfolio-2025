@@ -2,14 +2,14 @@ import { faArrowUpRightFromSquare } from '@awesome.me/kit-7f37d33478/icons/class
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, Group, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core';
 import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
-import { generateMetadata as generateSEOMetadata, generatePersonSchema } from '@/lib/seo';
 import { aboutContent } from '@/data/about';
+import { generatePersonSchema, generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import styles from './About.module.css';
 
 export const metadata = generateSEOMetadata({
   title: 'About',
   description:
-    'Learn about Dave Donnelly\'s journey from education to web development, mission to build impactful applications, and professional certifications in React, TypeScript, and modern web development.',
+    "Learn about Dave Donnelly's journey from education to web development, mission to build impactful applications, and professional certifications in React, TypeScript, and modern web development.",
   path: '/about',
 });
 

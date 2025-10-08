@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { IconCalendar, IconCheck, IconChevronDown, IconFileDownload } from '@tabler/icons-react';
 import { Box, Button, Container, Group, List, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { analytics } from '@/lib/analytics';
 import classes from './Hero.module.css';
 
 export function Hero() {
@@ -11,6 +12,14 @@ export function Hero() {
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleBookIntroClick = () => {
+    analytics.trackBookIntroClick('hero');
+  };
+
+  const handleCVDownload = () => {
+    analytics.trackCVDownload('hero');
   };
 
   return (
@@ -68,6 +77,7 @@ export function Hero() {
                   gradient={{ from: 'primary', to: 'grape', deg: 135 }}
                   leftSection={<IconCalendar size={20} />}
                   className={classes.primaryCta}
+                  onClick={handleBookIntroClick}
                 >
                   Book 15-min intro
                 </Button>
@@ -89,6 +99,7 @@ export function Hero() {
                   size="lg"
                   variant="default"
                   leftSection={<IconFileDownload size={20} />}
+                  onClick={handleCVDownload}
                 >
                   Download CV
                 </Button>

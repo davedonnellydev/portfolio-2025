@@ -9,7 +9,7 @@ import {
 } from '@awesome.me/kit-7f37d33478/icons/classic/light';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ActionIcon, Badge, Container, Group, Text, Tooltip } from '@mantine/core';
-import { trackEvent } from '@/lib/analytics';
+import { analytics } from '@/lib/analytics';
 import { useFooterVisibility } from '@/lib/hooks';
 import classes from './Footer.module.css';
 
@@ -22,16 +22,20 @@ export function Footer() {
   const { isVisible, handleMouseEnter, handleMouseLeave } = useFooterVisibility();
 
   const handleEmailClick = () => {
-    trackEvent('email_click');
+    analytics.trackEmailClick('footer');
     window.location.href = `mailto:${CONTACT_EMAIL}`;
   };
 
   const handleCVDownload = () => {
-    trackEvent('cv_download');
+    analytics.trackCVDownload('footer');
   };
 
-  const handleSocialClick = (platform: 'github' | 'linkedin') => {
-    trackEvent('repo_click', { platform });
+  const handleGitHubClick = () => {
+    analytics.trackGitHubClick('footer');
+  };
+
+  const handleLinkedInClick = () => {
+    analytics.trackLinkedInClick('footer');
   };
 
   return (
@@ -98,7 +102,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 variant="subtle"
                 size="lg"
-                onClick={() => handleSocialClick('github')}
+                onClick={handleGitHubClick}
                 aria-label="GitHub Profile"
               >
                 <FontAwesomeIcon icon={faGithub} style={{ width: '20px', height: '20px' }} />
@@ -113,7 +117,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 variant="subtle"
                 size="lg"
-                onClick={() => handleSocialClick('linkedin')}
+                onClick={handleLinkedInClick}
                 aria-label="LinkedIn Profile"
               >
                 <FontAwesomeIcon icon={faLinkedin} style={{ width: '20px', height: '20px' }} />

@@ -6,6 +6,7 @@ import './globals.css';
 import React from 'react';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { config } from '@fortawesome/fontawesome-svg-core';
+import { Analytics } from '@vercel/analytics/react';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from '@mantine/notifications';
@@ -116,6 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Header />
             {children}
             <Footer />
+            <Analytics />
           </ModalsProvider>
         </MantineProvider>
       </body>

@@ -41,7 +41,7 @@ export function SignatureProjects({ projects }: SignatureProjectsProps) {
             className={classes.grid}
           >
             {featuredProjects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+              <ProjectCard key={project.slug} project={project} location="home" />
             ))}
           </SimpleGrid>
 

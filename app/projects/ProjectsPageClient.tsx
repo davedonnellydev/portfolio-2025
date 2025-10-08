@@ -8,6 +8,7 @@ import { ProjectFilters } from '@/components/projects/ProjectFilters';
 import { ProjectSearch } from '@/components/projects/ProjectSearch';
 import { ProjectsStructuredData } from '@/components/projects/ProjectsStructuredData';
 import { projects } from '@/data/projects';
+import { analytics } from '@/lib/analytics';
 import styles from './ProjectsPageClient.module.css';
 
 export function ProjectsPageClient() {
@@ -63,6 +64,18 @@ export function ProjectsPageClient() {
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
     updateURL(query, selectedTech);
+
+    // Track search usage (only if query has meaningful content)
+    if (query.trim().length >= 2) {
+      // Calculate result count for the search
+      const results = projects.filter(
+        (project) =>
+          project.title.toLowerCase().includes(query.toLowerCase()) ||
+          project.description.toLowerCase().includes(query.toLowerCase()) ||
+          project.outcome.toLowerCase().includes(query.toLowerCase())
+      );
+      analytics.trackProjectSearchUsed(query, results.length);
+    }
   };
 
   const handleTechToggle = (tech: string) => {
@@ -72,6 +85,9 @@ export function ProjectsPageClient() {
 
     setSelectedTech(newSelectedTech);
     updateURL(searchQuery, newSelectedTech);
+
+    // Track filter usage
+    analytics.trackProjectFilterUsed('tech-stack', tech);
   };
 
   const clearAllFilters = () => {

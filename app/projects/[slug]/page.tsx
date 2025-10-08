@@ -2,9 +2,10 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Button, Container, Image } from '@mantine/core';
+import { ProjectPageTracker } from '@/components/projects/ProjectPageTracker';
 import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
-import { generateProjectSchema } from '@/lib/seo';
 import { projects } from '@/data/projects';
+import { generateProjectSchema } from '@/lib/seo';
 import { BackToProjectsButton } from './BackToProjectsButton';
 import { ProjectContent } from './ProjectContent';
 import { ProjectHero } from './ProjectHero';
@@ -80,6 +81,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <>
       <AnimatedBackground />
+      {/* Analytics tracking for page view */}
+      <ProjectPageTracker projectSlug={project.slug} projectTitle={project.title} />
       {/* CreativeWork Schema for SEO */}
       <script
         type="application/ld+json"
