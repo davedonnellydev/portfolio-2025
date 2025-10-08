@@ -75,11 +75,13 @@ Created three levels of frosted glass effect:
 - **Description text**: Enhanced dimmed text
 - **Footer text**: Light frosted glass background
 
-#### Social Proof (`SocialProof.module.css`)
-- **Logos container**: Light frosted glass (60% opacity)
-- **Testimonial**: Strong frosted glass (85% opacity)
-- **GitHub activity**: Standard frosted glass (75% opacity)
-- **All dimmed text**: Enhanced weight + color
+#### Social Proof (`SocialProof.module.css`) - REMOVED
+> **Note**: This component was removed from the portfolio (October 2025)
+
+~~- **Logos container**: Light frosted glass (60% opacity)~~
+~~- **Testimonial**: Strong frosted glass (85% opacity)~~
+~~- **GitHub activity**: Standard frosted glass (75% opacity)~~
+~~- **All dimmed text**: Enhanced weight + color~~
 
 #### Micro Bio (`MicroBio.module.css`)
 - **Container**: Standard frosted glass (75% opacity)
@@ -213,7 +215,7 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
 
 ### New Files Created:
 - `/components/home/WhyHireMe/WhyHireMe.module.css`
-- `/components/home/SocialProof/SocialProof.module.css`
+- ~~`/components/home/SocialProof/SocialProof.module.css`~~ (Removed October 2025)
 - `/components/home/MicroBio/MicroBio.module.css`
 
 ### Files Modified:
@@ -221,7 +223,7 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
 - `/components/home/Hero/Hero.module.css` - Applied frosted glass
 - `/components/home/SignatureProjects/SignatureProjects.module.css` - Applied frosted glass
 - `/components/home/WhyHireMe/WhyHireMe.tsx` - Added CSS module imports
-- `/components/home/SocialProof/SocialProof.tsx` - Added CSS module imports
+- ~~`/components/home/SocialProof/SocialProof.tsx`~~ - (Removed October 2025)
 - `/components/home/MicroBio/MicroBio.tsx` - Added CSS module imports
 - `/components/shared/AnimatedBackground/AnimatedBackground.tsx` - Reduced opacity
 

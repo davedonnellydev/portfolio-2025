@@ -105,7 +105,7 @@ export const analytics = {
   /**
    * Track GitHub profile click
    */
-  trackGitHubClick: (location: 'footer' | 'social-proof' = 'footer') => {
+  trackGitHubClick: (location: 'footer' = 'footer') => {
     trackEvent('github_click', { location });
   },
 
