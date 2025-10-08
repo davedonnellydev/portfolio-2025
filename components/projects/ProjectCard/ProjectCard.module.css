@@ -6,6 +6,29 @@
   flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
+  /* Frosted glass effect for readability */
+  background: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgb(228, 228, 231, 0.3);
+  position: relative;
+  isolation: isolate;
+}
+
+[data-mantine-color-scheme='dark'] .card {
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(12px)) {
+  .card {
+    background: rgb(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .card {
+    background: rgb(18, 18, 27, 0.3);
+  }
 }
 
 /* Hover effect - subtle lift + shadow */

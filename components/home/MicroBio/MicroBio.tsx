@@ -1,16 +1,17 @@
 import { Anchor, Box, Container, Group, Stack, Text, Title } from '@mantine/core';
 import { MicroBioProps } from './types';
+import classes from './MicroBio.module.css';
 
 export function MicroBio({ content, aboutLink }: MicroBioProps) {
   return (
-    <Box py="xl">
+    <Box py="xl" className={classes.section}>
       <Container size="md">
-        <Stack gap="lg" ta="center">
+        <Stack gap="lg" ta="center" className={classes.container}>
           <Title order={2} size="h3">
             About Me
           </Title>
 
-          <Text size="lg" c="dimmed" maw="65ch" mx="auto">
+          <Text size="lg" c="dimmed" maw="65ch" mx="auto" className={classes.dimmedText}>
             {content}
           </Text>
 

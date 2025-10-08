@@ -20,3 +20,15 @@
   background-color: var(--accent-color, var(--mantine-color-blue-6));
   border-radius: 1px;
 }
+
+.colorSchemeToggle {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.colorSchemeToggle:hover {
+  transform: scale(1.1);
+}
+
+.colorSchemeToggle:active {
+  transform: scale(0.95);
+}

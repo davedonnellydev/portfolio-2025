@@ -29,6 +29,40 @@
   --focus-ring-offset: 2px;
 }
 
+/* Dark mode CSS variables - WCAG AAA compliant */
+[data-mantine-color-scheme='dark'] {
+  /* Dark backgrounds */
+  --background-dark: #0A0A0B;
+  --surface-dark: #18181B;
+  --surface-dark-2: #27272A;
+
+  /* Dark mode text - WCAG AAA (7:1+ contrast) */
+  --text-primary-dark: #FAFAFA;
+  --text-secondary-dark: #D4D4D8;
+  --text-muted-dark: #A1A1AA;
+
+  /* Dark mode borders */
+  --border-dark: #3F3F46;
+  --border-subtle-dark: #27272A;
+
+  /* Dark mode accents - adjusted for contrast */
+  --brand-primary-dark: #A3A5F3;
+  --brand-primary-hover-dark: #C5C7F7;
+  --accent-cyan-dark: #67E8F9;
+  --accent-purple-dark: #D8B4FE;
+  --accent-emerald-dark: #5EEAD4;
+  --accent-amber-dark: #FDE047;
+  --accent-pink-dark: #F9A8D4;
+
+  /* Dark mode gradients */
+  --gradient-primary-dark: linear-gradient(135deg, #A3A5F3 0%, #D8B4FE 100%);
+  --gradient-accent-dark: linear-gradient(135deg, #67E8F9 0%, #5EEAD4 100%);
+  --gradient-glow-dark: linear-gradient(135deg, #FDE047 0%, #F9A8D4 100%);
+
+  /* Override focus ring for dark mode */
+  --focus-ring-color: var(--brand-primary-dark);
+}
+
 /* Add padding to account for fixed header and footer */
 body {
   /* Responsive padding that adapts to header/footer height */
@@ -65,22 +99,22 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: light-dark(#f1f1f1, #2d2d2d);
+  background: light-dark(#f1f1f1, #27272A);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: light-dark(#c1c1c1, #555);
+  background: light-dark(#c1c1c1, #52525B);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: light-dark(#a8a8a8, #777);
+  background: light-dark(#a8a8a8, #71717A);
 }
 
-/* Selection color */
+/* Selection color - WCAG AAA compliant */
 ::selection {
-  background-color: light-dark(#bfdbfe, #1e3a8a);
-  color: light-dark(#1e3a8a, #e6f2ff);
+  background-color: light-dark(#bfdbfe, #4338CA);
+  color: light-dark(#1e3a8a, #FAFAFA);
 }
 
 /* Reduced motion support */
@@ -180,4 +214,95 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+}
+
+/* ============================================
+   Frosted Glass Effect (Glassmorphism)
+   ============================================ */
+
+.frost-glass {
+  background: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: clamp(0.75rem, 2vw, 1rem);
+  border: 1px solid rgb(228, 228, 231, 0.3);
+  box-shadow: 0 8px 32px 0 rgb(0, 0, 0, 0.08);
+  position: relative;
+  isolation: isolate;
+}
+
+[data-mantine-color-scheme='dark'] .frost-glass {
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
+}
+
+/* Stronger frost glass for critical content areas */
+.frost-glass-strong {
+  background: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-radius: clamp(0.75rem, 2vw, 1rem);
+  border: 1px solid rgb(228, 228, 231, 0.4);
+  box-shadow: 0 12px 40px 0 rgb(0, 0, 0, 0.1);
+}
+
+[data-mantine-color-scheme='dark'] .frost-glass-strong {
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.4);
+}
+
+/* Lighter frost for subtle separation */
+.frost-glass-light {
+  background: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
+  border-radius: clamp(0.75rem, 2vw, 1rem);
+  border: 1px solid rgb(228, 228, 231, 0.2);
+  box-shadow: 0 4px 20px 0 rgb(0, 0, 0, 0.05);
+}
+
+[data-mantine-color-scheme='dark'] .frost-glass-light {
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.2);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(12px)) {
+  .frost-glass {
+    background: rgb(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .frost-glass {
+    background: rgb(18, 18, 27, 0.3);
+  }
+
+  .frost-glass-strong {
+    background: rgb(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .frost-glass-strong {
+    background: rgb(18, 18, 27, 0.3);
+  }
+
+  .frost-glass-light {
+    background: rgb(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .frost-glass-light {
+    background: rgb(18, 18, 27, 0.3);
+  }
+}
+
+/* Enhanced text readability on frosted glass */
+.frost-glass-text-enhanced {
+  font-weight: 450; /* Slightly heavier than normal 400 */
+}
+
+/* For dimmed text on frosted glass backgrounds */
+.frost-dimmed-text {
+  color: var(--mantine-color-gray-7) !important;
+  font-weight: 475;
+}
+
+[data-mantine-color-scheme='dark'] .frost-dimmed-text {
+  color: var(--mantine-color-gray-4) !important;
 }

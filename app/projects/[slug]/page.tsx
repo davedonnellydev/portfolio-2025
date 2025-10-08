@@ -2,11 +2,12 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Button, Container, Image } from '@mantine/core';
+import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 import { projects } from '@/data/projects';
 import { BackToProjectsButton } from './BackToProjectsButton';
 import { ProjectContent } from './ProjectContent';
 import { ProjectHero } from './ProjectHero';
-import { ProjectRecap } from './ProjectRecap';
+import { ProjectOverview } from './ProjectOverview';
 
 interface ProjectPageProps {
   params: Promise<{
@@ -48,6 +49,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
+      <AnimatedBackground />
       <Container size="lg">
         {/* Back Button */}
         <Suspense
@@ -80,7 +82,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           outcome={project.outcome}
           metrics={project.metrics}
         />
-        <ProjectRecap
+        <ProjectOverview
           role={project.content?.role}
           timeframe={project.content?.timeframe}
           links={project.links}

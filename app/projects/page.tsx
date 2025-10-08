@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { Container, Skeleton, Stack } from '@mantine/core';
+import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { ProjectsPageClient } from './ProjectsPageClient';
 
@@ -31,8 +32,11 @@ function ProjectsPageLoading() {
 
 export default function ProjectsPage() {
   return (
-    <Suspense fallback={<ProjectsPageLoading />}>
-      <ProjectsPageClient />
-    </Suspense>
+    <>
+      <AnimatedBackground />
+      <Suspense fallback={<ProjectsPageLoading />}>
+        <ProjectsPageClient />
+      </Suspense>
+    </>
   );
 }

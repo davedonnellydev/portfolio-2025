@@ -1,0 +1,69 @@
+/* Project Recap Component */
+.recapPaper {
+  /* Frosted glass effect for readability */
+  background: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgb(228, 228, 231, 0.4);
+  position: relative;
+  isolation: isolate;
+}
+
+[data-mantine-color-scheme='dark'] .recapPaper {
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.4);
+}
+
+.techStackPaper {
+  /* Frosted glass effect for tech stack */
+  background: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgb(228, 228, 231, 0.3);
+  position: relative;
+  isolation: isolate;
+}
+
+[data-mantine-color-scheme='dark'] .techStackPaper {
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
+}
+
+/* Cyan color with dark mode support */
+.cyanText {
+  color: light-dark(var(--mantine-color-cyan-6), var(--accent-cyan-dark));
+}
+
+.cyanBadge {
+  background-color: light-dark(var(--mantine-color-cyan-1), var(--mantine-color-cyan-9)) !important;
+  color: light-dark(var(--mantine-color-cyan-6), var(--accent-cyan-dark)) !important;
+}
+
+.cyanButton {
+  background-color: light-dark(var(--mantine-color-cyan-6), var(--mantine-color-cyan-6)) !important;
+}
+
+.cyanButton:hover {
+  background-color: light-dark(var(--mantine-color-cyan-8), var(--mantine-color-cyan-5)) !important;
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(16px)) {
+  .recapPaper {
+    background: rgb(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .recapPaper {
+    background: rgb(18, 18, 27, 0.3);
+  }
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .techStackPaper {
+    background: rgb(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .techStackPaper {
+    background: rgb(18, 18, 27, 0.3);
+  }
+}

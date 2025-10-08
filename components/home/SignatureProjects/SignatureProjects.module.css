@@ -2,7 +2,6 @@
 
 .section {
   padding: clamp(3rem, 8vw, 6rem) 0;
-  background: var(--mantine-color-body);
   position: relative;
 }
 
@@ -10,6 +9,29 @@
 .header {
   text-align: center;
   margin-bottom: clamp(2rem, 4vw, 3rem);
+  /* Frosted glass effect for readability */
+  background: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px) saturate(180%);
+  border-radius: clamp(0.75rem, 2vw, 1rem);
+  border: 1px solid rgb(228, 228, 231, 0.3);
+  box-shadow: 0 8px 32px 0 rgb(0, 0, 0, 0.08);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+[data-mantine-color-scheme='dark'] .header {
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(12px)) {
+  .header {
+    background: rgb(255, 255, 255, 0.95);
+  }
+
+  [data-mantine-color-scheme='dark'] .header {
+    background: rgb(18, 18, 27, 0.95);
+  }
 }
 
 .title {
@@ -26,6 +48,13 @@
   margin: 0 auto;
   font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
   line-height: 1.6;
+  /* Enhanced readability for dimmed text */
+  font-weight: 475 !important;
+  color: var(--mantine-color-gray-7) !important;
+}
+
+[data-mantine-color-scheme='dark'] .subtitle {
+  color: var(--mantine-color-gray-4) !important;
 }
 
 /* Grid */
@@ -74,4 +103,3 @@
     -webkit-text-fill-color: transparent;
   }
 }
-

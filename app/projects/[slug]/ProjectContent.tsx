@@ -1,15 +1,16 @@
 'use client';
 
 import {
-  faBracketsCurly,
   faCircleExclamation,
+  faCode,
   faLocationDot,
   faMap,
   faSitemap,
   faUserRobot,
 } from '@awesome.me/kit-7f37d33478/icons/classic/light';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Accordion, Code, Grid, Group, Paper, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { Accordion, Code, Grid, Group, Paper, Stack, Text, Title } from '@mantine/core';
+import styles from './ProjectContent.module.css';
 
 type CodeExcerpt = {
   title: string;
@@ -38,30 +39,19 @@ export function ProjectContent({
 }: ProjectContentProps) {
   return (
     <Stack gap="xl" mb="xl">
-      <Paper
-        radius="lg"
-        p="xl"
-        mb="xl"
-        shadow="md"
-        style={{
-          background:
-            'linear-gradient(135deg, var(--mantine-color-yellow-1), var(--mantine-color-pink-1))',
-          border: '1px solid var(--mantine-color-yellow-3)',
-        }}
-      >
+      <Paper radius="lg" p="xl" mb="xl" shadow="md" className={styles.mainPaper}>
         <Grid gutter="lg">
           <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
             {/* Problem */}
             {problem && (
               <Stack mb="lg">
-                <Title order={2} mb="md">
-                  Details
+                <Title order={2} className={styles.grapeText} mb="md">
+                  Deep dive
                 </Title>
                 <Group>
-                  <ThemeIcon radius="md" color="yellow" variant="light">
-                    <FontAwesomeIcon icon={faCircleExclamation} />
-                  </ThemeIcon>
-                  <Title order={3}>The Problem</Title>
+                  <Title order={3} className={styles.grapeText}>
+                    <FontAwesomeIcon icon={faCircleExclamation} /> The Problem
+                  </Title>
                 </Group>
                 <Text style={{ lineHeight: 1.7, fontSize: '1.1rem' }} mb="md">
                   {problem}
@@ -72,10 +62,9 @@ export function ProjectContent({
             {approach && (
               <Stack mb="lg">
                 <Group>
-                  <ThemeIcon radius="md" color="yellow" variant="light">
-                    <FontAwesomeIcon icon={faMap} />
-                  </ThemeIcon>
-                  <Title order={3}>My Approach</Title>
+                  <Title order={3} className={styles.grapeText}>
+                    <FontAwesomeIcon icon={faMap} /> My Approach
+                  </Title>
                 </Group>
                 <Text style={{ lineHeight: 1.7, fontSize: '1.1rem' }} mb="md">
                   {approach}
@@ -86,10 +75,9 @@ export function ProjectContent({
             {result && (
               <Stack mb="lg">
                 <Group>
-                  <ThemeIcon radius="md" color="yellow" variant="light">
-                    <FontAwesomeIcon icon={faLocationDot} />
-                  </ThemeIcon>
-                  <Title order={3}>The Result</Title>
+                  <Title order={3} className={styles.grapeText}>
+                    <FontAwesomeIcon icon={faLocationDot} /> The Result
+                  </Title>
                 </Group>
                 <Text style={{ lineHeight: 1.7, fontSize: '1.1rem' }} mb="xs">
                   {result}
@@ -103,19 +91,9 @@ export function ProjectContent({
               <Stack gap="xl" mb="xl">
                 {/* Architecture */}
                 {architecture && (
-                  <Paper withBorder radius="md" p="lg">
-                    <Title order={3} mb="xs" c="indigo.7">
-                      <ThemeIcon
-                        radius="xs"
-                        color="indigo.7"
-                        variant="light"
-                        style={{ verticalAlign: 'top' }}
-                      >
-                        <Text lh="h3">
-                          <FontAwesomeIcon icon={faSitemap} />
-                        </Text>
-                      </ThemeIcon>{' '}
-                      Architecture & Key Decisions
+                  <Paper withBorder radius="md" p="lg" className={styles.technicalPaper}>
+                    <Title order={3} mb="xs" className={styles.grapeText}>
+                      <FontAwesomeIcon icon={faSitemap} /> Architecture & Key Decisions
                     </Title>
                     <Text style={{ lineHeight: 1.7 }}>{architecture}</Text>
                   </Paper>
@@ -123,19 +101,9 @@ export function ProjectContent({
 
                 {/* AI Usage */}
                 {aiUsage && (
-                  <Paper withBorder radius="md" p="lg">
-                    <Title order={3} mb="xs" c="grape.7">
-                      <ThemeIcon
-                        radius="xs"
-                        color="grape.7"
-                        variant="light"
-                        style={{ verticalAlign: 'top' }}
-                      >
-                        <Text lh="h3">
-                          <FontAwesomeIcon icon={faUserRobot} />
-                        </Text>
-                      </ThemeIcon>{' '}
-                      AI Integration
+                  <Paper withBorder radius="md" p="lg" className={styles.technicalPaper}>
+                    <Title order={3} mb="xs" className={styles.grapeText}>
+                      <FontAwesomeIcon icon={faUserRobot} /> AI Integration
                     </Title>
                     <Text style={{ lineHeight: 1.7 }}>{aiUsage}</Text>
                   </Paper>
@@ -146,13 +114,12 @@ export function ProjectContent({
         </Grid>
         {/* Code Excerpts */}
         {codeExcerpts && codeExcerpts.length > 0 && (
-          <Paper withBorder radius="md" p="lg">
+          <Paper radius="md" p="lg" className={styles.codePaper}>
             <Stack>
               <Group>
-                <ThemeIcon radius="md" color="yellow" variant="light">
-                  <FontAwesomeIcon icon={faBracketsCurly} />
-                </ThemeIcon>
-                <Title order={3}>Code Excerpts</Title>
+                <Title order={3} className={styles.grapeText}>
+                  <FontAwesomeIcon icon={faCode} /> Code Excerpts
+                </Title>
               </Group>
               <Accordion>
                 {codeExcerpts.map((excerpt, index) => (
@@ -180,18 +147,8 @@ export function ProjectContent({
       </Paper>
       {/* Next Steps */}
       {nextSteps && (
-        <Paper
-          withBorder
-          radius="md"
-          p="lg"
-          shadow="md"
-          style={{
-            background:
-              'linear-gradient(135deg, var(--mantine-color-teal-0) 0%, var(--mantine-color-cyan-0) 100%)',
-            border: '1px solid var(--mantine-color-teal-3)',
-          }}
-        >
-          <Title order={2} mb="md">
+        <Paper withBorder radius="md" p="lg" shadow="md" className={styles.nextStepsPaper}>
+          <Title order={2} className={styles.pinkText} mb="md">
             What's Next?
           </Title>
           <Text style={{ lineHeight: 1.7, fontSize: '1.1rem' }}>{nextSteps}</Text>

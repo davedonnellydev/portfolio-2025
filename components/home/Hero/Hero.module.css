@@ -24,6 +24,32 @@
 /* Content Column */
 .content {
   /* Content determines height, no fixed dimensions */
+  /* Frosted glass effect for readability over animated background */
+  position: relative;
+  background: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: clamp(0.75rem, 2vw, 1rem);
+  border: 1px solid rgb(228, 228, 231, 0.4);
+  box-shadow: 0 12px 40px 0 rgb(0, 0, 0, 0.1);
+  padding: clamp(2rem, 4vw, 3rem);
+  isolation: isolate;
+}
+
+[data-mantine-color-scheme='dark'] .content {
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.4);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(16px)) {
+  .content {
+    background: rgb(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .content {
+    background: rgb(18, 18, 27, 0.3);
+  }
 }
 
 /* Headline */
@@ -48,6 +74,13 @@
   max-width: 65ch;
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
   line-height: 1.6;
+  /* Enhanced readability for dimmed text on frosted glass */
+  font-weight: 475 !important;
+  color: var(--mantine-color-gray-7) !important;
+}
+
+[data-mantine-color-scheme='dark'] .subheadline {
+  color: var(--mantine-color-gray-4) !important;
 }
 
 /* Credibility List */

@@ -1,6 +1,9 @@
 'use client';
 
+import { faBullseyeArrow } from '@awesome.me/kit-7f37d33478/icons/classic/light';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Badge, Grid, Group, Paper, Stack, Text, Title } from '@mantine/core';
+import styles from './ProjectHero.module.css';
 
 interface ProjectHeroProps {
   title: string;
@@ -11,17 +14,7 @@ interface ProjectHeroProps {
 
 export function ProjectHero({ title, description, outcome, metrics }: ProjectHeroProps) {
   return (
-    <Paper
-      radius="lg"
-      p="xl"
-      mb="xl"
-      shadow="md"
-      style={{
-        background:
-          'linear-gradient(135deg, var(--mantine-color-indigo-0) 0%, var(--mantine-color-grape-0) 100%)',
-        border: '1px solid var(--mantine-color-indigo-3)',
-      }}
-    >
+    <Paper radius="lg" p="xl" mb="xl" shadow="md" className={styles.heroPaper}>
       <Grid gutter="lg">
         <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
           <Stack gap="lg">
@@ -41,16 +34,9 @@ export function ProjectHero({ title, description, outcome, metrics }: ProjectHer
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
           <Stack gap="md">
-            <Paper
-              radius="md"
-              p="md"
-              style={{
-                background: 'var(--mantine-color-white)',
-                border: '1px solid var(--mantine-color-indigo-3)',
-              }}
-            >
-              <Text fw={600} c="indigo" size="lg">
-                🎯 {outcome}
+            <Paper radius="md" p="md" className={styles.outcomePaper}>
+              <Text fw={600} className={styles.outcomeText} size="lg">
+                <FontAwesomeIcon icon={faBullseyeArrow} /> {outcome}
               </Text>
             </Paper>
 
@@ -61,7 +47,7 @@ export function ProjectHero({ title, description, outcome, metrics }: ProjectHer
                   <Badge
                     key={index}
                     variant="light"
-                    color="indigo"
+                    color="primary"
                     size="lg"
                     radius="md"
                     style={{ fontSize: '0.9rem' }}
