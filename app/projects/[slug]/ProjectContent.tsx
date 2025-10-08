@@ -10,6 +10,7 @@ import {
 } from '@awesome.me/kit-7f37d33478/icons/classic/light';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Accordion, Code, Grid, Group, Paper, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import styles from './ProjectContent.module.css';
 
 type CodeExcerpt = {
   title: string;
@@ -43,11 +44,7 @@ export function ProjectContent({
         p="xl"
         mb="xl"
         shadow="md"
-        style={{
-          background:
-            'linear-gradient(135deg, var(--mantine-color-yellow-1), var(--mantine-color-pink-1))',
-          border: '1px solid var(--mantine-color-yellow-3)',
-        }}
+        className={styles.mainPaper}
       >
         <Grid gutter="lg">
           <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
@@ -103,7 +100,7 @@ export function ProjectContent({
               <Stack gap="xl" mb="xl">
                 {/* Architecture */}
                 {architecture && (
-                  <Paper withBorder radius="md" p="lg">
+                  <Paper withBorder radius="md" p="lg" className={styles.technicalPaper}>
                     <Title order={3} mb="xs" c="indigo.7">
                       <ThemeIcon
                         radius="xs"
@@ -123,7 +120,7 @@ export function ProjectContent({
 
                 {/* AI Usage */}
                 {aiUsage && (
-                  <Paper withBorder radius="md" p="lg">
+                  <Paper withBorder radius="md" p="lg" className={styles.technicalPaper}>
                     <Title order={3} mb="xs" c="grape.7">
                       <ThemeIcon
                         radius="xs"
@@ -146,7 +143,7 @@ export function ProjectContent({
         </Grid>
         {/* Code Excerpts */}
         {codeExcerpts && codeExcerpts.length > 0 && (
-          <Paper withBorder radius="md" p="lg">
+          <Paper withBorder radius="md" p="lg" className={styles.codePaper}>
             <Stack>
               <Group>
                 <ThemeIcon radius="md" color="yellow" variant="light">
@@ -185,11 +182,7 @@ export function ProjectContent({
           radius="md"
           p="lg"
           shadow="md"
-          style={{
-            background:
-              'linear-gradient(135deg, var(--mantine-color-teal-0) 0%, var(--mantine-color-cyan-0) 100%)',
-            border: '1px solid var(--mantine-color-teal-3)',
-          }}
+          className={styles.nextStepsPaper}
         >
           <Title order={2} mb="md">
             What's Next?

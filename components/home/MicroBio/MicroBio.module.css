@@ -1,0 +1,41 @@
+/* MicroBio Section */
+
+.section {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+}
+
+/* Content container with frosted glass */
+.container {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px) saturate(180%);
+  border-radius: clamp(0.3rem, 2vw, 1rem);
+  border: 1px solid rgba(228, 228, 231, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  padding: clamp(2rem, 4vw, 3rem);
+}
+
+[data-mantine-color-scheme='dark'] .container {
+  background: rgba(18, 18, 27, 0.3);
+  border: 1px solid rgba(63, 63, 70, 0.3);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(12px)) {
+  .container {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .container {
+    background: rgba(18, 18, 27, 0.3);
+  }
+}
+
+/* Enhanced dimmed text */
+.dimmedText {
+  font-weight: 475 !important;
+  color: var(--mantine-color-gray-7) !important;
+}
+
+[data-mantine-color-scheme='dark'] .dimmedText {
+  color: var(--mantine-color-gray-4) !important;
+}

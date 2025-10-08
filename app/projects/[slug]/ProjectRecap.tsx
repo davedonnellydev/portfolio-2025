@@ -22,6 +22,7 @@ import {
   Title,
 } from '@mantine/core';
 import { Project } from '@/data/projects';
+import styles from './ProjectRecap.module.css';
 
 type ProjectLinks = Project['links'];
 
@@ -40,10 +41,7 @@ export function ProjectRecap({ role, timeframe, links, techstack, tldr }: Projec
       p="xl"
       mb="xl"
       shadow="md"
-      style={{
-        background: 'linear-gradient(135deg, #ECFEFF 0%, #F0FDFA 100%)',
-        border: '1px solid var(--mantine-color-cyan-3)',
-      }}
+      className={styles.recapPaper}
     >
       <Grid gutter="lg">
         <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
@@ -107,10 +105,7 @@ export function ProjectRecap({ role, timeframe, links, techstack, tldr }: Projec
             radius="md"
             p="md"
             h="100%"
-            style={{
-              background: 'var(--mantine-color-white)',
-              border: '1px solid var(--mantine-color-cyan-3)',
-            }}
+            className={styles.techStackPaper}
           >
             <Stack h="100%" justify="space-around">
               <Stack gap="sm">

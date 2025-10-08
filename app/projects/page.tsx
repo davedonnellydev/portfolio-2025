@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { Container, Skeleton, Stack } from '@mantine/core';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { ProjectsPageClient } from './ProjectsPageClient';
+import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 
 export const metadata: Metadata = generateSEOMetadata({
   title: 'Projects',
@@ -31,8 +32,11 @@ function ProjectsPageLoading() {
 
 export default function ProjectsPage() {
   return (
-    <Suspense fallback={<ProjectsPageLoading />}>
-      <ProjectsPageClient />
-    </Suspense>
+    <>
+      <AnimatedBackground />
+      <Suspense fallback={<ProjectsPageLoading />}>
+        <ProjectsPageClient />
+      </Suspense>
+    </>
   );
 }

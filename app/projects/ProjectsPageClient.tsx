@@ -8,6 +8,7 @@ import { ProjectFilters } from '@/components/projects/ProjectFilters';
 import { ProjectSearch } from '@/components/projects/ProjectSearch';
 import { ProjectsStructuredData } from '@/components/projects/ProjectsStructuredData';
 import { projects } from '@/data/projects';
+import styles from './ProjectsPageClient.module.css';
 
 export function ProjectsPageClient() {
   const router = useRouter();
@@ -87,15 +88,17 @@ export function ProjectsPageClient() {
       <Container size="xl" py="xl">
         <Stack gap="xl">
           {/* Page Header */}
-          <Stack gap="md" align="center" ta="center">
-            <Title order={1} size="h1" fw={700}>
-              My Projects
-            </Title>
-            <Text size="lg" c="dimmed" maw={600}>
-              A collection of projects showcasing my skills in web development, with a focus on
-              education technology and accessibility.
-            </Text>
-          </Stack>
+          <div className={styles.headerContainer}>
+            <Stack gap="md" align="center" ta="center">
+              <Title order={1} size="h1" fw={700}>
+                My Projects
+              </Title>
+              <Text size="lg" c="dimmed" maw={600}>
+                A collection of projects showcasing my skills in web development, with a focus on
+                education technology and accessibility.
+              </Text>
+            </Stack>
+          </div>
 
           {/* Filters and Search */}
           <Stack gap="lg">

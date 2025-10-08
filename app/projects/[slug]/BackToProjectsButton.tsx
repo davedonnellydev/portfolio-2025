@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { faArrowLeft } from '@awesome.me/kit-7f37d33478/icons/classic/light';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Group } from '@mantine/core';
+import styles from './BackToProjectsButton.module.css';
 
 export function BackToProjectsButton() {
   const searchParams = useSearchParams();
@@ -13,17 +14,19 @@ export function BackToProjectsButton() {
   const backUrl = searchParams.toString() ? `/projects?${searchParams.toString()}` : '/projects';
 
   return (
-    <Group mb="lg">
-      <Link href={backUrl}>
-        <Button
-          variant="light"
-          color="indigo"
-          size="sm"
-          leftSection={<FontAwesomeIcon icon={faArrowLeft} />}
-        >
-          Back to Projects
-        </Button>
-      </Link>
-    </Group>
+    <div className={styles.buttonContainer}>
+      <Group>
+        <Link href={backUrl}>
+          <Button
+            variant="light"
+            color="indigo"
+            size="sm"
+            leftSection={<FontAwesomeIcon icon={faArrowLeft} />}
+          >
+            Back to Projects
+          </Button>
+        </Link>
+      </Group>
+    </div>
   );
 }

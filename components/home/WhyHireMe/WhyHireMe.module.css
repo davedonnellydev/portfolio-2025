@@ -1,0 +1,109 @@
+/* Why Hire Me Section */
+
+.section {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+}
+
+/* Header container */
+.header {
+  text-align: center;
+  max-width: 600px;
+  /* Frosted glass effect */
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px) saturate(180%);
+  border-radius: clamp(0.75rem, 2vw, 1rem);
+  border: 1px solid rgba(228, 228, 231, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+
+[data-mantine-color-scheme='dark'] .header {
+  background: rgba(18, 18, 27, 0.3);
+  border: 1px solid rgba(63, 63, 70, 0.3);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(12px)) {
+  .header {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .header {
+    background: rgba(18, 18, 27, 0.3);
+  }
+}
+
+/* Enhanced card with frosted glass */
+.pillarCard {
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  transition: all 0.2s ease;
+}
+
+[data-mantine-color-scheme='dark'] .pillarCard {
+  background: rgba(18, 18, 27, 0.3) !important;
+}
+
+.pillarCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Fallback for cards */
+@supports not (backdrop-filter: blur(12px)) {
+  .pillarCard {
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  [data-mantine-color-scheme='dark'] .pillarCard {
+    background: rgba(18, 18, 27, 0.3) !important;
+  }
+}
+
+/* Enhanced dimmed text */
+.dimmedText {
+  font-weight: 475 !important;
+  color: var(--mantine-color-gray-7) !important;
+}
+
+[data-mantine-color-scheme='dark'] .dimmedText {
+  color: var(--mantine-color-gray-4) !important;
+}
+
+/* Footer text */
+.footerText {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
+  border-radius: 0.5rem;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  border: 1px solid rgba(228, 228, 231, 0.2);
+}
+
+[data-mantine-color-scheme='dark'] .footerText {
+  background: rgba(18, 18, 27, 0.3);
+  border: 1px solid rgba(63, 63, 70, 0.2);
+}
+
+/* Fallback for footer text */
+@supports not (backdrop-filter: blur(8px)) {
+  .footerText {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .footerText {
+    background: rgba(18, 18, 27, 0.3);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .pillarCard {
+    transition: none;
+  }
+
+  .pillarCard:hover {
+    transform: none;
+  }
+}

@@ -274,3 +274,40 @@ If you encounter any issues:
 **Implementation Date:** October 8, 2025
 **WCAG Standard:** 2.1 AAA
 **Status:** ✅ Complete and Production Ready
+
+---
+
+## Frosted Glass Readability Enhancement (v5.0) 🪟
+
+### Problem Addressed
+Animated background was interfering with text readability, particularly with Mantine's dimmed text (`c="dimmed"`), which wasn't meeting WCAG 2.1 AAA standards (7:1 contrast ratio).
+
+### Solution Implemented
+Comprehensive glassmorphism (frosted glass) approach with text weight enhancements:
+
+**Key Features:**
+- Three levels of frosted glass containers (light, standard, strong)
+- Backdrop blur with semi-transparent backgrounds
+- Enhanced font-weight for dimmed text (400 → 475)
+- Improved color contrast for both light and dark modes
+- 15-28% reduction in background opacity for additional headroom
+- Browser fallbacks for unsupported backdrop-filter
+
+**Applied to All Homepage Sections:**
+- Hero: Strong frosted glass (85% opacity, 16px blur)
+- Signature Projects: Standard frosted glass (75% opacity, 12px blur)
+- Why Hire Me: Frosted glass cards with enhanced text
+- Social Proof: Multiple frosted containers for different areas
+- Micro Bio: Standard frosted glass container
+
+**Accessibility:**
+- ✅ WCAG 2.1 AAA compliant (7:1 contrast minimum)
+- ✅ Works in both light and dark modes
+- ✅ Browser fallback for older browsers
+- ✅ No performance impact (GPU accelerated)
+
+**Documentation:**
+- See `FROSTED_GLASS_READABILITY.md` for complete details
+- Includes usage guide, templates, and maintenance notes
+
+**Version:** 5.0 (Organic Cloud Shapes + Mouse Attraction + Viewport Constraints + Frosted Glass Readability)

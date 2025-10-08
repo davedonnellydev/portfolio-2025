@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 import { Anchor, Box, Container, Group, Loader, Paper, Stack, Text } from '@mantine/core';
 import { SocialProofProps } from './types';
+import classes from './SocialProof.module.css';
 
 declare global {
   interface Window {
@@ -25,12 +26,12 @@ export function SocialProof({ logos, testimonial }: SocialProofProps) {
   }, []);
 
   return (
-    <Box py="xl">
+    <Box py="xl" className={classes.section}>
       <Container size="lg">
         <Stack gap="xl">
           {/* Education Sector Logos */}
-          <Box>
-            <Text ta="center" c="dimmed" size="sm" mb="md">
+          <Box className={classes.logosContainer}>
+            <Text ta="center" c="dimmed" size="sm" mb="md" className={classes.dimmedText}>
               Trusted by education sector organizations
             </Text>
             <Group justify="center" gap="xl">
@@ -58,18 +59,15 @@ export function SocialProof({ logos, testimonial }: SocialProofProps) {
 
           {/* Testimonial */}
           {testimonial && (
-            <Paper
-              withBorder
-              radius="lg"
-              p="xl"
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--mantine-color-indigo-0) 0%, var(--mantine-color-grape-0) 100%)',
-                borderColor: 'var(--mantine-color-indigo-2)',
-              }}
-            >
+            <Paper withBorder radius="lg" p="xl" className={classes.testimonial}>
               <Stack gap="md" ta="center">
-                <Text size="lg" fw={500} style={{ fontStyle: 'italic' }} c="dimmed">
+                <Text
+                  size="lg"
+                  fw={500}
+                  style={{ fontStyle: 'italic' }}
+                  c="dimmed"
+                  className={classes.dimmedText}
+                >
                   "{testimonial.quote}"
                 </Text>
                 <Group justify="center" gap="sm">
@@ -85,8 +83,8 @@ export function SocialProof({ logos, testimonial }: SocialProofProps) {
           )}
 
           {/* GitHub Activity */}
-          <Box>
-            <Text ta="center" c="dimmed" size="sm" mb="md">
+          <Box className={classes.githubContainer}>
+            <Text ta="center" c="dimmed" size="sm" mb="md" className={classes.dimmedText}>
               Recent development activity
             </Text>
             <Group justify="center">

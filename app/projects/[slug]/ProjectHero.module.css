@@ -1,0 +1,51 @@
+/* Project Hero Component */
+.heroPaper {
+  /* Frosted glass effect for readability */
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(228, 228, 231, 0.4);
+  position: relative;
+  isolation: isolate;
+}
+
+[data-mantine-color-scheme='dark'] .heroPaper {
+  background: rgba(18, 18, 27, 0.3);
+  border: 1px solid rgba(63, 63, 70, 0.4);
+}
+
+.outcomePaper {
+  /* Frosted glass effect for outcome highlight */
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(228, 228, 231, 0.3);
+  position: relative;
+  isolation: isolate;
+}
+
+[data-mantine-color-scheme='dark'] .outcomePaper {
+  background: rgba(18, 18, 27, 0.3);
+  border: 1px solid rgba(63, 63, 70, 0.3);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(16px)) {
+  .heroPaper {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .heroPaper {
+    background: rgba(18, 18, 27, 0.3);
+  }
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .outcomePaper {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  [data-mantine-color-scheme='dark'] .outcomePaper {
+    background: rgba(18, 18, 27, 0.3);
+  }
+}

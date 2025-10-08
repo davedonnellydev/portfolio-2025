@@ -50,7 +50,7 @@ export function SignatureProjects({ projects }: SignatureProjectsProps) {
             <Button
               component={Link}
               href="/projects"
-              variant="light"
+              variant="filled"
               color="indigo"
               size="lg"
               rightSection={<IconArrowRight size={20} />}

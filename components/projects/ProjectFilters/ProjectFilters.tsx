@@ -1,5 +1,6 @@
 import { Badge, Group, Stack, Text } from '@mantine/core';
 import { Project } from '@/data/projects';
+import styles from './ProjectFilters.module.css';
 
 interface ProjectFiltersProps {
   projects: Project[];
@@ -21,50 +22,52 @@ export function ProjectFilters({ projects, selectedTech, onTechToggle }: Project
   );
 
   return (
-    <Stack gap="md">
-      <Text size="sm" fw={600} c="dimmed">
-        Filter by technology
-      </Text>
-
-      <Group gap="xs">
-        {allTech.map((tech) => {
-          const isSelected = selectedTech.includes(tech);
-          const count = techCounts[tech];
-
-          return (
-            <Badge
-              key={tech}
-              variant={isSelected ? 'filled' : 'light'}
-              color={isSelected ? 'indigo' : 'gray'}
-              radius="sm"
-              size="sm"
-              style={{
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                transform: isSelected ? 'scale(1.05)' : 'scale(1)',
-              }}
-              onClick={() => onTechToggle(tech)}
-              aria-pressed={isSelected}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  onTechToggle(tech);
-                }
-              }}
-            >
-              {tech} ({count})
-            </Badge>
-          );
-        })}
-      </Group>
-
-      {selectedTech.length > 0 && (
-        <Text size="xs" c="dimmed">
-          Showing projects using: {selectedTech.join(', ')}
+    <div className={styles.filtersContainer}>
+      <Stack gap="md">
+        <Text size="sm" fw={600} c="dimmed">
+          Filter by technology
         </Text>
-      )}
-    </Stack>
+
+        <Group gap="xs">
+          {allTech.map((tech) => {
+            const isSelected = selectedTech.includes(tech);
+            const count = techCounts[tech];
+
+            return (
+              <Badge
+                key={tech}
+                variant={isSelected ? 'filled' : 'light'}
+                color={isSelected ? 'indigo' : 'gray'}
+                radius="sm"
+                size="sm"
+                style={{
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  transform: isSelected ? 'scale(1.05)' : 'scale(1)',
+                }}
+                onClick={() => onTechToggle(tech)}
+                aria-pressed={isSelected}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onTechToggle(tech);
+                  }
+                }}
+              >
+                {tech} ({count})
+              </Badge>
+            );
+          })}
+        </Group>
+
+        {selectedTech.length > 0 && (
+          <Text size="xs" c="dimmed">
+            Showing projects using: {selectedTech.join(', ')}
+          </Text>
+        )}
+      </Stack>
+    </div>
   );
 }

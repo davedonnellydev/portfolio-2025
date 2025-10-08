@@ -38,7 +38,7 @@ interface AnimatedBackgroundProps {
 }
 
 export function AnimatedBackground({
-  dotSpacing = 20,
+  dotSpacing = 10,
   dotRadius = 2,
   cloudSpeed = 2,
   cloudCount = 3,
@@ -143,9 +143,9 @@ export function AnimatedBackground({
     // Get base color (subtle default for dots not in clouds)
     const getBaseColor = (isDark: boolean) => {
       if (isDark) {
-        return `hsla(240, 15%, 45%, 0.2)`; // Very subtle gray-blue
+        return `hsla(240, 15%, 45%, 0.15)`; // Very subtle gray-blue (reduced from 0.2)
       } else {
-        return `hsla(240, 20%, 65%, 0.25)`; // Very subtle light blue-gray
+        return `hsla(240, 20%, 65%, 0.18)`; // Very subtle light blue-gray (reduced from 0.25)
       }
     };
 
@@ -255,7 +255,10 @@ export function AnimatedBackground({
 
             if (smoothInfluence > maxInfluence) {
               maxInfluence = smoothInfluence;
-              const opacity = isDark ? 0.4 + smoothInfluence * 0.3 : 0.3 + smoothInfluence * 0.4;
+              // Reduced opacity for better text readability
+              const opacity = isDark
+                ? 0.35 + smoothInfluence * 0.25 // Dark: 0.35-0.6 (was 0.4-0.7)
+                : 0.25 + smoothInfluence * 0.35; // Light: 0.25-0.6 (was 0.3-0.7)
               finalColor = `hsla(${cloud.color.h}, ${cloud.color.s}%, ${cloud.color.l}%, ${opacity})`;
             }
           }
@@ -292,7 +295,15 @@ export function AnimatedBackground({
         window.removeEventListener('mousemove', handleMouseMove);
       }
     };
-  }, [colorScheme, dotSpacing, dotRadius, cloudSpeed, cloudCount, mouseAttraction, mouseAttractionStrength]);
+  }, [
+    colorScheme,
+    dotSpacing,
+    dotRadius,
+    cloudSpeed,
+    cloudCount,
+    mouseAttraction,
+    mouseAttractionStrength,
+  ]);
 
   return <canvas ref={canvasRef} className={classes.canvas} aria-hidden="true" />;
 }

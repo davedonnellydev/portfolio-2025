@@ -2,6 +2,7 @@
 
 import { IconBrain, IconMessageCircle, IconRocket } from '@tabler/icons-react';
 import { Card, Container, Grid, Group, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import classes from './WhyHireMe.module.css';
 
 interface Pillar {
   title: string;
@@ -55,13 +56,13 @@ const pillars: Pillar[] = [
 
 export function WhyHireMe() {
   return (
-    <Container size="xl" py="xl">
+    <Container size="xl" py="xl" className={classes.section}>
       <Stack gap="xl" align="center">
-        <div style={{ textAlign: 'center', maxWidth: '600px' }}>
+        <div className={classes.header}>
           <Title order={2} mb="md">
             Why You Should Hire Me
           </Title>
-          <Text size="lg" c="dimmed" mb="xl">
+          <Text size="lg" c="dimmed" className={classes.dimmedText}>
             A hiring manager's cheat sheet to my core strengths and how they map to your role needs.
           </Text>
         </div>
@@ -74,10 +75,10 @@ export function WhyHireMe() {
                 radius="lg"
                 p="xl"
                 h="100%"
+                className={classes.pillarCard}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  transition: 'all 0.2s ease',
                 }}
               >
                 <Stack gap="md" h="100%">
@@ -89,7 +90,7 @@ export function WhyHireMe() {
                       <Title order={3} size="h4" mb="xs">
                         {pillar.title}
                       </Title>
-                      <Text c="dimmed" size="sm" mb="md">
+                      <Text c="dimmed" size="sm" mb="md" className={classes.dimmedText}>
                         {pillar.description}
                       </Text>
                     </div>
@@ -101,6 +102,7 @@ export function WhyHireMe() {
                       fw={600}
                       c="dimmed"
                       tt="uppercase"
+                      className={classes.dimmedText}
                       style={{ letterSpacing: '0.5px' }}
                     >
                       Key Benefits:
@@ -126,7 +128,7 @@ export function WhyHireMe() {
           ))}
         </Grid>
 
-        <Text size="sm" c="dimmed" ta="center" mt="lg">
+        <Text size="sm" c="dimmed" ta="center" mt="lg" className={classes.footerText}>
           <strong>Perfect for roles requiring:</strong> Frontend development, testing,
           accessibility, data visualization, and modern web technologies.
         </Text>

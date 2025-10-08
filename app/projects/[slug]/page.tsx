@@ -7,6 +7,7 @@ import { BackToProjectsButton } from './BackToProjectsButton';
 import { ProjectContent } from './ProjectContent';
 import { ProjectHero } from './ProjectHero';
 import { ProjectRecap } from './ProjectRecap';
+import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 
 interface ProjectPageProps {
   params: Promise<{
@@ -48,6 +49,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
+      <AnimatedBackground />
       <Container size="lg">
         {/* Back Button */}
         <Suspense
