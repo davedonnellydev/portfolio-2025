@@ -4,7 +4,7 @@ import classes from './MicroBio.module.css';
 
 export function MicroBio({ content, aboutLink }: MicroBioProps) {
   return (
-    <Box py="xl" className={classes.section}>
+    <Box py="xl" className={classes.section} id="micro-bio">
       <Container size="md">
         <Stack gap="lg" ta="center" className={classes.container}>
           <Title order={2} size="h3">

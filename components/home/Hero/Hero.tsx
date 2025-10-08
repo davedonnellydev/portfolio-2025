@@ -19,7 +19,7 @@ export function Hero() {
   };
 
   return (
-    <section className={classes.hero}>
+    <section className={classes.hero} id="hero">
       <Container size="xl">
         <div className={classes.grid}>
           {/* Left column: Content */}

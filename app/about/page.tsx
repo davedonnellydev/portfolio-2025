@@ -38,7 +38,7 @@ export default function AboutPage() {
             </Stack>
 
             {/* Mission Section */}
-            <section className={styles.sectionContainer}>
+            <section className={styles.sectionContainer} id="mission">
               <Title order={2} mb="md" className={styles.sectionTitle}>
                 Mission
               </Title>
@@ -48,7 +48,7 @@ export default function AboutPage() {
             </section>
 
             {/* Background Section */}
-            <section className={styles.sectionContainer}>
+            <section className={styles.sectionContainer} id="background">
               <Title order={2} mb="md" className={styles.sectionTitle}>
                 Background
               </Title>
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </section>
 
             {/* Certificates Section */}
-            <section className={styles.sectionContainer}>
+            <section className={styles.sectionContainer} id="certificates">
               <Title order={2} mb="lg" className={styles.sectionTitle}>
                 Certificates & Credentials
               </Title>

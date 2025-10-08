@@ -56,7 +56,7 @@ const pillars: Pillar[] = [
 
 export function WhyHireMe() {
   return (
-    <Container size="xl" py="xl" className={classes.section}>
+    <Container size="xl" py="xl" className={classes.section} id="why-hire-me">
       <Stack gap="xl" align="center">
         <div className={classes.header}>
           <Title order={2} mb="md">
