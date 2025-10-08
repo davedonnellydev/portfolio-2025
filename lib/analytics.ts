@@ -1,7 +1,6 @@
 import { track } from '@vercel/analytics';
 
 export type AnalyticsEvent =
-  | 'book_intro_click'
   | 'email_click'
   | 'cv_download'
   | 'github_click'
@@ -81,13 +80,6 @@ export function trackPageView(page: string, title?: string): void {
  */
 
 export const analytics = {
-  /**
-   * Track "Book Intro" CTA click
-   */
-  trackBookIntroClick: (location: 'hero' | 'footer' = 'hero') => {
-    trackEvent('book_intro_click', { location });
-  },
-
   /**
    * Track email link click
    */

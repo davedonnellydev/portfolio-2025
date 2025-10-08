@@ -7,7 +7,7 @@ The Hero section is the first thing visitors see on your portfolio homepage. It'
 - **Responsive Layout**: Mobile-first design using CSS Grid (12-column system)
 - **Fluid Typography**: Uses `clamp()` for responsive text sizing
 - **Gradient Accents**: Subtle gradient effects on headline text and decorative elements
-- **Three CTAs**: Primary (Book intro), Secondary (View projects), Tertiary (Download CV)
+- **Two CTAs**: Primary (View projects), Secondary (Download CV)
 - **Professional Photo**: With gradient border and floating accent decoration
 - **Accessibility**: WCAG AA compliant with proper focus states and touch targets
 - **Performance**: Optimized images with Next.js Image component
@@ -46,16 +46,13 @@ Update the three bullet points to highlight your unique strengths:
 
 Replace placeholder links with actual destinations:
 
-- **Primary CTA** (`Book 15-min intro`):
-  - Replace `href="#contact"` with your calendar booking link (e.g., Calendly)
-
-- **Secondary CTA** (`View top projects`):
+- **Primary CTA** (`View top projects`):
   - Currently scrolls to `#signature-projects` section
   - Update the ID if your projects section uses a different identifier
 
-- **Tertiary CTA** (`Download CV`):
+- **Secondary CTA** (`Download CV`):
   - Add your CV PDF to `/public/cv.pdf`
-  - Or update `href="/cv.pdf"` to point to your CV location
+  - Or update `href="/CV - D_DONNELLY.pdf"` to point to your CV location
 
 ### 5. Update Alt Text
 
@@ -81,20 +78,14 @@ This component follows the guidelines from `THEME.md`:
 
 ## Analytics Tracking
 
-Consider adding analytics tracking to the CTA buttons to measure:
-- Book intro clicks
-- CV downloads
-- Project scroll interactions
+Analytics tracking is already implemented for:
+- CV downloads (tracks downloads from hero)
+- Project scroll interactions (via scroll to projects button)
 
-Example with Vercel Analytics:
-```tsx
-import { track } from '@vercel/analytics';
-
-onClick={() => {
-  track('hero_cta_book_intro');
-  // ... existing onClick logic
-}}
-```
+The analytics system uses the `analytics` helper from `/lib/analytics.ts` which supports:
+- Vercel Analytics (when installed)
+- Google Analytics 4 (if configured)
+- Console logging in development mode
 
 ## Performance Notes
 

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { IconCalendar, IconCheck, IconChevronDown, IconFileDownload } from '@tabler/icons-react';
+import { IconCheck, IconChevronDown, IconFileDownload } from '@tabler/icons-react';
 import { Box, Button, Container, Group, List, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import { analytics } from '@/lib/analytics';
 import classes from './Hero.module.css';
@@ -12,10 +12,6 @@ export function Hero() {
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const handleBookIntroClick = () => {
-    analytics.trackBookIntroClick('hero');
   };
 
   const handleCVDownload = () => {
@@ -70,24 +66,12 @@ export function Hero() {
               {/* CTAs */}
               <Group gap="md" className={classes.ctaGroup}>
                 <Button
-                  component="a"
-                  href="#contact" // Replace with actual calendar link
                   size="lg"
                   variant="gradient"
                   gradient={{ from: 'primary', to: 'grape', deg: 135 }}
-                  leftSection={<IconCalendar size={20} />}
-                  className={classes.primaryCta}
-                  onClick={handleBookIntroClick}
-                >
-                  Book 15-min intro
-                </Button>
-
-                <Button
-                  size="lg"
-                  variant="light"
-                  color="primary"
                   onClick={handleScrollToProjects}
                   leftSection={<IconChevronDown size={20} />}
+                  className={classes.primaryCta}
                 >
                   View top projects
                 </Button>
@@ -97,7 +81,8 @@ export function Hero() {
                   href="/CV - D_DONNELLY.pdf" // Replace with actual CV path
                   download
                   size="lg"
-                  variant="default"
+                  variant="light"
+                  color="primary"
                   leftSection={<IconFileDownload size={20} />}
                   onClick={handleCVDownload}
                 >

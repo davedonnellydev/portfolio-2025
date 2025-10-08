@@ -20,8 +20,7 @@ The analytics system provides privacy-friendly tracking of key user interactions
 
 | Event | Location | Description |
 |-------|----------|-------------|
-| `book_intro_click` | Hero, Footer | User clicks "Book 15-min intro" button |
-| `email_click` | Hero, Footer | User clicks email link |
+| `email_click` | Footer | User clicks email link |
 | `cv_download` | Hero, Footer | User downloads CV |
 
 ### 2. **Social Links**
@@ -75,7 +74,6 @@ analytics.trackCaseStudyClick(slug, title, 'home');
 ### Integration Points
 
 #### ✅ Hero Component (`components/home/Hero/Hero.tsx`)
-- Tracks "Book intro" clicks
 - Tracks CV downloads
 - Location: `hero`
 
@@ -219,10 +217,9 @@ In development, all analytics events are logged to the console:
 ### Key Performance Indicators (KPIs)
 
 #### Engagement Metrics
-- **Book intro clicks**: Primary conversion goal
 - **Email clicks**: Contact intent
 - **CV downloads**: Job application intent
-- **Project case study views**: Portfolio engagement
+- **Project case study views**: Portfolio engagement (primary goal)
 
 #### Discovery Metrics
 - **Search usage**: How users find projects
@@ -248,7 +245,6 @@ In development, all analytics events are logged to the console:
    - Most filtered tech stacks
 
 4. **Contact Intent**
-   - Book intro clicks
    - Email clicks
    - CV downloads
 
@@ -309,7 +305,6 @@ function isAnalyticsEnabled(): boolean {
 
 ```typescript
 export type AnalyticsEvent =
-  | 'book_intro_click'
   | 'email_click'
   | 'cv_download'
   | 'github_click'
