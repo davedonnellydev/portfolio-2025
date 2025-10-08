@@ -33,7 +33,7 @@ export function ProjectOverview({ role, timeframe, links, techstack, tldr }: Pro
               order={2}
               size="h2"
               fw={700}
-              c="cyan"
+              className={styles.cyanText}
               style={{ fontFamily: 'Satoshi, var(--mantine-font-family)' }}
             >
               Overview
@@ -45,7 +45,7 @@ export function ProjectOverview({ role, timeframe, links, techstack, tldr }: Pro
 
                 </ThemeIcon> */}
                 <Text size="md" maw="65ch">
-                  <Text span c="cyan" fw="600">
+                  <Text span className={styles.cyanText} fw="600">
                     <FontAwesomeIcon icon={faUser} /> Role:{' '}
                   </Text>
                   {role}
@@ -59,7 +59,7 @@ export function ProjectOverview({ role, timeframe, links, techstack, tldr }: Pro
 
                 </ThemeIcon> */}
                 <Text size="md" c="var(--mantine-color-neutral-6)" maw="65ch">
-                  <Text span c="cyan" fw="600">
+                  <Text span className={styles.cyanText} fw="600">
                     <FontAwesomeIcon icon={faCalendar} /> Timeframe:{' '}
                   </Text>
                   {timeframe}
@@ -73,7 +73,7 @@ export function ProjectOverview({ role, timeframe, links, techstack, tldr }: Pro
                   {/* <ThemeIcon radius="md" color="cyan" variant="light" mr="0.5rem">
 
                   </ThemeIcon> */}
-                  <Text span c="cyan" fw="600">
+                  <Text span className={styles.cyanText} fw="600">
                     <FontAwesomeIcon icon={faHeadSideSpeak} /> TL;DR:{' '}
                   </Text>
                   {tldr}
@@ -90,13 +90,19 @@ export function ProjectOverview({ role, timeframe, links, techstack, tldr }: Pro
                   {/* <ThemeIcon radius="md" color="cyan" variant="light">
 
                   </ThemeIcon> */}
-                  <Title order={3} c="cyan">
+                  <Title order={3} className={styles.cyanText}>
                     <FontAwesomeIcon icon={faScrewdriverWrench} /> Tech Stack
                   </Title>
                 </Group>
                 <Group mb="sm">
                   {techstack.map((tech, index) => (
-                    <Badge key={index} variant="light" color="cyan" radius="sm" size="md">
+                    <Badge
+                      key={index}
+                      variant="light"
+                      className={styles.cyanBadge}
+                      radius="sm"
+                      size="md"
+                    >
                       {tech}
                     </Badge>
                   ))}
@@ -107,7 +113,7 @@ export function ProjectOverview({ role, timeframe, links, techstack, tldr }: Pro
                   <Anchor href={links.live} target="_blank" rel="noopener noreferrer">
                     <Button
                       variant="filled"
-                      color="cyan.7"
+                      className={styles.cyanButton}
                       radius="md"
                       leftSection={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
                     >
@@ -119,7 +125,7 @@ export function ProjectOverview({ role, timeframe, links, techstack, tldr }: Pro
                   <Anchor href={links.repo} target="_blank" rel="noopener noreferrer">
                     <Button
                       variant="filled"
-                      color="cyan.7"
+                      className={styles.cyanButton}
                       radius="md"
                       leftSection={<FontAwesomeIcon icon={faGithub} />}
                     >

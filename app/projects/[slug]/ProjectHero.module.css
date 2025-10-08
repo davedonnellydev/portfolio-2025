@@ -29,6 +29,10 @@
   border: 1px solid rgb(63, 63, 70, 0.3);
 }
 
+.outcomeText {
+  color: light-dark(var(--brand-primary-600), var(--brand-primary-dark));
+}
+
 /* Fallback for browsers without backdrop-filter support */
 @supports not (backdrop-filter: blur(16px)) {
   .heroPaper {

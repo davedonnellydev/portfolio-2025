@@ -45,11 +45,11 @@ export function ProjectContent({
             {/* Problem */}
             {problem && (
               <Stack mb="lg">
-                <Title order={2} c="grape.7" mb="md">
+                <Title order={2} className={styles.grapeText} mb="md">
                   Deep dive
                 </Title>
                 <Group>
-                  <Title order={3} c="grape.7">
+                  <Title order={3} className={styles.grapeText}>
                     <FontAwesomeIcon icon={faCircleExclamation} /> The Problem
                   </Title>
                 </Group>
@@ -62,7 +62,7 @@ export function ProjectContent({
             {approach && (
               <Stack mb="lg">
                 <Group>
-                  <Title order={3} c="grape.7">
+                  <Title order={3} className={styles.grapeText}>
                     <FontAwesomeIcon icon={faMap} /> My Approach
                   </Title>
                 </Group>
@@ -75,7 +75,7 @@ export function ProjectContent({
             {result && (
               <Stack mb="lg">
                 <Group>
-                  <Title order={3} c="grape.7">
+                  <Title order={3} className={styles.grapeText}>
                     <FontAwesomeIcon icon={faLocationDot} /> The Result
                   </Title>
                 </Group>
@@ -92,7 +92,7 @@ export function ProjectContent({
                 {/* Architecture */}
                 {architecture && (
                   <Paper withBorder radius="md" p="lg" className={styles.technicalPaper}>
-                    <Title order={3} mb="xs" c="grape.7">
+                    <Title order={3} mb="xs" className={styles.grapeText}>
                       <FontAwesomeIcon icon={faSitemap} /> Architecture & Key Decisions
                     </Title>
                     <Text style={{ lineHeight: 1.7 }}>{architecture}</Text>
@@ -102,7 +102,7 @@ export function ProjectContent({
                 {/* AI Usage */}
                 {aiUsage && (
                   <Paper withBorder radius="md" p="lg" className={styles.technicalPaper}>
-                    <Title order={3} mb="xs" c="grape.7">
+                    <Title order={3} mb="xs" className={styles.grapeText}>
                       <FontAwesomeIcon icon={faUserRobot} /> AI Integration
                     </Title>
                     <Text style={{ lineHeight: 1.7 }}>{aiUsage}</Text>
@@ -117,7 +117,7 @@ export function ProjectContent({
           <Paper radius="md" p="lg" className={styles.codePaper}>
             <Stack>
               <Group>
-                <Title order={3} c="grape.7">
+                <Title order={3} className={styles.grapeText}>
                   <FontAwesomeIcon icon={faCode} /> Code Excerpts
                 </Title>
               </Group>
@@ -148,7 +148,7 @@ export function ProjectContent({
       {/* Next Steps */}
       {nextSteps && (
         <Paper withBorder radius="md" p="lg" shadow="md" className={styles.nextStepsPaper}>
-          <Title order={2} c="pink" mb="md">
+          <Title order={2} className={styles.pinkText} mb="md">
             What's Next?
           </Title>
           <Text style={{ lineHeight: 1.7, fontSize: '1.1rem' }}>{nextSteps}</Text>

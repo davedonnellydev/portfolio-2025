@@ -60,6 +60,16 @@
   border: 1px solid rgb(63, 63, 70, 0.4);
 }
 
+/* Grape color with dark mode support */
+.grapeText {
+  color: light-dark(var(--mantine-color-grape-7), var(--accent-purple-dark));
+}
+
+/* Pink color with dark mode support */
+.pinkText {
+  color: light-dark(var(--mantine-color-pink-5), var(--accent-pink-dark));
+}
+
 /* Fallback for browsers without backdrop-filter support */
 @supports not (backdrop-filter: blur(16px)) {
   .mainPaper,

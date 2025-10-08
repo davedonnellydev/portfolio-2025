@@ -19,7 +19,7 @@ export function BackToProjectsButton() {
         <Link href={backUrl}>
           <Button
             variant="light"
-            color="indigo"
+            color="primary"
             size="sm"
             leftSection={<FontAwesomeIcon icon={faArrowLeft} />}
           >

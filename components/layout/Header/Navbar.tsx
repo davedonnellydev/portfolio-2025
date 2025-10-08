@@ -82,6 +82,7 @@ export function Navbar() {
           }
           position="bottom"
           withArrow
+          zIndex={1003}
         >
           <ActionIcon
             onClick={toggleColorScheme}

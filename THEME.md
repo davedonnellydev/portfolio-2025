@@ -732,6 +732,99 @@ Located in the navbar with:
 - Tooltip with current mode indication
 - Smooth transitions between modes
 
+### Best Practices for Color Usage
+
+#### ✅ DO: Use CSS classes with light-dark() for accent colors
+
+When using accent colors that need to adapt to dark mode, create custom CSS classes:
+
+```tsx
+<Title className={styles.accentText}>Title</Title>
+```
+
+```css
+.accentText {
+  color: light-dark(var(--accent-cyan), var(--accent-cyan-dark));
+}
+```
+
+**Why:** The `light-dark()` function automatically selects the appropriate color based on the current color scheme, ensuring proper WCAG AAA contrast ratios in both modes.
+
+#### ✅ DO: Use `color="primary"` for the brand color
+
+```tsx
+<Button color="primary">Click me</Button>
+<Badge color="primary">Badge</Badge>
+```
+
+**Why:** The `primary` color scale is properly configured in `theme.ts` with appropriate values for both light and dark modes through Mantine's built-in mechanisms.
+
+#### ❌ AVOID: Using Mantine color props for accent colors
+
+```tsx
+/* Don't do this - won't adapt to dark mode properly */
+<Title c="cyan">Title</Title>
+<Badge color="grape">Badge</Badge>
+<Button color="pink.5">Button</Button>
+```
+
+**Why:** Mantine's color scales in `theme.ts` use the same hex values for both light and dark modes. The color props don't automatically switch to lighter variants for better contrast in dark mode.
+
+#### When to Use Each Approach
+
+| Use Case | Approach | Example |
+|----------|----------|---------|
+| **Brand primary color** | Mantine `color="primary"` | `<Button color="primary">` |
+| **Accent colors** (cyan, grape, pink) | CSS classes with `light-dark()` | `<Title className={styles.cyanText}>` |
+| **Neutral colors** (gray, dimmed) | Mantine's built-in colors | `<Text c="dimmed">` |
+| **Semantic colors** (success, error) | Mantine's built-in colors | `<Badge color="green">` |
+
+#### Color Mapping Reference
+
+| Color | Light Mode | Dark Mode | CSS Variable (Light) | CSS Variable (Dark) |
+|-------|-----------|-----------|---------------------|---------------------|
+| **Indigo/Primary** | `#4F46E5` | `#A3A5F3` | `--brand-primary-600` | `--brand-primary-dark` |
+| **Cyan** | `#06B6D4` | `#67E8F9` | `--accent-cyan` | `--accent-cyan-dark` |
+| **Grape/Purple** | `#7E22CE` | `#D8B4FE` | `var(--mantine-color-grape-7)` | `--accent-purple-dark` |
+| **Pink** | `#EC4899` | `#F9A8D4` | `var(--mantine-color-pink-5)` | `--accent-pink-dark` |
+
+#### Example Implementation
+
+```tsx
+// Component.tsx
+export function MyComponent() {
+  return (
+    <div>
+      <Title className={styles.cyanHeading}>Overview</Title>
+      <Badge className={styles.cyanBadge}>New</Badge>
+      <Button className={styles.cyanButton}>View More</Button>
+    </div>
+  );
+}
+```
+
+```css
+/* Component.module.css */
+.cyanHeading {
+  color: light-dark(var(--accent-cyan), var(--accent-cyan-dark));
+}
+
+.cyanBadge {
+  background-color: light-dark(var(--mantine-color-cyan-1), var(--mantine-color-cyan-9)) !important;
+  color: light-dark(var(--accent-cyan), var(--accent-cyan-dark)) !important;
+}
+
+.cyanButton {
+  background-color: light-dark(var(--mantine-color-cyan-7), var(--mantine-color-cyan-6)) !important;
+}
+
+.cyanButton:hover {
+  background-color: light-dark(var(--mantine-color-cyan-8), var(--mantine-color-cyan-5)) !important;
+}
+```
+
+**Note:** The `!important` declaration is necessary to override Mantine's default component styles. While generally avoided, it's acceptable here as we're overriding third-party library styles with specific custom color schemes.
+
 ---
 
 ## Performance
@@ -1435,7 +1528,8 @@ export default function NewPage() {
 | 1.0 | Oct 2024 | Initial theme documentation |
 | 2.0 | Oct 2024 | Added glassmorphism system |
 | 2.1 | Oct 2024 | Added animated background documentation |
-| 3.0 | Oct 8, 2025 | **Current** - Comprehensive UX behaviors, implementation decisions, development guidelines |
+| 3.0 | Oct 8, 2025 | Comprehensive UX behaviors, implementation decisions, development guidelines |
+| 3.1 | Oct 8, 2025 | **Current** - Added dark mode color best practices with `light-dark()` function |
 
 ---
 

@@ -35,7 +35,7 @@ export function ProjectHero({ title, description, outcome, metrics }: ProjectHer
         <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
           <Stack gap="md">
             <Paper radius="md" p="md" className={styles.outcomePaper}>
-              <Text fw={600} c="indigo" size="lg">
+              <Text fw={600} className={styles.outcomeText} size="lg">
                 <FontAwesomeIcon icon={faBullseyeArrow} /> {outcome}
               </Text>
             </Paper>
@@ -47,7 +47,7 @@ export function ProjectHero({ title, description, outcome, metrics }: ProjectHer
                   <Badge
                     key={index}
                     variant="light"
-                    color="indigo"
+                    color="primary"
                     size="lg"
                     radius="md"
                     style={{ fontSize: '0.9rem' }}
