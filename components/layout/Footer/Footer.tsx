@@ -60,7 +60,7 @@ export function Footer() {
           {/* Primary CTA - Email Button */}
           <div className={classes.primaryCtaDesktopWrapper}>
             <Button
-              size="xl"
+              size="md"
               variant="gradient"
               gradient={{ from: 'indigo', to: 'grape', deg: 135 }}
               onClick={handleEmailClick}

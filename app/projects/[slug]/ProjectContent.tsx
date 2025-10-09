@@ -44,11 +44,11 @@ export function ProjectContent({
           <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
             {/* Problem */}
             {problem && (
-              <Stack mb="lg">
+              <Stack mb="lg" id="deep-dive">
                 <Title order={2} className={styles.grapeText} mb="md">
                   Deep dive
                 </Title>
-                <Group>
+                <Group id="problem">
                   <Title order={3} className={styles.grapeText}>
                     <FontAwesomeIcon icon={faCircleExclamation} /> The Problem
                   </Title>
@@ -60,7 +60,7 @@ export function ProjectContent({
             )}
             {/* Approach */}
             {approach && (
-              <Stack mb="lg">
+              <Stack mb="lg" id="approach">
                 <Group>
                   <Title order={3} className={styles.grapeText}>
                     <FontAwesomeIcon icon={faMap} /> My Approach
@@ -73,7 +73,7 @@ export function ProjectContent({
             )}
             {/* Result */}
             {result && (
-              <Stack mb="lg">
+              <Stack mb="lg" id="result">
                 <Group>
                   <Title order={3} className={styles.grapeText}>
                     <FontAwesomeIcon icon={faLocationDot} /> The Result
@@ -91,7 +91,13 @@ export function ProjectContent({
               <Stack gap="xl" mb="xl">
                 {/* Architecture */}
                 {architecture && (
-                  <Paper withBorder radius="md" p="lg" className={styles.technicalPaper}>
+                  <Paper
+                    id="architecture"
+                    withBorder
+                    radius="md"
+                    p="lg"
+                    className={styles.technicalPaper}
+                  >
                     <Title order={3} mb="xs" className={styles.grapeText}>
                       <FontAwesomeIcon icon={faSitemap} /> Architecture & Key Decisions
                     </Title>
@@ -101,7 +107,13 @@ export function ProjectContent({
 
                 {/* AI Usage */}
                 {aiUsage && (
-                  <Paper withBorder radius="md" p="lg" className={styles.technicalPaper}>
+                  <Paper
+                    id="ai-usage"
+                    withBorder
+                    radius="md"
+                    p="lg"
+                    className={styles.technicalPaper}
+                  >
                     <Title order={3} mb="xs" className={styles.grapeText}>
                       <FontAwesomeIcon icon={faUserRobot} /> AI Integration
                     </Title>
@@ -114,7 +126,7 @@ export function ProjectContent({
         </Grid>
         {/* Code Excerpts */}
         {codeExcerpts && codeExcerpts.length > 0 && (
-          <Paper radius="md" p="lg" className={styles.codePaper}>
+          <Paper id="code-excerpts" radius="md" p="lg" className={styles.codePaper}>
             <Stack>
               <Group>
                 <Title order={3} className={styles.grapeText}>
@@ -147,7 +159,14 @@ export function ProjectContent({
       </Paper>
       {/* Next Steps */}
       {nextSteps && (
-        <Paper withBorder radius="md" p="lg" shadow="md" className={styles.nextStepsPaper}>
+        <Paper
+          id="next-steps"
+          withBorder
+          radius="md"
+          p="lg"
+          shadow="md"
+          className={styles.nextStepsPaper}
+        >
           <Title order={2} className={styles.pinkText} mb="md">
             What's Next?
           </Title>

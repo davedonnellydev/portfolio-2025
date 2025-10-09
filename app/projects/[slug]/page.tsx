@@ -1,15 +1,24 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Button, Container, Image } from '@mantine/core';
+import {
+  faCircleExclamation,
+  faCode,
+  faLocationDot,
+  faMap,
+  faSitemap,
+  faUserRobot,
+} from '@awesome.me/kit-7f37d33478/icons/classic/light';
+import { Container, Image } from '@mantine/core';
 import { ProjectPageTracker } from '@/components/projects/ProjectPageTracker';
 import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 import { projects } from '@/data/projects';
 import { generateProjectSchema } from '@/lib/seo';
-import { BackToProjectsButton } from './BackToProjectsButton';
 import { ProjectContent } from './ProjectContent';
 import { ProjectHero } from './ProjectHero';
+import { ProjectNavBar } from './ProjectNavBar';
 import { ProjectOverview } from './ProjectOverview';
+import { TOCSection } from './TableOfContents';
 
 interface ProjectPageProps {
   params: Promise<{
@@ -78,6 +87,34 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     image: project.screenshot,
   });
 
+  // Build table of contents sections dynamically based on available content
+  const tocSections: TOCSection[] = [{ id: 'overview', label: 'Overview' }];
+
+  if (project.content?.problem) {
+    tocSections.push({ id: 'deep-dive', label: 'Deep Dive', icon: faCircleExclamation });
+  }
+  if (project.content?.problem) {
+    tocSections.push({ id: 'problem', label: 'The Problem', icon: faCircleExclamation });
+  }
+  if (project.content?.approach) {
+    tocSections.push({ id: 'approach', label: 'My Approach', icon: faMap });
+  }
+  if (project.content?.result) {
+    tocSections.push({ id: 'result', label: 'The Result', icon: faLocationDot });
+  }
+  if (project.content?.architecture) {
+    tocSections.push({ id: 'architecture', label: 'Architecture', icon: faSitemap });
+  }
+  if (project.content?.aiUsage) {
+    tocSections.push({ id: 'ai-usage', label: 'AI Integration', icon: faUserRobot });
+  }
+  if (project.content?.codeExcerpts && project.content.codeExcerpts.length > 0) {
+    tocSections.push({ id: 'code-excerpts', label: 'Code Excerpts', icon: faCode });
+  }
+  if (project.content?.nextSteps) {
+    tocSections.push({ id: 'next-steps', label: "What's Next?" });
+  }
+
   return (
     <>
       <AnimatedBackground />
@@ -88,18 +125,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
       />
-      <Container size="lg">
-        {/* Back Button */}
-        <Suspense
-          fallback={
-            <Button variant="light" color="indigo" size="sm" disabled mb="xl">
-              Back to Projects
-            </Button>
-          }
-        >
-          <BackToProjectsButton />
-        </Suspense>
-      </Container>
+      <Suspense fallback={null}>
+        <ProjectNavBar sections={tocSections} />
+      </Suspense>
       {/* Hero Image - Full Width */}
       <Container fluid px={0}>
         <Image

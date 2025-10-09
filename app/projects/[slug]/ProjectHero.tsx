@@ -14,7 +14,7 @@ interface ProjectHeroProps {
 
 export function ProjectHero({ title, description, outcome, metrics }: ProjectHeroProps) {
   return (
-    <Paper radius="lg" p="xl" mb="xl" shadow="md" className={styles.heroPaper}>
+    <Paper id="overview" radius="lg" p="xl" mb="xl" shadow="md" className={styles.heroPaper}>
       <Grid gutter="lg">
         <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
           <Stack gap="lg">

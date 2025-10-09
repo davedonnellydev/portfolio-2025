@@ -1,0 +1,140 @@
+/* Table of Contents Component */
+
+.tocContainer {
+  /* Frosted glass effect */
+  background: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: clamp(0.5rem, 1vw, 0.75rem);
+  border: 1px solid rgb(228, 228, 231, 0.3);
+  box-shadow: 0 4px 16px 0 rgb(0, 0, 0, 0.06);
+  padding: clamp(0.5rem, 1vw, 0.75rem);
+  position: relative;
+  isolation: isolate;
+}
+
+[data-mantine-color-scheme='dark'] .tocContainer {
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(12px)) {
+  .tocContainer {
+    background: rgb(255, 255, 255, 0.95);
+  }
+
+  [data-mantine-color-scheme='dark'] .tocContainer {
+    background: rgb(18, 18, 27, 0.95);
+  }
+}
+
+.tocButton {
+  font-weight: 500;
+  transition: all 0.2s ease;
+  /* Ensure button is clickable */
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+  font-size: 0.75rem;
+}
+
+.tocButton:hover .chevron {
+  transform: translateY(2px);
+}
+
+/* Dropdown styles */
+.dropdown {
+  /* Enhanced frosted glass effect for dropdown */
+  background: rgb(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgb(228, 228, 231, 0.5) !important;
+  box-shadow: 0 8px 32px 0 rgb(0, 0, 0, 0.12) !important;
+  z-index: 1001 !important; /* Above navbar and header */
+}
+
+[data-mantine-color-scheme='dark'] .dropdown {
+  background: rgb(18, 18, 27, 0.95) !important;
+  border: 1px solid rgb(63, 63, 70, 0.5) !important;
+}
+
+.dropdownLabel {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mantine-color-dimmed);
+  padding: 0.5rem 0.75rem;
+}
+
+.menuItem {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin: 0.25rem 0.5rem;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  /* Ensure menu items are touchable on mobile */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menuItem:hover {
+  background: rgb(99, 102, 241, 0.1);
+  transform: translateX(4px);
+}
+
+[data-mantine-color-scheme='dark'] .menuItem:hover {
+  background: rgb(99, 102, 241, 0.2);
+}
+
+.sectionIcon {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .tocButton {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    /* Larger touch target on mobile */
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .dropdown {
+    width: 240px !important;
+    /* Ensure dropdown is scrollable if content is too tall */
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+  }
+
+  .menuItem {
+    padding: 0.875rem 1rem; /* Larger touch targets */
+    min-height: 44px;
+  }
+
+  /* Remove hover effects on mobile */
+  .menuItem:hover {
+    transform: none;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .tocButton {
+    padding: 0.625rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .dropdown {
+    width: calc(100vw - 2rem) !important;
+    max-width: 320px !important;
+    max-height: calc(100vh - 120px);
+  }
+}

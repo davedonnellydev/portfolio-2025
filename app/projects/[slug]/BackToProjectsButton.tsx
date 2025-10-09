@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { faArrowLeft } from '@awesome.me/kit-7f37d33478/icons/classic/light';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Group } from '@mantine/core';
+import { Button } from '@mantine/core';
 import styles from './BackToProjectsButton.module.css';
 
 export function BackToProjectsButton() {
@@ -15,18 +15,16 @@ export function BackToProjectsButton() {
 
   return (
     <div className={styles.buttonContainer}>
-      <Group>
-        <Link href={backUrl}>
-          <Button
-            variant="light"
-            color="primary"
-            size="sm"
-            leftSection={<FontAwesomeIcon icon={faArrowLeft} />}
-          >
-            Back to Projects
-          </Button>
-        </Link>
-      </Group>
+      <Link href={backUrl}>
+        <Button
+          variant="light"
+          color="primary"
+          size="sm"
+          leftSection={<FontAwesomeIcon icon={faArrowLeft} />}
+        >
+          Back to Projects
+        </Button>
+      </Link>
     </div>
   );
 }
