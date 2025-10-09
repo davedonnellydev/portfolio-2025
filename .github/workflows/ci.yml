@@ -29,6 +29,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
+      - name: Configure FontAwesome registry
+        run: |
+          npm config set "@awesome.me:registry" https://npm.fontawesome.com/
+          npm config set "@fortawesome:registry" https://npm.fontawesome.com/
+          npm config set "//npm.fontawesome.com/:_authToken" ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+
       - name: Install dependencies
         run: npm ci
 
@@ -72,6 +78,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
+      - name: Configure FontAwesome registry
+        run: |
+          npm config set "@awesome.me:registry" https://npm.fontawesome.com/
+          npm config set "@fortawesome:registry" https://npm.fontawesome.com/
+          npm config set "//npm.fontawesome.com/:_authToken" ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+
       - name: Install dependencies
         run: npm ci
 
@@ -101,6 +113,12 @@ jobs:
         with:
           node-version: 20.x
           cache: 'npm'
+
+      - name: Configure FontAwesome registry
+        run: |
+          npm config set "@awesome.me:registry" https://npm.fontawesome.com/
+          npm config set "@fortawesome:registry" https://npm.fontawesome.com/
+          npm config set "//npm.fontawesome.com/:_authToken" ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
 
       - name: Install dependencies
         run: npm ci

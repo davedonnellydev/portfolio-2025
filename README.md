@@ -174,6 +174,21 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
 
+#### FontAwesome Pro Authentication
+
+This project uses FontAwesome Pro which requires authentication. Your local `.npmrc` file (gitignored) should already be configured. For new developers or CI/CD:
+
+**Local Development:**
+- The `.npmrc` file contains your FontAwesome Pro token (already configured, gitignored)
+- If missing, copy `.npmrc.example` and add your token from [fontawesome.com](https://fontawesome.com)
+
+**GitHub Actions CI/CD:**
+- Add `FONTAWESOME_NPM_AUTH_TOKEN` secret in GitHub repository settings
+- Settings → Secrets and variables → Actions → New repository secret
+- The CI workflow is already configured to use this secret
+
+**Alternative:** To switch to free FontAwesome, see the [Iconography section in THEME.md](./THEME.md#iconography)
+
 ### Development Scripts
 
 ```bash

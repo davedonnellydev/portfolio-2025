@@ -678,7 +678,9 @@ Apply via `className` on wrappers or via `sx` with `animation` values.
 
 ## Iconography
 
-Use FontAwesome (already installed) for consistency:
+This project uses **FontAwesome Pro** (kit: `@awesome.me/kit-7f37d33478`) for consistency and access to additional icon variants.
+
+### Usage
 
 ```tsx
 // Import from FontAwesome kit
@@ -694,6 +696,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 - Medium: `16px` (buttons, badges)
 - Large: `18px` (navigation, CTAs)
 - Extra large: `24px` (hero sections)
+
+### Switching to Free FontAwesome
+
+If you don't have FontAwesome Pro access, you can switch to the free version:
+
+1. Remove the Pro kit:
+   ```bash
+   npm uninstall @awesome.me/kit-7f37d33478
+   ```
+
+2. Install free packages:
+   ```bash
+   npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons @fortawesome/react-fontawesome
+   ```
+
+3. Update imports in components:
+   ```tsx
+   // Before (Pro)
+   import { faMoon } from '@awesome.me/kit-7f37d33478/icons/classic/light';
+
+   // After (Free)
+   import { faMoon } from '@fortawesome/free-solid-svg-icons';
+   ```
+
+4. Delete `.npmrc` and `.npmrc.example` (no longer needed)
+
+5. Remove GitHub secret `FONTAWESOME_NPM_AUTH_TOKEN`
 
 ---
 
