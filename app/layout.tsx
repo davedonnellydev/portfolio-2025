@@ -61,7 +61,7 @@ export const metadata = {
       'Portfolio of Dave Donnelly, a junior web developer based in Sydney. Specializing in Next.js, React, TypeScript, and accessible web applications.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/api/og',
         width: 1200,
         height: 630,
         alt: 'Dave Donnelly - Web Developer Portfolio',
@@ -73,7 +73,7 @@ export const metadata = {
     title: 'Dave Donnelly - Web Developer',
     description:
       'Portfolio of Dave Donnelly, a junior web developer based in Sydney. Specializing in Next.js, React, TypeScript, and accessible web applications.',
-    images: ['/og-image.png'],
+    images: ['/api/og'],
   },
   robots: {
     index: true,

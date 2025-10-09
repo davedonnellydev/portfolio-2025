@@ -20,7 +20,7 @@ export function generateMetadata({
   title,
   description,
   path,
-  image = '/og-image.png',
+  image = '/api/og',
   type = 'website',
 }: MetadataProps) {
   const url = `${SITE_URL}${path}`;
@@ -102,6 +102,7 @@ export function generateProjectSchema(project: {
 
 /**
  * Generate metadata for individual project pages
+ * Uses dynamic OG image generation for unique social media cards
  */
 export function generateProjectMetadata(project: {
   title: string;
@@ -117,7 +118,7 @@ export function generateProjectMetadata(project: {
     title: project.title,
     description,
     path,
-    image: project.screenshot,
+    image: `/api/og/project/${project.slug}`,
     type: 'article',
   });
 }

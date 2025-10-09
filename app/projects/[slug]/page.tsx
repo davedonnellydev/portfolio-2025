@@ -13,7 +13,7 @@ import { Container, Image } from '@mantine/core';
 import { ProjectPageTracker } from '@/components/projects/ProjectPageTracker';
 import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 import { projects } from '@/data/projects';
-import { generateProjectSchema } from '@/lib/seo';
+import { generateProjectSchema, generateProjectMetadata } from '@/lib/seo';
 import { ProjectContent } from './ProjectContent';
 import { ProjectHero } from './ProjectHero';
 import { ProjectNavBar } from './ProjectNavBar';
@@ -33,7 +33,7 @@ export async function generateStaticParams() {
   }));
 }
 
-// Generate metadata for each project
+// Generate metadata for each project using dynamic OG images
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
@@ -44,31 +44,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
-  const description = `${project.outcome} ${project.description}`;
-
-  return {
-    title: `${project.title}`,
-    description,
-    openGraph: {
-      title: `${project.title} | Dave Donnelly`,
-      description,
-      images: [
-        {
-          url: project.screenshot,
-          width: 1200,
-          height: 630,
-          alt: project.title,
-        },
-      ],
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${project.title}`,
-      description,
-      images: [project.screenshot],
-    },
-  };
+  return generateProjectMetadata({
+    title: project.title,
+    description: project.description,
+    slug: project.slug,
+    screenshot: project.screenshot,
+    outcome: project.outcome,
+  });
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
