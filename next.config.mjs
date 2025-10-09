@@ -11,6 +11,7 @@ export default withBundleAnalyzer({
   },
   experimental: {
     optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+    optimizeCss: true, // Enable CSS optimization for better performance
   },
   // Performance optimizations
   compiler: {

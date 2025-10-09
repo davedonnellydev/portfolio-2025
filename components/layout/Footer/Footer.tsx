@@ -39,6 +39,8 @@ export function Footer() {
 
   return (
     <footer
+      role="contentinfo"
+      aria-label="Contact information and social links"
       className={`${classes.footer} ${isVisible ? classes.visible : classes.hidden}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

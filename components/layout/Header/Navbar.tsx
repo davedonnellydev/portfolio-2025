@@ -179,7 +179,7 @@ export function Navbar() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className={classes.desktopNav}>
+      <nav className={classes.desktopNav} aria-label="Main navigation">
         <Group gap="md">
           {navLinks.map((link) => {
             const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
@@ -200,8 +200,10 @@ export function Navbar() {
                   <FontAwesomeIcon
                     icon={faArrowUpRightFromSquare}
                     style={{ width: '12px', height: '12px' }}
+                    aria-hidden="true"
                   />
                 </Group>
+                <span className="sr-only">(opens in new window)</span>
               </a>
             ) : (
               <div
@@ -289,7 +291,7 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className={classes.mobileNav}>
+      <nav className={classes.mobileNav} aria-label="Mobile navigation">
         <Group gap="sm">
           <Tooltip label="Toggle color scheme" position="bottom" withArrow zIndex={1003}>
             <ActionIcon

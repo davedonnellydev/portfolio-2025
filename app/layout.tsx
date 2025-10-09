@@ -12,6 +12,7 @@ import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from '@mantine/notifications';
 import { Footer } from '@/components/layout/Footer/Footer';
 import { Header } from '@/components/layout/Header/Header';
+import { SkipLink } from '@/components/shared/SkipLink';
 import { WebVitals } from '@/components/shared/WebVitals';
 import { theme } from '../theme';
 
@@ -97,19 +98,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <ColorSchemeScript />
         <link rel="shortcut icon" href="/favicon.svg" />
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
-        />
-        {/* Preconnect to external domains for faster resource loading */}
-        <link rel="preconnect" href="https://api.fontshare.com" />
-        <link rel="dns-prefetch" href="https://api.fontshare.com" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Preload critical fonts - loads in parallel with CSS for faster LCP */}
         <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@500,600,700,900&display=swap"
-          rel="stylesheet"
+          rel="preload"
+          href="/fonts/satoshi/Satoshi-Bold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/satoshi/Satoshi-Medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
         />
       </head>
       <body>
+        <SkipLink />
         <MantineProvider theme={theme}>
           <Notifications />
           <ModalsProvider>

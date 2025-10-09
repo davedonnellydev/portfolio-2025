@@ -100,7 +100,7 @@ export function reportWebVital(metric: {
  * Measure and report custom performance metrics
  */
 export class PerformanceMonitor {
-  private marks: Map<string, number> = new Map();
+  private marks = new Map<string, number>();
 
   /**
    * Start measuring a custom performance metric

@@ -23,13 +23,13 @@ interface Cloud {
 }
 
 interface AnimatedBackgroundProps {
-  /** Spacing between dots in pixels (default: 40) */
+  /** Spacing between dots in pixels (default: 30) */
   dotSpacing?: number;
   /** Dot radius in pixels (default: 2) */
   dotRadius?: number;
-  /** Speed of cloud movement (default: 1) */
+  /** Speed of cloud movement (default: 3) */
   cloudSpeed?: number;
-  /** Number of colored clouds (default: 3) */
+  /** Number of colored clouds (default: 2) */
   cloudCount?: number;
   /** Enable mouse attraction - clouds move toward mouse (default: false) */
   mouseAttraction?: boolean;
@@ -38,10 +38,10 @@ interface AnimatedBackgroundProps {
 }
 
 export function AnimatedBackground({
-  dotSpacing = 10,
-  dotRadius = 3,
-  cloudSpeed = 5,
-  cloudCount = 3,
+  dotSpacing = 30,
+  dotRadius = 2,
+  cloudSpeed = 3,
+  cloudCount = 2,
   mouseAttraction = false,
   mouseAttractionStrength = 0.0005,
 }: AnimatedBackgroundProps) {

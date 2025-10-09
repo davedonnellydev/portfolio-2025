@@ -20,13 +20,15 @@ export default function HomePage() {
     <>
       <AnimatedBackground />
 
-      <Hero />
+      <main id="main-content">
+        <Hero />
 
-      <FeaturedProjects projects={projects} />
+        <FeaturedProjects projects={projects} />
 
-      <WhyHireMe />
+        <WhyHireMe />
 
-      <MicroBio {...microBioData} />
+        <MicroBio {...microBioData} />
+      </main>
     </>
   );
 }

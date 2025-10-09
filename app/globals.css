@@ -1,5 +1,38 @@
 /* Global styles for the portfolio */
 
+/* Satoshi Font - Self-hosted */
+@font-face {
+    font-family: Satoshi;
+    src: url('/fonts/satoshi/Satoshi-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: Satoshi;
+    src: url('/fonts/satoshi/Satoshi-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: Satoshi;
+    src: url('/fonts/satoshi/Satoshi-Bold.woff2') format('woff2');
+    font-weight: 600 700;  /* Handle both 600 and 700 */
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: Satoshi;
+    src: url('/fonts/satoshi/Satoshi-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
 :root {
   /* Brand primary colors */
   --brand-primary-400: #818CF8;
@@ -90,6 +123,19 @@ html {
   outline: var(--focus-ring-width) solid var(--focus-ring-color);
   outline-offset: var(--focus-ring-offset);
   border-radius: 4px;
+}
+
+/* Screen reader only text - hides content visually but keeps it accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* Custom scrollbar for modern look */

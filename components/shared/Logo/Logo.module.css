@@ -1,0 +1,26 @@
+.logo {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    transition: none;
+  }
+}
