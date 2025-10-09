@@ -5,8 +5,6 @@
  * Integrates with analytics to track Core Web Vitals and custom performance metrics.
  */
 
-import { analytics } from './analytics';
-
 /**
  * Web Vitals thresholds (based on Google's Core Web Vitals)
  */
