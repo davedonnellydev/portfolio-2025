@@ -140,3 +140,4 @@ lhci_reports/
 
 # Storybook build
 storybook-static/
+.vercel
