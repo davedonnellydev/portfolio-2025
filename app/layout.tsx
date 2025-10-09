@@ -12,6 +12,7 @@ import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from '@mantine/notifications';
 import { Footer } from '@/components/layout/Footer/Footer';
 import { Header } from '@/components/layout/Header/Header';
+import { WebVitals } from '@/components/shared/WebVitals';
 import { theme } from '../theme';
 
 config.autoAddCss = false;
@@ -100,6 +101,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="dns-prefetch" href="https://api.fontshare.com" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@500,600,700,900&display=swap"
           rel="stylesheet"
@@ -113,6 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
             <Footer />
             <Analytics />
+            <WebVitals />
           </ModalsProvider>
         </MantineProvider>
       </body>

@@ -46,7 +46,7 @@ export function ProjectCard({
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className={styles.image}
-            unoptimized
+            loading={location === 'home' && project.featured ? 'eager' : 'lazy'}
           />
         </div>
       </Card.Section>

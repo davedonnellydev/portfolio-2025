@@ -8,7 +8,7 @@ import classes from './Hero.module.css';
 
 export function Hero() {
   const handleScrollToProjects = () => {
-    const projectsSection = document.getElementById('signature-projects');
+    const projectsSection = document.getElementById('featured-projects');
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: 'smooth' });
     }
