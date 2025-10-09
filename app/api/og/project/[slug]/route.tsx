@@ -17,7 +17,7 @@ export const runtime = 'edge';
  * Example: /api/og/project/learning-platform
  */
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {

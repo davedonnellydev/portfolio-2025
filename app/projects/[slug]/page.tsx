@@ -13,7 +13,7 @@ import { Container, Image } from '@mantine/core';
 import { ProjectPageTracker } from '@/components/projects/ProjectPageTracker';
 import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 import { projects } from '@/data/projects';
-import { generateProjectSchema, generateProjectMetadata } from '@/lib/seo';
+import { generateProjectMetadata, generateProjectSchema } from '@/lib/seo';
 import { ProjectContent } from './ProjectContent';
 import { ProjectHero } from './ProjectHero';
 import { ProjectNavBar } from './ProjectNavBar';

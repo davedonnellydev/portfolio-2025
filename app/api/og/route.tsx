@@ -162,9 +162,7 @@ export async function GET(request: NextRequest) {
           }}
         >
           <div>Dave Donnelly</div>
-          <div style={{ fontSize: '36px', color: '#A3A5F3', marginTop: '20px' }}>
-            Web Developer
-          </div>
+          <div style={{ fontSize: '36px', color: '#A3A5F3', marginTop: '20px' }}>Web Developer</div>
         </div>
       ),
       {
