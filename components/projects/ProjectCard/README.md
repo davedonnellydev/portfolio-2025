@@ -1,19 +1,17 @@
 # ProjectCard Component
 
-A reusable card component for displaying project information across the portfolio site.
+## Overview
+
+The `ProjectCard` component displays a project in a card format with screenshot, description, tech stack, and action buttons. It's used on both the homepage (featured projects) and the projects listing page.
 
 ## Features
 
-- **Responsive design** with mobile-first approach
-- **Optimized images** using Next.js Image component
-- **Hover effects** with subtle lift and shadow
-- **Highlighted outcome metric** in gradient box
-- **Tech stack badges** for easy filtering
-- **Conditional action buttons** (Live/Code only show if URLs provided)
-- **Accessibility-first** with adequate touch targets (44×44px minimum)
-- **Dark mode support** with automatic color adaptation
-- **Performance optimized** using GPU-accelerated transforms
-- **Respects reduced motion** preferences
+- **Project Screenshot**: Optimized Next.js Image with lazy loading
+- **Project Details**: Title, description, and outcome metric
+- **Tech Stack Badges**: Color-coded chips showing technologies used
+- **Action Buttons**: Links to case study, live demo, and repository
+- **Analytics Tracking**: Tracks user interactions for all CTAs
+- **Search Parameter Preservation**: Maintains URL params when navigating to case study
 
 ## Usage
 
@@ -21,100 +19,150 @@ A reusable card component for displaying project information across the portfoli
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { projects } from '@/data/projects';
 
-export default function ProjectsPage() {
-  return (
-    <Grid>
-      {projects.map((project) => (
-        <Grid.Col key={project.slug} span={{ base: 12, sm: 6, lg: 4 }}>
-          <ProjectCard project={project} />
-        </Grid.Col>
-      ))}
-    </Grid>
-  );
-}
+// Basic usage
+<ProjectCard project={projects[0]} />
+
+// With search params (on projects page)
+<ProjectCard
+  project={project}
+  currentSearchParams="tech=React&search=learning"
+  location="projects"
+/>
+
+// On homepage
+<ProjectCard
+  project={project}
+  location="home"
+/>
 ```
 
 ## Props
 
-| Prop | Type | Required | Description |
-|------|------|----------|-------------|
-| `project` | `Project` | Yes | Project data object from `/data/projects.ts` |
+### `ProjectCardProps`
 
-## Project Data Structure
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `project` | `Project` | Yes | - | Project data object containing all project information |
+| `currentSearchParams` | `string` | No | - | URL search parameters to preserve when navigating to case study |
+| `location` | `'home' \| 'projects'` | No | `'projects'` | Where the card is displayed, affects analytics tracking |
 
-The component expects a `Project` object with the following structure:
+### `Project` Interface
 
 ```typescript
-{
-  slug: string;              // URL-friendly identifier
-  title: string;             // Project title
-  description: string;       // 1-2 sentence description
-  outcome: string;           // Highlighted outcome/result
-  screenshot: string;        // Path to project screenshot
-  techStack: string[];       // Array of technology names
+interface Project {
+  slug: string;           // URL slug for the project
+  title: string;          // Project title
+  description: string;    // Short description
+  outcome: string;        // Key outcome/achievement
+  screenshot: string;     // Path to screenshot image
+  techStack: string[];    // Array of technology names
   links: {
-    caseStudy: string;       // Link to detailed case study (required)
-    live?: string;           // Link to live demo (optional)
-    repo?: string;           // Link to code repository (optional)
+    live?: string;        // Live demo URL (optional)
+    repo?: string;        // GitHub repository URL (optional)
+    caseStudy: string;    // Case study page path
   };
-  featured: boolean;         // Whether to feature on home page
+  featured: boolean;      // Whether featured on homepage
 }
 ```
 
 ## Styling
 
-The component uses CSS Modules following the THEME.md guidelines:
+Component uses CSS Modules (`ProjectCard.module.css`) with the following classes:
 
-- **Fluid sizing** with `clamp()` for responsive typography and spacing
-- **Content-driven layout** - no fixed heights
-- **Logical properties** for RTL support
-- **CSS custom properties** for theme integration
-- **GPU-accelerated animations** (transform/opacity only)
+- `.card` - Card container with hover effects
+- `.imageSection` - Screenshot section
+- `.imageWrapper` - Image container maintaining aspect ratio
+- `.image` - Next.js Image with object-fit cover
+- `.content` - Card content container
+- `.title` - Project title styling
+- `.outcomeWrapper` - Outcome metric container
+- `.outcomeLabel` - "Outcome:" label
+- `.outcome` - Outcome text with accent color
+- `.techStack` - Tech badge container
+- `.actions` - Button group container
+- `.actionButton` - Primary action button
+
+## Analytics Events
+
+The component tracks the following analytics events:
+
+- `case_study_click` - When user clicks "Read case study" button
+- `live_demo_click` - When user clicks "Live" button
+- `repo_click` - When user clicks "Code" button
+
+All events include:
+- `project_slug` - The project slug
+- `project_title` - The project title
+- `location` - Where the card is displayed ('home' or 'projects')
 
 ## Accessibility
 
 - Semantic HTML structure with proper heading hierarchy
-- Visible focus states for keyboard navigation
-- Adequate touch targets (minimum 44×44px on mobile)
-- Color contrast meets WCAG AA standards
-- Alt text for images
-- External links open with `rel="noopener noreferrer"` for security
+- Alt text for all images (describes project screenshot)
+- Keyboard accessible buttons and links
+- External links open in new tab with `rel="noopener noreferrer"`
+- Focus states on all interactive elements
 
 ## Performance
 
-- Next.js Image optimization with responsive sizes
-- Lazy loading for below-fold images
-- Minimal CSS with scoped modules
-- GPU-accelerated hover effects
-- Respects `prefers-reduced-motion`
+- **Lazy Loading**: Images lazy load by default, except for featured projects on homepage
+- **Responsive Images**: Uses `sizes` prop for optimal image loading
+- **Code Splitting**: Client component with analytics loaded only when needed
 
-## Responsive Behavior
+## Examples
 
-### Mobile (< 768px)
-- Full width layout
-- Stacked action buttons
-- Optimized image sizes
+### Featured Project on Homepage
 
-### Tablet (768px - 1200px)
-- 2-column grid recommended
-- Horizontal button layout
+```tsx
+<ProjectCard
+  project={featuredProject}
+  location="home"
+/>
+```
 
-### Desktop (> 1200px)
-- 3-column grid recommended
-- All features visible
+### Filtered Projects Page
 
-## Dark Mode
+```tsx
+const filteredProjects = projects.filter(/* ... */);
+const searchParams = new URLSearchParams({ tech: 'React', search: 'learning' });
 
-The component automatically adapts to the user's color scheme preference:
-- Gradient backgrounds adjust for dark mode
-- Text colors maintain proper contrast
-- Border colors update appropriately
-- No manual theme switching required in component
+{filteredProjects.map((project) => (
+  <ProjectCard
+    key={project.slug}
+    project={project}
+    currentSearchParams={searchParams.toString()}
+    location="projects"
+  />
+))}
+```
 
-## Future Enhancements
+## Dependencies
 
-- [ ] Add loading skeleton state
-- [ ] Support for video thumbnails
-- [ ] Analytics tracking on button clicks
-- [ ] Bookmark/favorite functionality
-- [ ] Share functionality
+- `next/image` - Optimized image component
+- `next/link` - Client-side routing
+- `@mantine/core` - UI components (Badge, Button, Card, Group, Stack, Text, Title)
+- `@/lib/analytics` - Analytics tracking utilities
+
+## Related Components
+
+- `FeaturedProjects` - Displays featured projects on homepage
+- `ProjectsPageClient` - Main projects listing page
+- `ProjectFilters` - Filter projects by tech stack
+- `ProjectSearch` - Search projects
+
+## Testing
+
+See `ProjectCard.test.tsx` for component tests including:
+- Rendering with project data
+- Button interactions
+- Analytics tracking
+- Link navigation
+- Conditional rendering (live demo, repo links)
+
+## Notes
+
+- Image loading strategy changes based on location:
+  - Homepage featured projects: `loading="eager"` (above fold)
+  - Projects page: `loading="lazy"` (below fold)
+- Tech stack badges use Mantine's indigo color to match site theme
+- Outcome metric is visually highlighted as the key success metric

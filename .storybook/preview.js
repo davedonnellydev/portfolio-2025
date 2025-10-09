@@ -7,7 +7,7 @@ export const parameters = {
   layout: 'fullscreen',
   options: {
     showPanel: false,
-    storySort: (a: any, b: any) => a.title.localeCompare(b.title, undefined, { numeric: true }),
+    storySort: (a, b) => a.title.localeCompare(b.title, undefined, { numeric: true }),
   },
   backgrounds: { disable: true },
 };
@@ -28,8 +28,8 @@ export const globalTypes = {
 };
 
 export const decorators = [
-  (renderStory: any, context: any) => {
-    const scheme = (context.globals.theme || 'light') as 'light' | 'dark';
+  (renderStory, context) => {
+    const scheme = context.globals.theme || 'light';
     return (
       <MantineProvider theme={theme} forceColorScheme={scheme}>
         <ColorSchemeScript />
