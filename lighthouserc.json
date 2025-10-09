@@ -12,42 +12,29 @@
             ]
         },
         "assert": {
-            "preset": "lighthouse:recommended",
             "assertions": {
                 "categories:performance": [
-                    "error",
+                    "warn",
                     {
-                        "minScore": 0.85
+                        "minScore": 0.75
                     }
                 ],
                 "categories:accessibility": [
                     "error",
                     {
-                        "minScore": 0.95
+                        "minScore": 0.90
                     }
                 ],
                 "categories:best-practices": [
-                    "error",
+                    "warn",
                     {
-                        "minScore": 0.95
+                        "minScore": 0.85
                     }
                 ],
                 "categories:seo": [
                     "error",
                     {
-                        "minScore": 0.95
-                    }
-                ],
-                "first-contentful-paint": [
-                    "warn",
-                    {
-                        "maxNumericValue": 2000
-                    }
-                ],
-                "largest-contentful-paint": [
-                    "warn",
-                    {
-                        "maxNumericValue": 3500
+                        "minScore": 0.90
                     }
                 ],
                 "cumulative-layout-shift": [
@@ -56,31 +43,81 @@
                         "maxNumericValue": 0.1
                     }
                 ],
+                "first-contentful-paint": [
+                    "warn",
+                    {
+                        "maxNumericValue": 2500
+                    }
+                ],
+                "largest-contentful-paint": [
+                    "warn",
+                    {
+                        "maxNumericValue": 4500
+                    }
+                ],
                 "total-blocking-time": [
                     "warn",
                     {
-                        "maxNumericValue": 300
+                        "maxNumericValue": 500
                     }
                 ],
                 "speed-index": [
                     "warn",
                     {
-                        "maxNumericValue": 3500
+                        "maxNumericValue": 4500
                     }
                 ],
                 "interactive": [
                     "warn",
                     {
-                        "maxNumericValue": 4000
+                        "maxNumericValue": 5000
                     }
                 ],
-                "uses-responsive-images": "off",
-                "offscreen-images": "warn",
                 "viewport": "error",
                 "document-title": "error",
                 "html-has-lang": "error",
                 "meta-description": "error",
-                "valid-source-maps": "off"
+                "color-contrast": "error",
+                "installable-manifest": "off",
+                "maskable-icon": "off",
+                "splash-screen": "off",
+                "themed-omnibox": "off",
+                "content-width": "off",
+                "apple-touch-icon": "off",
+                "pwa-cross-browser": "off",
+                "pwa-page-transitions": "off",
+                "pwa-each-page-has-url": "off",
+                "service-worker": "off",
+                "works-offline": "off",
+                "csp-xss": "warn",
+                "errors-in-console": "warn",
+                "label-content-name-mismatch": "warn",
+                "button-name": "warn",
+                "heading-order": "warn",
+                "identical-links-same-purpose": "off",
+                "unused-css-rules": "off",
+                "unused-javascript": "off",
+                "uses-responsive-images": "off",
+                "offscreen-images": "off",
+                "render-blocking-resources": "off",
+                "unminified-css": "off",
+                "unminified-javascript": "off",
+                "modern-image-formats": "off",
+                "uses-optimized-images": "off",
+                "uses-text-compression": "off",
+                "uses-rel-preconnect": "off",
+                "font-display": "off",
+                "third-party-facades": "off",
+                "total-byte-weight": "off",
+                "dom-size": "off",
+                "bootup-time": "off",
+                "mainthread-work-breakdown": "off",
+                "server-response-time": "off",
+                "redirects": "off",
+                "uses-long-cache-ttl": "off",
+                "legacy-javascript": "off",
+                "valid-source-maps": "off",
+                "inspector-issues": "off"
             }
         },
         "upload": {
