@@ -1,0 +1,96 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <rect width="1200" height="630" fill="#0F172A"/>
+
+  <!-- Gradient overlay -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:0.15" />
+      <stop offset="50%" style="stop-color:#06B6D4;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:0.15" />
+    </linearGradient>
+
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:0" />
+    </radialGradient>
+
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#grad1)"/>
+
+  <!-- Glowing circles for visual interest -->
+  <circle cx="200" cy="150" r="150" fill="url(#glow1)"/>
+  <circle cx="1000" cy="500" r="200" fill="url(#glow2)"/>
+
+  <!-- Grid pattern for tech aesthetic -->
+  <g opacity="0.03">
+    <line x1="0" y1="0" x2="1200" y2="630" stroke="#E2E8F0" stroke-width="1"/>
+    <line x1="0" y1="630" x2="1200" y2="0" stroke="#E2E8F0" stroke-width="1"/>
+    <circle cx="600" cy="315" r="250" stroke="#E2E8F0" stroke-width="1" fill="none"/>
+    <circle cx="600" cy="315" r="350" stroke="#E2E8F0" stroke-width="1" fill="none"/>
+  </g>
+
+  <!-- Main content -->
+  <g>
+    <!-- Name/Title -->
+    <text x="600" y="220" font-family="Arial, sans-serif" font-size="72" font-weight="700" fill="#F8FAFC" text-anchor="middle">
+      Dave Donnelly
+    </text>
+
+    <!-- Subtitle -->
+    <text x="600" y="280" font-family="Arial, sans-serif" font-size="32" font-weight="500" fill="#94A3B8" text-anchor="middle">
+      Web Developer Portfolio
+    </text>
+
+    <!-- Tagline -->
+    <g>
+      <text x="600" y="360" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#CBD5E1" text-anchor="middle">
+        Building modern, accessible web experiences
+      </text>
+      <text x="600" y="400" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#CBD5E1" text-anchor="middle">
+        with Next.js, React & TypeScript
+      </text>
+    </g>
+
+    <!-- Tech stack badges -->
+    <g transform="translate(350, 460)">
+      <!-- Next.js badge -->
+      <rect x="0" y="0" width="120" height="40" rx="20" fill="#6366F1" opacity="0.2"/>
+      <rect x="0" y="0" width="120" height="40" rx="20" stroke="#6366F1" stroke-width="2" fill="none"/>
+      <text x="60" y="26" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#E0E7FF" text-anchor="middle">
+        Next.js
+      </text>
+
+      <!-- React badge -->
+      <rect x="140" y="0" width="100" height="40" rx="20" fill="#06B6D4" opacity="0.2"/>
+      <rect x="140" y="0" width="100" height="40" rx="20" stroke="#06B6D4" stroke-width="2" fill="none"/>
+      <text x="190" y="26" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#CFFAFE" text-anchor="middle">
+        React
+      </text>
+
+      <!-- TypeScript badge -->
+      <rect x="260" y="0" width="140" height="40" rx="20" fill="#A855F7" opacity="0.2"/>
+      <rect x="260" y="0" width="140" height="40" rx="20" stroke="#A855F7" stroke-width="2" fill="none"/>
+      <text x="330" y="26" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#F3E8FF" text-anchor="middle">
+        TypeScript
+      </text>
+
+      <!-- Accessibility badge -->
+      <rect x="420" y="0" width="80" height="40" rx="20" fill="#10B981" opacity="0.2"/>
+      <rect x="420" y="0" width="80" height="40" rx="20" stroke="#10B981" stroke-width="2" fill="none"/>
+      <text x="460" y="26" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#D1FAE5" text-anchor="middle">
+        A11y
+      </text>
+    </g>
+
+    <!-- Website URL -->
+    <text x="600" y="570" font-family="Arial, sans-serif" font-size="20" font-weight="500" fill="#6366F1" text-anchor="middle">
+      davedonnelly.dev
+    </text>
+  </g>
+</svg>

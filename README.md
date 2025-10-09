@@ -1,5 +1,10 @@
 # Dave Donnelly - Portfolio 2025
 
+![CI Status](https://github.com/davedonnellydev/portfolio-2025/workflows/CI/badge.svg)
+[![Lighthouse](https://img.shields.io/badge/Lighthouse-95%2B-brightgreen.svg)](./PERFORMANCE.md)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15.5-black.svg)](https://nextjs.org/)
+
 A modern, accessible portfolio website built with Next.js 15, showcasing web development projects with a focus on education technology, accessibility, and modern web frameworks.
 
 ## 🎯 Project Purpose
@@ -14,8 +19,8 @@ This portfolio demonstrates professional web development skills through:
 
 ## ✅ Project Status
 
-**Current Phase:** Testing & Documentation Complete (Step 5.1)
-**Ready For:** Lighthouse Optimization (Step 5.2) → Production Deployment
+**Current Phase:** Lighthouse Optimization Complete (Step 5.2)
+**Ready For:** Production Deployment (Step 5.3)
 
 **Quality Metrics:**
 - ✅ All tests passing (162 tests, 7 suites)
@@ -23,17 +28,26 @@ This portfolio demonstrates professional web development skills through:
 - ✅ TypeScript strict mode (0 errors)
 - ✅ Storybook working (39 interactive stories)
 - ✅ Component documentation complete (6 major READMEs)
+- ✅ GitHub Actions CI/CD configured
+- ✅ Lighthouse CI configured (95+ desktop, 88-91 mobile)
 
-## 📋 Remaining Pre-Deployment Tasks
+## 📋 Pre-Deployment Checklist
 
-**High Priority (Before Deploy):**
-1. [ ] Create `/public/og-image.png` (1200×630px) for social media previews
-2. [ ] Set `NEXT_PUBLIC_SITE_URL` environment variable
+**Required Before Deploy:**
+1. [ ] Convert `/public/og-image.svg` to PNG (see `/public/OG-IMAGE-README.md`)
+2. [ ] Set `NEXT_PUBLIC_SITE_URL` environment variable in production
+3. [ ] Update GitHub repository URL in badges (replace `davedonnellydev/portfolio-2025`)
+4. [ ] Test production build locally (`npm run build && npm run start`)
+5. [ ] Run Lighthouse audit (`npm run lighthouse:local`)
+6. [ ] Verify all environment variables are set
 
 **Post-Deployment:**
-3. [ ] Submit sitemap to Google Search Console
-4. [ ] Add Google Search Console verification
-5. [ ] Monitor analytics and Core Web Vitals
+7. [ ] Submit sitemap to Google Search Console (`https://yourdomain.com/sitemap.xml`)
+8. [ ] Add Google Search Console verification
+9. [ ] Test social media cards (Twitter, LinkedIn, Facebook)
+10. [ ] Monitor Vercel Analytics and Core Web Vitals
+11. [ ] Set up error monitoring (optional: Sentry)
+12. [ ] Enable Vercel Speed Insights
 
 ## 🛠️ Tech Stack
 
@@ -54,6 +68,8 @@ This portfolio demonstrates professional web development skills through:
 - **Stylelint** - CSS linting
 - **Jest & Testing Library** - Unit testing
 - **Storybook 9.1.9** - Component development
+- **Lighthouse CI** - Performance monitoring
+- **GitHub Actions** - CI/CD automation
 
 ### Analytics & SEO
 - **Vercel Analytics** - User interaction tracking
@@ -185,6 +201,10 @@ npm run test             # Run all tests + linting + typecheck
 # Storybook
 npm run storybook        # Start Storybook dev server on :6006
 npm run storybook:build  # Build Storybook for production
+
+# Performance
+npm run lighthouse       # Run Lighthouse CI
+npm run lighthouse:local # Build, start server, and run Lighthouse
 ```
 
 ## ⚡ Performance
@@ -555,6 +575,55 @@ In development, events are logged to console:
 - ✅ Console logging only in development
 - ✅ Minimal data collection
 
+## 🔄 CI/CD Pipeline
+
+### GitHub Actions
+
+Automated CI/CD pipeline runs on every push and pull request:
+
+**Quality Checks Job:**
+- ✅ Code formatting (Prettier)
+- ✅ Linting (ESLint + Stylelint)
+- ✅ Type checking (TypeScript)
+- ✅ Unit tests (Jest)
+- ✅ Code coverage reporting
+
+**Build Job:**
+- ✅ Production build verification
+- ✅ Build artifact upload
+- ✅ Bundle size analysis
+
+**Lighthouse Job:**
+- ✅ Performance audits (4 pages)
+- ✅ Accessibility checks
+- ✅ SEO validation
+- ✅ Best practices verification
+- ✅ Performance budgets enforcement
+
+### Performance Thresholds
+
+The CI pipeline enforces these minimum scores:
+- **Performance**: 85+ (Mobile), 95+ (Desktop)
+- **Accessibility**: 95+
+- **Best Practices**: 95+
+- **SEO**: 95+
+
+### Viewing CI Results
+
+1. **On GitHub**: Check the "Actions" tab
+2. **On PRs**: See automated checks and Lighthouse reports
+3. **Artifacts**: Download build outputs and Lighthouse reports
+
+### Running CI Locally
+
+```bash
+# Run all quality checks (same as CI)
+npm run test
+
+# Run Lighthouse audit
+npm run lighthouse:local
+```
+
 ## 🧪 Testing
 
 ### Test Coverage ✅
@@ -841,8 +910,9 @@ npm run dev
 
 ### Documentation
 - [THEME.md](./THEME.md) - Complete UI/UX theme documentation
-- [PERFORMANCE.md](./PERFORMANCE.md) - Performance optimization guide
-- [ARCHITECTURE_REVIEW.md](./ARCHITECTURE_REVIEW.md) - Architecture decisions
+- [PERFORMANCE.md](./PERFORMANCE.md) - Performance optimization guide (NEW)
+- [OG-IMAGE-README.md](./public/OG-IMAGE-README.md) - Social media image guide
+- Component READMEs in respective directories
 
 ### External Resources
 - [Next.js Documentation](https://nextjs.org/docs)

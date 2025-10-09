@@ -133,3 +133,10 @@ dist
 .DS_Store
 
 .npmrc
+
+# Lighthouse CI
+.lighthouseci/
+lhci_reports/
+
+# Storybook build
+storybook-static/
