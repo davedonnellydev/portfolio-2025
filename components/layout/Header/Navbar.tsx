@@ -421,7 +421,7 @@ export function Navbar() {
           <Divider my="md" />
 
           {/* Additional mobile menu items if needed */}
-          <Text size="xs" c="dimmed" ta="center">
+          <Text size="xs" c="gray.7" ta="center">
             © {new Date().getFullYear()} Dave Donnelly
           </Text>
         </Stack>

@@ -49,7 +49,7 @@ export function ProjectSearch({ searchQuery, onSearchChange, resultCount }: Proj
         />
 
         {resultCount !== undefined && (
-          <Text size="sm" c="dimmed" style={{ whiteSpace: 'nowrap' }}>
+          <Text size="sm" c="gray.7" style={{ whiteSpace: 'nowrap' }}>
             {resultCount} project{resultCount !== 1 ? 's' : ''} found
           </Text>
         )}

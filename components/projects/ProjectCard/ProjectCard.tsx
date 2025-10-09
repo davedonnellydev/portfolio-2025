@@ -58,7 +58,7 @@ export function ProjectCard({
         </Title>
 
         {/* Description */}
-        <Text size="sm" c="dimmed" lineClamp={2}>
+        <Text size="sm" c="gray.7" lineClamp={2}>
           {project.description}
         </Text>
 
