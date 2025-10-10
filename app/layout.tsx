@@ -37,10 +37,10 @@ export const metadata = {
     template: '%s | Dave Donnelly',
   },
   description:
-    'Portfolio of Dave Donnelly, a junior web developer based in Sydney. Specializing in Next.js, React, TypeScript, and accessible web applications.',
+    'Portfolio of Dave Donnelly, a web developer based in Sydney. Specialising in Next.js, React, TypeScript, and accessible web applications.',
   keywords: [
     'web developer',
-    'frontend developer',
+    'fullstack developer',
     'React developer',
     'Next.js developer',
     'TypeScript',
@@ -51,14 +51,23 @@ export const metadata = {
   ],
   authors: [{ name: 'Dave Donnelly' }],
   creator: 'Dave Donnelly',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'en_AU',
     url: '/',
     siteName: 'Dave Donnelly - Web Developer',
     title: 'Dave Donnelly - Web Developer',
     description:
-      'Portfolio of Dave Donnelly, a junior web developer based in Sydney. Specializing in Next.js, React, TypeScript, and accessible web applications.',
+      'Portfolio of Dave Donnelly, a web developer based in Sydney. Specialising in Next.js, React, TypeScript, and accessible web applications.',
     images: [
       {
         url: '/api/og',
@@ -72,7 +81,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Dave Donnelly - Web Developer',
     description:
-      'Portfolio of Dave Donnelly, a junior web developer based in Sydney. Specializing in Next.js, React, TypeScript, and accessible web applications.',
+      'Portfolio of Dave Donnelly, a web developer based in Sydney. Specialising in Next.js, React, TypeScript, and accessible web applications.',
     images: ['/api/og'],
   },
   robots: {
@@ -97,7 +106,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" {...mantineHtmlProps} className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
         <ColorSchemeScript />
-        <link rel="shortcut icon" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Preload critical fonts - loads in parallel with CSS for faster LCP */}

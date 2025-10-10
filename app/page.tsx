@@ -11,7 +11,7 @@ import { generateMetadata as generateSEOMetadata } from '../lib/seo';
 export const metadata: Metadata = generateSEOMetadata({
   title: 'Dave Donnelly - Web Developer',
   description:
-    'Portfolio of Dave Donnelly, a junior web developer based in Sydney. Specializing in Next.js, React, TypeScript, and accessible web applications with a focus on education technology.',
+    'Portfolio of Dave Donnelly, a web developer based in Sydney. Specialiing in Next.js, React, TypeScript, and accessible web applications with a focus on education technology.',
   path: '/',
 });
 

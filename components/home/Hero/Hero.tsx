@@ -29,7 +29,7 @@ export function Hero() {
               <div>
                 <Title className={classes.headline} order={1}>
                   I build <span className={classes.gradientText}>fast, accessible</span> web
-                  experiences with users at the heart
+                  experiences with users at heart
                 </Title>
                 <Text size="lg" c="dimmed" mt="md" className={classes.subheadline}>
                   Web developer specialising in React, Next.js, and modern web technologies.
