@@ -72,55 +72,66 @@ describe('ProjectCard', () => {
     });
   });
 
-  describe('Action Buttons', () => {
-    it('renders "Read case study" button with correct link', () => {
+  describe('Links', () => {
+    it('renders case study link wrapping main content', () => {
       render(<ProjectCard project={mockProject} />);
-      const caseStudyButton = screen.getByRole('link', { name: /Read case study/i });
-      expect(caseStudyButton).toBeInTheDocument();
-      expect(caseStudyButton).toHaveAttribute('href', '/projects/test-project');
+      // The title should be within a link to the case study
+      const caseStudyLink = screen.getByRole('link', { name: /Test Project/i });
+      expect(caseStudyLink).toBeInTheDocument();
+      expect(caseStudyLink).toHaveAttribute('href', '/projects/test-project');
     });
 
-    it('renders "Live" button when live link is provided', () => {
+    it('renders "Live site" button when live link is provided', () => {
       render(<ProjectCard project={mockProject} />);
-      const liveButton = screen.getByRole('link', { name: /Live/i });
+      const liveButton = screen.getByRole('link', { name: /Live site/i });
       expect(liveButton).toBeInTheDocument();
       expect(liveButton).toHaveAttribute('href', 'https://example.com/live');
       expect(liveButton).toHaveAttribute('target', '_blank');
       expect(liveButton).toHaveAttribute('rel', 'noopener noreferrer');
     });
 
-    it('renders "Code" button when repo link is provided', () => {
+    it('renders "Repo" button when repo link is provided', () => {
       render(<ProjectCard project={mockProject} />);
-      const codeButton = screen.getByRole('link', { name: /Code/i });
-      expect(codeButton).toBeInTheDocument();
-      expect(codeButton).toHaveAttribute('href', 'https://github.com/test/repo');
-      expect(codeButton).toHaveAttribute('target', '_blank');
+      const repoButton = screen.getByRole('link', { name: /^Repo$/i });
+      expect(repoButton).toBeInTheDocument();
+      expect(repoButton).toHaveAttribute('href', 'https://github.com/test/repo');
+      expect(repoButton).toHaveAttribute('target', '_blank');
     });
 
-    it('does not render "Live" button when live link is not provided', () => {
+    it('does not render "Live site" button when live link is not provided', () => {
       const projectWithoutLive = {
         ...mockProject,
         links: { ...mockProject.links, live: undefined },
       };
       render(<ProjectCard project={projectWithoutLive} />);
-      expect(screen.queryByRole('link', { name: /Live/i })).not.toBeInTheDocument();
+      expect(screen.queryByRole('link', { name: /Live site/i })).not.toBeInTheDocument();
     });
 
-    it('does not render "Code" button when repo link is not provided', () => {
+    it('does not render "Repo" button when repo link is not provided', () => {
       const projectWithoutRepo = {
         ...mockProject,
         links: { ...mockProject.links, repo: undefined },
       };
       render(<ProjectCard project={projectWithoutRepo} />);
-      expect(screen.queryByRole('link', { name: /Code/i })).not.toBeInTheDocument();
+      expect(screen.queryByRole('link', { name: /^Repo$/i })).not.toBeInTheDocument();
+    });
+
+    it('does not render external links section when both live and repo are missing', () => {
+      const projectWithoutExternalLinks = {
+        ...mockProject,
+        links: { ...mockProject.links, live: undefined, repo: undefined },
+      };
+      render(<ProjectCard project={projectWithoutExternalLinks} />);
+      expect(screen.queryByRole('link', { name: /Live site/i })).not.toBeInTheDocument();
+      expect(screen.queryByRole('link', { name: /GitHub repo/i })).not.toBeInTheDocument();
     });
   });
 
   describe('Search Parameters', () => {
     it('preserves search parameters in case study URL', () => {
       render(<ProjectCard project={mockProject} currentSearchParams="tech=React&search=test" />);
-      const caseStudyButton = screen.getByRole('link', { name: /Read case study/i });
-      expect(caseStudyButton).toHaveAttribute(
+      const caseStudyLink = screen.getByRole('link', { name: /Test Project/i });
+      expect(caseStudyLink).toHaveAttribute(
         'href',
         '/projects/test-project?tech=React&search=test'
       );
@@ -128,17 +139,17 @@ describe('ProjectCard', () => {
 
     it('uses case study URL without parameters when not provided', () => {
       render(<ProjectCard project={mockProject} />);
-      const caseStudyButton = screen.getByRole('link', { name: /Read case study/i });
-      expect(caseStudyButton).toHaveAttribute('href', '/projects/test-project');
+      const caseStudyLink = screen.getByRole('link', { name: /Test Project/i });
+      expect(caseStudyLink).toHaveAttribute('href', '/projects/test-project');
     });
   });
 
   describe('Analytics Tracking', () => {
     it('tracks case study click with correct parameters', () => {
       render(<ProjectCard project={mockProject} location="home" />);
-      const caseStudyButton = screen.getByRole('link', { name: /Read case study/i });
+      const caseStudyLink = screen.getByRole('link', { name: /Test Project/i });
 
-      caseStudyButton.click();
+      caseStudyLink.click();
 
       expect(analytics.trackCaseStudyClick).toHaveBeenCalledWith(
         'test-project',
@@ -149,7 +160,7 @@ describe('ProjectCard', () => {
 
     it('tracks live demo click', () => {
       render(<ProjectCard project={mockProject} />);
-      const liveButton = screen.getByRole('link', { name: /Live/i });
+      const liveButton = screen.getByRole('link', { name: /Live site/i });
 
       liveButton.click();
 
@@ -158,18 +169,18 @@ describe('ProjectCard', () => {
 
     it('tracks repo click', () => {
       render(<ProjectCard project={mockProject} />);
-      const codeButton = screen.getByRole('link', { name: /Code/i });
+      const repoButton = screen.getByRole('link', { name: /^Repo$/i });
 
-      codeButton.click();
+      repoButton.click();
 
       expect(analytics.trackRepoClick).toHaveBeenCalledWith('test-project', 'Test Project');
     });
 
     it('defaults location to "projects" when not provided', () => {
       render(<ProjectCard project={mockProject} />);
-      const caseStudyButton = screen.getByRole('link', { name: /Read case study/i });
+      const caseStudyLink = screen.getByRole('link', { name: /Test Project/i });
 
-      caseStudyButton.click();
+      caseStudyLink.click();
 
       expect(analytics.trackCaseStudyClick).toHaveBeenCalledWith(
         'test-project',
@@ -194,13 +205,13 @@ describe('ProjectCard', () => {
     it('opens external links in new tab with security attributes', () => {
       render(<ProjectCard project={mockProject} />);
 
-      const liveButton = screen.getByRole('link', { name: /Live/i });
+      const liveButton = screen.getByRole('link', { name: /Live site/i });
       expect(liveButton).toHaveAttribute('target', '_blank');
       expect(liveButton).toHaveAttribute('rel', 'noopener noreferrer');
 
-      const codeButton = screen.getByRole('link', { name: /Code/i });
-      expect(codeButton).toHaveAttribute('target', '_blank');
-      expect(codeButton).toHaveAttribute('rel', 'noopener noreferrer');
+      const repoButton = screen.getByRole('link', { name: /^Repo$/i });
+      expect(repoButton).toHaveAttribute('target', '_blank');
+      expect(repoButton).toHaveAttribute('rel', 'noopener noreferrer');
     });
   });
 });

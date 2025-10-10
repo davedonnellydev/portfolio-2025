@@ -53,14 +53,43 @@
   position: relative;
   overflow: hidden;
   background: var(--mantine-color-gray-1);
+  border-radius: clamp(0.5rem, 1vw, 0.75rem);
+  /* Add padding to create space for the gradient border */
+  padding: 1rem;
+}
+
+[data-mantine-color-scheme='dark'] .imageSection {
+  background: var(--mantine-color-dark-7);
 }
 
 .imageWrapper {
+  /* Gradient border container */
+  background: var(--gradient-primary);
+  border-radius: clamp(0.5rem, 1vw, 0.75rem);
+  padding: 3px; /* Creates the gradient border thickness */
+  box-shadow:
+    0 4px 6px -1px rgb(0, 0, 0, 0.1),
+    0 2px 4px -2px rgb(0, 0, 0, 0.1);
+}
+
+[data-mantine-color-scheme='dark'] .imageWrapper {
+  box-shadow:
+    0 4px 6px -1px rgb(0, 0, 0, 0.3),
+    0 2px 4px -2px rgb(0, 0, 0, 0.3);
+}
+
+.imageInner {
   position: relative;
   width: 100%;
   /* Responsive aspect ratio using clamp for fluid sizing */
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  border-radius: clamp(0.4375rem, 0.9vw, 0.6875rem);
+  background: var(--mantine-color-white);
+}
+
+[data-mantine-color-scheme='dark'] .imageInner {
+  background: var(--mantine-color-dark-8);
 }
 
 .image {
@@ -143,41 +172,46 @@
   margin-top: auto;
 }
 
-/* Actions section */
-.actions {
+/* Case study link wrapper */
+.caseStudyLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+}
+
+.caseStudyLink:focus-visible {
+  outline: 2px solid var(--mantine-color-indigo-5);
+  outline-offset: 4px;
+  border-radius: var(--mantine-radius-md);
+}
+
+/* External links section at bottom */
+.externalLinks {
   margin-top: clamp(0.75rem, 1vw, 1rem);
   padding-top: clamp(0.75rem, 1vw, 1rem);
   border-top: 1px solid var(--mantine-color-gray-3);
+  flex-wrap: wrap;
 }
 
-[data-mantine-color-scheme='dark'] .actions {
+[data-mantine-color-scheme='dark'] .externalLinks {
   border-top-color: var(--mantine-color-dark-4);
-}
-
-.actionButton {
-  flex: 1;
-  min-width: fit-content;
 }
 
 /* Mobile optimizations */
 @media (max-width: 48em) {
-  .actions {
+  .externalLinks {
     flex-direction: column;
     gap: clamp(0.5rem, 1vw, 0.75rem);
   }
 
-  .actions > * {
-    width: 100%;
-  }
-
-  .actionButton {
+  .externalLinks > * {
     width: 100%;
   }
 }
 
 /* Ensure adequate touch targets on mobile */
-.actionButton,
-.actions button {
+.externalLinks button {
   min-height: 44px;
   min-width: 44px;
 }

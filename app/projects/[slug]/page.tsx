@@ -19,6 +19,7 @@ import { ProjectHero } from './ProjectHero';
 import { ProjectNavBar } from './ProjectNavBar';
 import { ProjectOverview } from './ProjectOverview';
 import { TOCSection } from './TableOfContents';
+import styles from './ProjectHero.module.css';
 
 interface ProjectPageProps {
   params: Promise<{
@@ -108,17 +109,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
       />
       <Suspense fallback={null}>
-        <ProjectNavBar sections={tocSections} />
+        <ProjectNavBar sections={tocSections} links={project.links} />
       </Suspense>
       {/* Hero Image - Full Width */}
-      <Container fluid px={0}>
-        <Image
-          src={project.screenshot}
-          alt={`${project.title} screenshot`}
-          height={300}
-          fit="cover"
-          radius={0}
-        />
+      <Container fluid px={{ base: 'md', sm: 'lg', md: 'xl' }} py="md">
+        <div className={styles.heroImageBorder}>
+          <Image
+            src={project.screenshot}
+            alt={`${project.title} screenshot`}
+            height={400}
+            fit="cover"
+            radius={0}
+          />
+        </div>
       </Container>
 
       {/* Main Content */}
@@ -133,7 +136,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <ProjectOverview
           role={project.content?.role}
           timeframe={project.content?.timeframe}
-          links={project.links}
           techstack={project.techStack}
           tldr={project.content?.tldr}
         />

@@ -71,10 +71,52 @@
 
 .navBar {
   display: flex;
+}
+
+.navBarInner {
+  /* Frosted glass effect for unified container */
+  background: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: clamp(0.5rem, 1vw, 0.75rem);
+  border: 1px solid rgb(228, 228, 231, 0.3);
+  box-shadow: 0 4px 16px 0 rgb(0, 0, 0, 0.06);
+  padding: clamp(0.5rem, 1vw, 0.75rem);
+  position: relative;
+  isolation: isolate;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: clamp(0.5rem, 2vw, 1rem);
   flex-wrap: wrap;
+  width: 100%;
+}
+
+[data-mantine-color-scheme='dark'] .navBarInner {
+  background: rgb(18, 18, 27, 0.3);
+  border: 1px solid rgb(63, 63, 70, 0.3);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(12px)) {
+  .navBarInner {
+    background: rgb(255, 255, 255, 0.95);
+  }
+
+  [data-mantine-color-scheme='dark'] .navBarInner {
+    background: rgb(18, 18, 27, 0.95);
+  }
+}
+
+/* Project links in the middle */
+.projectLinks {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.projectLinkButton {
+  min-width: 110px;
 }
 
 /* Responsive adjustments */
@@ -86,5 +128,12 @@
   .sticky .navBarContainer {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+  }
+
+  /* Stack project links vertically on mobile if needed */
+  .projectLinks {
+    width: 100%;
+    order: 3; /* Move to bottom on mobile */
+    margin-top: 0.5rem;
   }
 }

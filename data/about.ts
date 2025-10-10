@@ -15,50 +15,40 @@ export interface AboutContent {
 // About page content
 export const aboutContent: AboutContent = {
   mission:
-    'To build fast, accessible, and impactful web applications that solve real problems for users—while staying at the forefront of modern development practices and AI-assisted workflows.',
+    'To build fast, accessible, and impactful web applications that solve real problems for users, while staying at the forefront of modern development practices and AI-assisted workflows.',
 
   background: [
-    "After spending years in education—teaching, curriculum design, and educational leadership—I discovered my passion for solving problems through code. The transition from classroom to codebase wasn't accidental: both require breaking down complex challenges, communicating clearly, and iterating based on feedback.",
+    "I'm Dave, a front-end developer who has taken a bit of a non-traditional route into tech. For over 15 years, I worked in higher education — handling highly complex systems, working across multiple teams and stakeholders, and helping major projects come to life. I've led rollouts, worked with vendors, wrangled messy data, and made sure the tech side actually worked for the people using it.",
 
-    "Since making the shift to web development, I've focused on building production-ready applications with modern frameworks like Next.js, TypeScript, and React. I'm particularly interested in developer experience, accessibility, and leveraging AI tools to ship faster without sacrificing quality. Whether it's implementing responsive design systems, optimizing performance, or writing comprehensive tests, I approach every project with the same rigor I brought to education—attention to detail, clear documentation, and a commitment to continuous improvement.",
+    "But over time, I found myself more and more drawn to coding — so I retrained through General Assembly and got stuck into HTML, CSS, JavaScript, React, and Git. Now I'm focused on building clean, accessible web apps that are easy to use and maintain. I enjoy figuring things out, improving workflows, and building interfaces that feel intuitive.",
+
+    "I bring solid problem-solving skills, a collaborative mindset, and years of experience translating business needs into working systems. Outside of coding, you'll find me at the theatre, planning my next trip, or enjoying a glass of wine on the couch with my husband, Tyson and 3 year old spoodle, Alfie.",
   ],
 
   certificates: [
     {
-      name: 'Meta Front-End Developer Professional Certificate',
-      issuer: 'Meta (via Coursera)',
-      date: 'October 2024',
-      link: 'https://www.coursera.org/account/accomplishments/professional-cert/placeholder',
+      name: 'Intro to AI Engineering',
+      issuer: 'Scrimba',
+      date: '27 June 2025',
+      link: 'https://scrimba.com/certificate-cert24zAwJ78oWAth624LLHpZyegUtHcinqm4Amji',
     },
     {
-      name: 'JavaScript Algorithms and Data Structures',
-      issuer: 'freeCodeCamp',
-      date: 'September 2024',
-      link: 'https://www.freecodecamp.org/certification/placeholder/javascript-algorithms-and-data-structures',
+      name: 'Learn TypeScript',
+      issuer: 'Scrimba',
+      date: '27 June 2025',
+      link: 'https://scrimba.com/certificate-cert24zAwJ78oWAth624LLHpZyrqE5T1Fyk1rDaA6',
     },
     {
-      name: 'Responsive Web Design',
-      issuer: 'freeCodeCamp',
-      date: 'August 2024',
-      link: 'https://www.freecodecamp.org/certification/placeholder/responsive-web-design',
+      name: 'Introduction to Unit Testing',
+      issuer: 'Scrimba',
+      date: '16 June 2025',
+      link: 'https://scrimba.com/certificate-cert24zAwJ78oWAth624LLHpZwhMf9jgmU2jGq43P',
     },
     {
-      name: 'Advanced React',
-      issuer: 'Meta (via Coursera)',
-      date: 'July 2024',
-      link: 'https://www.coursera.org/account/accomplishments/verify/placeholder',
-    },
-    {
-      name: 'React Basics',
-      issuer: 'Meta (via Coursera)',
-      date: 'June 2024',
-      link: 'https://www.coursera.org/account/accomplishments/verify/placeholder',
-    },
-    {
-      name: 'Programming with JavaScript',
-      issuer: 'Meta (via Coursera)',
-      date: 'May 2024',
-      link: 'https://www.coursera.org/account/accomplishments/verify/placeholder',
+      name: 'Software Engineering Immersive | 480 hours',
+      issuer: 'General Assembly',
+      date: '29 October 2022',
+      link: 'https://drive.google.com/file/d/1HGxY15H-4iaBDHgLRezFXwmzvDR1nbM1/view',
     },
   ],
 };

@@ -14,7 +14,7 @@ interface Pillar {
 
 const pillars: Pillar[] = [
   {
-    title: 'Ship Quickly',
+    title: 'Work Quickly',
     description:
       'I deliver working solutions fast, without cutting corners on quality or maintainability.',
     icon: IconRocket,
@@ -48,7 +48,7 @@ const pillars: Pillar[] = [
     benefits: [
       'AI-assisted development and debugging',
       'Automated testing and quality assurance',
-      'Code optimization and refactoring',
+      'Code optimisation and refactoring',
       'Learning new technologies efficiently',
     ],
   },
@@ -130,7 +130,7 @@ export function WhyHireMe() {
 
         <Text size="sm" c="dimmed" ta="center" mt="lg" className={classes.footerText}>
           <strong>Perfect for roles requiring:</strong> Frontend development, testing,
-          accessibility, data visualization, and modern web technologies.
+          accessibility, business analysis, data visualisation and modern web technologies.
         </Text>
       </Stack>
     </Container>

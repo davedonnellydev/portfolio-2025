@@ -51,60 +51,56 @@ export function TableOfContents({ sections, isSticky = false }: TableOfContentsP
   const menuWidth = isVerySmall ? 'calc(100vw - 2rem)' : isMobile ? 240 : 280;
 
   return (
-    <div className={styles.tocContainer}>
-      <Menu
-        key={`toc-menu-${isSticky ? 'sticky' : 'normal'}`}
-        opened={opened}
-        onChange={setOpened}
-        position={menuPosition}
-        offset={12}
-        width={menuWidth}
-        shadow="lg"
-        transitionProps={{ transition: 'pop-top-right' }}
-        trigger={isMobile ? 'click' : 'hover'}
-        openDelay={100}
-        closeDelay={200}
-        withinPortal
-        zIndex={1001}
-        keepMounted={false}
-        middlewares={{
-          flip: true,
-          shift: { padding: 16 },
-        }}
-        portalProps={{
-          target: typeof document !== 'undefined' ? document.body : undefined,
-        }}
-      >
-        <Menu.Target>
-          <Button
-            variant="light"
-            color="primary"
-            size="sm"
-            leftSection={<FontAwesomeIcon icon={faListTree} />}
-            className={styles.tocButton}
-          >
-            <FontAwesomeIcon icon={faChevronDown} className={styles.chevron} />
-          </Button>
-        </Menu.Target>
+    <Menu
+      key={`toc-menu-${isSticky ? 'sticky' : 'normal'}`}
+      opened={opened}
+      onChange={setOpened}
+      position={menuPosition}
+      offset={12}
+      width={menuWidth}
+      shadow="lg"
+      transitionProps={{ transition: 'pop-top-right' }}
+      trigger={isMobile ? 'click' : 'hover'}
+      openDelay={100}
+      closeDelay={200}
+      withinPortal
+      zIndex={1001}
+      keepMounted={false}
+      middlewares={{
+        flip: true,
+        shift: { padding: 16 },
+      }}
+      portalProps={{
+        target: typeof document !== 'undefined' ? document.body : undefined,
+      }}
+    >
+      <Menu.Target>
+        <Button
+          variant="light"
+          color="primary"
+          size="sm"
+          leftSection={<FontAwesomeIcon icon={faListTree} />}
+          className={styles.tocButton}
+        >
+          <FontAwesomeIcon icon={faChevronDown} className={styles.chevron} />
+        </Button>
+      </Menu.Target>
 
-        <Menu.Dropdown className={styles.dropdown}>
-          <Menu.Label className={styles.dropdownLabel}>Jump to section</Menu.Label>
-          {sections.map((section) => (
-            <Menu.Item
-              key={section.id}
-              onClick={() => handleSectionClick(section.id)}
-              className={styles.menuItem}
-              leftSection={
-                section.icon && (
-                  <FontAwesomeIcon icon={section.icon} className={styles.sectionIcon} />
-                )
-              }
-            >
-              <Text size="sm">{section.label}</Text>
-            </Menu.Item>
-          ))}
-        </Menu.Dropdown>
-      </Menu>
-    </div>
+      <Menu.Dropdown className={styles.dropdown}>
+        <Menu.Label className={styles.dropdownLabel}>Jump to section</Menu.Label>
+        {sections.map((section) => (
+          <Menu.Item
+            key={section.id}
+            onClick={() => handleSectionClick(section.id)}
+            className={styles.menuItem}
+            leftSection={
+              section.icon && <FontAwesomeIcon icon={section.icon} className={styles.sectionIcon} />
+            }
+          >
+            <Text size="sm">{section.label}</Text>
+          </Menu.Item>
+        ))}
+      </Menu.Dropdown>
+    </Menu>
   );
 }

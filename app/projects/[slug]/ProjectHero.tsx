@@ -48,7 +48,7 @@ export function ProjectHero({ title, description, outcome, metrics }: ProjectHer
                     key={index}
                     variant="light"
                     color="primary"
-                    size="lg"
+                    size="sm"
                     radius="md"
                     style={{ fontSize: '0.9rem' }}
                   >

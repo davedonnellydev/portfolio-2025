@@ -29,12 +29,11 @@ export function Hero() {
               <div>
                 <Title className={classes.headline} order={1}>
                   I build <span className={classes.gradientText}>fast, accessible</span> web
-                  experiences that users love
+                  experiences with users at the heart
                 </Title>
                 <Text size="lg" c="dimmed" mt="md" className={classes.subheadline}>
-                  Junior full-stack developer specializing in React, Next.js, and modern web
-                  technologies. Shipping production-ready code with a focus on performance and user
-                  experience.
+                  Web developer specialising in React, Next.js, and modern web technologies.
+                  Shipping production-ready code with a focus on performance and user experience.
                 </Text>
               </div>
 
@@ -50,8 +49,8 @@ export function Hero() {
                 }
               >
                 <List.Item>
-                  <strong>Education sector experience</strong> — Built apps used by thousands of
-                  students and teachers
+                  <strong>Education sector experience</strong> — Implemented apps used by thousands
+                  of students and teachers
                 </List.Item>
                 <List.Item>
                   <strong>AI-powered development</strong> — Leveraging modern tools to ship faster
@@ -78,7 +77,7 @@ export function Hero() {
 
                 <Button
                   component="a"
-                  href="/CV - D_DONNELLY.pdf" // Replace with actual CV path
+                  href="/CV - D_DONNELLY.pdf"
                   download
                   size="lg"
                   variant="light"
@@ -97,7 +96,7 @@ export function Hero() {
             <Box className={classes.imageContainer}>
               <div className={classes.imageBorder}>
                 <Image
-                  src="/images/profile.png" // Replace with your actual photo (profile-photo.jpg)
+                  src="/images/profile.png"
                   alt="David Donnelly - Full-stack Developer"
                   width={400}
                   height={400}

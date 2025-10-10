@@ -3,9 +3,28 @@
   color: inherit;
   display: inline-flex;
   align-items: center;
-  font-size: 1.25rem;
-  font-weight: 700;
   transition: opacity 0.2s ease;
+}
+
+.logoImage {
+  display: block;
+  width: auto;
+  height: 2rem; /* 32px - adjust this value based on your design needs */
+  /* Dark color in light mode, purple in dark mode */
+  fill: light-dark(var(--mantine-color-gray-7), var(--brand-primary-500));
+}
+
+/* Fallback for browsers that don't support light-dark() */
+@supports not (color: light-dark(black, white)) {
+  .logoImage {
+    fill: var(--mantine-color-gray-7);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .logoImage {
+      fill: var(--brand-primary-500);
+    }
+  }
 }
 
 .logo:hover {
