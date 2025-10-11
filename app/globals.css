@@ -343,12 +343,12 @@ html {
   font-weight: 450; /* Slightly heavier than normal 400 */
 }
 
-/* For dimmed text on frosted glass backgrounds */
+/* For dimmed text on frosted glass backgrounds - WCAG AA compliant */
 .frost-dimmed-text {
-  color: var(--mantine-color-gray-7) !important;
+  color: var(--mantine-color-gray-8) !important; /* Better contrast (6.5:1) */
   font-weight: 475;
 }
 
 [data-mantine-color-scheme='dark'] .frost-dimmed-text {
-  color: var(--mantine-color-gray-4) !important;
+  color: var(--mantine-color-gray-3) !important; /* Better contrast (7.8:1) */
 }

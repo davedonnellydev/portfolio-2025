@@ -81,17 +81,11 @@ export function reportWebVital(metric: {
       value: Math.round(metric.value),
       rating: metric.rating,
     });
-    return;
   }
 
   // Send to analytics using Vercel Analytics track
   // The analytics module uses track() from @vercel/analytics
-  // For web vitals, we can just log them as they're automatically tracked by Vercel
-  console.log('Web Vital tracked:', {
-    name: metric.name,
-    value: Math.round(metric.value),
-    rating: metric.rating,
-  });
+  // For web vitals, they're automatically tracked by Vercel in production
 }
 
 /**
@@ -117,14 +111,18 @@ export class PerformanceMonitor {
     if (startMark) {
       const mark = this.marks.get(startMark);
       if (!mark) {
-        console.warn(`Performance mark "${startMark}" not found`);
+        if (process.env.NODE_ENV !== 'production') {
+          console.warn(`Performance mark "${startMark}" not found`);
+        }
         return null;
       }
       startTime = mark;
     } else {
       const mark = this.marks.get(name);
       if (!mark) {
-        console.warn(`Performance mark "${name}" not found`);
+        if (process.env.NODE_ENV !== 'production') {
+          console.warn(`Performance mark "${name}" not found`);
+        }
         return null;
       }
       startTime = mark;

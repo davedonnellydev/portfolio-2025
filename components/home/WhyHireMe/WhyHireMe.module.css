@@ -61,14 +61,14 @@
   }
 }
 
-/* Enhanced dimmed text */
+/* Enhanced dimmed text - WCAG AA */
 .dimmedText {
   font-weight: 475 !important;
-  color: var(--mantine-color-gray-7) !important;
+  color: var(--mantine-color-gray-8) !important;
 }
 
 [data-mantine-color-scheme='dark'] .dimmedText {
-  color: var(--mantine-color-gray-4) !important;
+  color: var(--mantine-color-gray-3) !important;
 }
 
 /* Footer text */

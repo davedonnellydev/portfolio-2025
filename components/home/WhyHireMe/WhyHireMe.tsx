@@ -62,7 +62,7 @@ export function WhyHireMe() {
           <Title order={2} mb="md">
             Why You Should Hire Me
           </Title>
-          <Text size="lg" c="dimmed" className={classes.dimmedText}>
+          <Text size="lg" c="neutral.6">
             A hiring manager's cheat sheet to my core strengths and how they map to your role needs.
           </Text>
         </div>
@@ -90,7 +90,7 @@ export function WhyHireMe() {
                       <Title order={3} size="h4" mb="xs">
                         {pillar.title}
                       </Title>
-                      <Text c="dimmed" size="sm" mb="md" className={classes.dimmedText}>
+                      <Text c="neutral.6" size="sm" mb="md">
                         {pillar.description}
                       </Text>
                     </div>
@@ -100,9 +100,8 @@ export function WhyHireMe() {
                     <Text
                       size="sm"
                       fw={600}
-                      c="dimmed"
+                      c="neutral.6"
                       tt="uppercase"
-                      className={classes.dimmedText}
                       style={{ letterSpacing: '0.5px' }}
                     >
                       Key Benefits:
@@ -128,7 +127,7 @@ export function WhyHireMe() {
           ))}
         </Grid>
 
-        <Text size="sm" c="dimmed" ta="center" mt="lg" className={classes.footerText}>
+        <Text size="sm" c="neutral.6" ta="center" mt="lg" className={classes.footerText}>
           <strong>Perfect for roles requiring:</strong> Frontend development, testing,
           accessibility, business analysis, data visualisation and modern web technologies.
         </Text>

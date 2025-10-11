@@ -74,13 +74,15 @@
   max-width: 65ch;
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
   line-height: 1.6;
-  /* Enhanced readability for dimmed text on frosted glass */
+  /* Enhanced readability for dimmed text on frosted glass - WCAG AA compliant colors */
   font-weight: 475 !important;
-  color: var(--mantine-color-gray-7) !important;
+  color: var(--mantine-color-gray-9) !important; /* Darker for better contrast */
+  text-shadow: 0 1px 2px rgb(255, 255, 255, 0.5); /* Helps with contrast detection */
 }
 
 [data-mantine-color-scheme='dark'] .subheadline {
-  color: var(--mantine-color-gray-4) !important;
+  color: var(--mantine-color-gray-2) !important; /* Lighter for dark mode */
+  text-shadow: 0 1px 2px rgb(0, 0, 0, 0.5);
 }
 
 /* Credibility List */

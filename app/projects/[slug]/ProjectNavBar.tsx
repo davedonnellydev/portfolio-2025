@@ -43,56 +43,61 @@ export function ProjectNavBar({ sections, links }: ProjectNavBarProps) {
   const shouldPositionBelowHeader = isSticky && isHeaderVisible && scrollY > 50;
 
   return (
-    <div
-      className={`${styles.navBarWrapper} ${isSticky ? styles.sticky : ''} ${
-        shouldPositionBelowHeader ? styles.belowHeader : ''
-      }`}
-    >
-      <Container size="lg" className={styles.navBarContainer}>
-        <div className={styles.navBar}>
-          <div className={styles.navBarInner}>
-            <BackToProjectsButton />
+    <>
+      {/* Placeholder to prevent CLS when navbar becomes fixed */}
+      {isSticky && <div className={styles.navBarPlaceholder} />}
 
-            {/* Project Links in the Middle */}
-            {(links.live || links.repo) && (
-              <Group gap="xs" className={styles.projectLinks}>
-                {links.live && (
-                  <Button
-                    component="a"
-                    href={links.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="light"
-                    color="primary"
-                    size="sm"
-                    rightSection={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-                    className={styles.projectLinkButton}
-                  >
-                    Live site
-                  </Button>
-                )}
-                {links.repo && (
-                  <Button
-                    component="a"
-                    href={links.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="light"
-                    color="primary"
-                    size="sm"
-                    leftSection={<FontAwesomeIcon icon={faGithub} />}
-                    className={styles.projectLinkButton}
-                  >
-                    Repo
-                  </Button>
-                )}
-              </Group>
-            )}
+      <div
+        className={`${styles.navBarWrapper} ${isSticky ? styles.sticky : ''} ${
+          shouldPositionBelowHeader ? styles.belowHeader : ''
+        }`}
+      >
+        <Container size="lg" className={styles.navBarContainer}>
+          <div className={styles.navBar}>
+            <div className={styles.navBarInner}>
+              <BackToProjectsButton />
 
-            <TableOfContents sections={sections} isSticky={isSticky} />
+              {/* Project Links in the Middle */}
+              {(links.live || links.repo) && (
+                <Group gap="xs" className={styles.projectLinks}>
+                  {links.live && (
+                    <Button
+                      component="a"
+                      href={links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="light"
+                      color="primary"
+                      size="sm"
+                      rightSection={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
+                      className={styles.projectLinkButton}
+                    >
+                      Live site
+                    </Button>
+                  )}
+                  {links.repo && (
+                    <Button
+                      component="a"
+                      href={links.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="light"
+                      color="primary"
+                      size="sm"
+                      leftSection={<FontAwesomeIcon icon={faGithub} />}
+                      className={styles.projectLinkButton}
+                    >
+                      Repo
+                    </Button>
+                  )}
+                </Group>
+              )}
+
+              <TableOfContents sections={sections} isSticky={isSticky} />
+            </div>
           </div>
-        </div>
-      </Container>
-    </div>
+        </Container>
+      </div>
+    </>
   );
 }

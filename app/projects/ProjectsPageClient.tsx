@@ -110,7 +110,7 @@ export function ProjectsPageClient() {
                 <Title order={1} size="h1" fw={700}>
                   My Projects
                 </Title>
-                <Text size="lg" c="gray.7" maw={600}>
+                <Text size="lg" c="neutral.6" maw={600}>
                   A collection of projects showcasing my skills in web development, with a focus on
                   education technology and accessibility.
                 </Text>
@@ -133,7 +133,7 @@ export function ProjectsPageClient() {
 
               {hasActiveFilters && (
                 <Group justify="space-between" align="center">
-                  <Text size="sm" c="gray.7">
+                  <Text size="sm" c="neutral.6">
                     {filteredProjects.length} of {projects.length} projects
                     {selectedTech.length > 0 && ` using ${selectedTech.join(', ')}`}
                     {searchQuery && ` matching "${searchQuery}"`}
@@ -156,10 +156,10 @@ export function ProjectsPageClient() {
               </Grid>
             ) : (
               <Stack gap="md" align="center" ta="center" py="xl">
-                <Title order={3} c="gray.7">
+                <Title order={2} c="neutral.6">
                   No projects found
                 </Title>
-                <Text c="gray.7">
+                <Text c="neutral.6">
                   Try adjusting your search terms or filters to find what you're looking for.
                 </Text>
                 {hasActiveFilters && (

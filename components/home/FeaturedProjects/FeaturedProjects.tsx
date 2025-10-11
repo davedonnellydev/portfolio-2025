@@ -28,7 +28,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
             <Title order={2} className={classes.title}>
               Featured Projects
             </Title>
-            <Text size="lg" c="dimmed" maw="65ch" className={classes.subtitle}>
+            <Text size="lg" c="neutral.6" maw="65ch" className={classes.subtitle}>
               A selection of my best work—showcasing real-world impact, modern tech stacks, and
               attention to detail.
             </Text>

@@ -1,9 +1,22 @@
 /* Project Navigation Bar Component */
 
+/* Placeholder to prevent CLS when navbar becomes fixed */
+.navBarPlaceholder {
+  height: 70px; /* Approximate height of the navbar */
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .navBarPlaceholder {
+    height: 140px; /* Taller on mobile due to wrapping */
+  }
+}
+
 .navBarWrapper {
   position: relative;
   z-index: 100;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: position; /* Hint to browser for optimization */
 }
 
 .navBarWrapper.sticky {
@@ -13,6 +26,7 @@
   right: 0;
   z-index: 999; /* Just below header (1000) */
   animation: slideDown 0.3s ease;
+  contain: layout; /* Isolate layout for better performance */
 }
 
 /* Position below header when header is visible */

@@ -24,7 +24,7 @@ export function ProjectFilters({ projects, selectedTech, onTechToggle }: Project
   return (
     <div className={styles.filtersContainer}>
       <Stack gap="md">
-        <Text size="sm" fw={600} c="gray.7">
+        <Text size="sm" fw={600} c="neutral.6">
           Filter by technology
         </Text>
 
@@ -63,7 +63,7 @@ export function ProjectFilters({ projects, selectedTech, onTechToggle }: Project
         </Group>
 
         {selectedTech.length > 0 && (
-          <Text size="xs" c="gray.7">
+          <Text size="xs" c="neutral.6">
             Showing projects using: {selectedTech.join(', ')}
           </Text>
         )}

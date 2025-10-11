@@ -31,7 +31,7 @@ export function Hero() {
                   I build <span className={classes.gradientText}>fast, accessible</span> web
                   experiences with users at heart
                 </Title>
-                <Text size="lg" c="dimmed" mt="md" className={classes.subheadline}>
+                <Text size="lg" c="neutral.6" mt="md" className={classes.subheadline}>
                   Web developer specialising in React, Next.js, and modern web technologies.
                   Shipping production-ready code with a focus on performance and user experience.
                 </Text>

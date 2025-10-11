@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   faCircleExclamation,
@@ -9,7 +10,7 @@ import {
   faSitemap,
   faUserRobot,
 } from '@awesome.me/kit-7f37d33478/icons/classic/light';
-import { Container, Image } from '@mantine/core';
+import { Container } from '@mantine/core';
 import { ProjectPageTracker } from '@/components/projects/ProjectPageTracker';
 import { AnimatedBackground } from '@/components/shared/AnimatedBackground';
 import { projects } from '@/data/projects';
@@ -114,13 +115,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {/* Hero Image - Full Width */}
       <Container fluid px={{ base: 'md', sm: 'lg', md: 'xl' }} py="md">
         <div className={styles.heroImageBorder}>
-          <Image
-            src={project.screenshot}
-            alt={`${project.title} screenshot`}
-            height={400}
-            fit="cover"
-            radius={0}
-          />
+          <div className={styles.heroImageWrapper}>
+            <Image
+              src={project.screenshot}
+              alt={`${project.title} screenshot`}
+              fill
+              sizes="100vw"
+              style={{ objectFit: 'cover' }}
+              priority
+            />
+          </div>
         </div>
       </Container>
 

@@ -11,7 +11,7 @@ export function MicroBio({ content, aboutLink }: MicroBioProps) {
             About Me
           </Title>
 
-          <Text size="lg" c="dimmed" maw="65ch" mx="auto" className={classes.dimmedText}>
+          <Text size="lg" c="neutral.6" maw="65ch" mx="auto">
             {content}
           </Text>
 

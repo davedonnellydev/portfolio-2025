@@ -40,9 +40,9 @@
   color: light-dark(var(--accent-cyan), var(--accent-cyan-dark));
 }
 
-/* Enhanced dimmed text for better readability over glassmorphism */
+/* Enhanced dimmed text for better readability over glassmorphism - WCAG AA */
 .dimmedText {
-  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-4)) !important;
+  color: light-dark(var(--mantine-color-gray-8), var(--mantine-color-gray-3)) !important;
   font-weight: 475;
 }
 

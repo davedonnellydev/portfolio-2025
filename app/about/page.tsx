@@ -33,7 +33,7 @@ export default function AboutPage() {
                 <Title order={1} size="h1" fw={700}>
                   About Me
                 </Title>
-                <Text size="lg" c="dimmed" maw={800} className={styles.dimmedText}>
+                <Text size="lg" c="neutral.6" maw={800}>
                   My journey, mission, and commitment to building impactful web applications.
                 </Text>
               </Stack>
@@ -55,7 +55,7 @@ export default function AboutPage() {
                 </Title>
                 <Stack gap="md">
                   {aboutContent.background.map((paragraph, index) => (
-                    <Text key={index} size="md" c="dimmed" className={styles.dimmedText}>
+                    <Text key={index} size="md" c="neutral.6">
                       {paragraph}
                     </Text>
                   ))}
@@ -76,7 +76,7 @@ export default function AboutPage() {
                       href={cert.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`View ${cert.name} certificate on ${cert.issuer} (opens in new window)`}
+                      aria-label={`${cert.name} certificate from ${cert.issuer} (opens in new window)`}
                     >
                       <Stack gap="xs">
                         <Group justify="space-between" align="flex-start" wrap="nowrap">
@@ -89,10 +89,10 @@ export default function AboutPage() {
                             aria-hidden="true"
                           />
                         </Group>
-                        <Text size="sm" fw={500} c="dimmed" className={styles.dimmedText}>
+                        <Text size="sm" fw={500} c="neutral.6">
                           {cert.issuer}
                         </Text>
-                        <Text size="xs" c="dimmed" className={styles.dimmedText}>
+                        <Text size="xs" c="neutral.6">
                           {cert.date}
                         </Text>
                       </Stack>

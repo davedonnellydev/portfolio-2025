@@ -27,7 +27,7 @@ export function ProjectHero({ title, description, outcome, metrics }: ProjectHer
               {title}
             </Title>
 
-            <Text size="xl" c="gray.7" maw="65ch">
+            <Text size="xl" c="neutral.6" maw="65ch">
               {description}
             </Text>
           </Stack>

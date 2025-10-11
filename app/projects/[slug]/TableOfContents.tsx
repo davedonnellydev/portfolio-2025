@@ -80,9 +80,11 @@ export function TableOfContents({ sections, isSticky = false }: TableOfContentsP
           color="primary"
           size="sm"
           leftSection={<FontAwesomeIcon icon={faListTree} />}
+          rightSection={<FontAwesomeIcon icon={faChevronDown} className={styles.chevron} />}
           className={styles.tocButton}
+          aria-label="Table of contents navigation"
         >
-          <FontAwesomeIcon icon={faChevronDown} className={styles.chevron} />
+          {!isVerySmall && 'Contents'}
         </Button>
       </Menu.Target>
 
