@@ -212,7 +212,7 @@ export const projects: Project[] = [
     metrics: [
       '19 AI apps shipped in 21 weekdays',
       '100% projects with test coverage',
-      'Standardized Next.js + TypeScript template',
+      'Standardised Next.js + TypeScript template',
       'Public repos and live demos for all projects',
       'Daily reflections and learnings documented',
     ],
@@ -240,7 +240,7 @@ export const projects: Project[] = [
     },
     featured: true,
     content: {
-      tldr: 'Built and shipped 19 AI-powered applications in 21 weekdays, each with full-stack implementation, testing, and deployment. Created standardized templates and workflows for rapid AI prototype development.',
+      tldr: 'Built and shipped 19 AI-powered applications in 21 weekdays, each with full-stack implementation, testing, and deployment. Created standardised templates and workflows for rapid AI prototype development.',
 
       role: 'Solo Full-stack Developer & AI Engineer',
 
@@ -250,7 +250,7 @@ export const projects: Project[] = [
         'Needed to rapidly advance AI development skills while building a portfolio of diverse, production-ready AI applications. Required a systematic approach to learning multiple AI APIs, frameworks, and deployment patterns while maintaining code quality and documentation standards.',
 
       approach:
-        'Established standardized starter templates (Next.js + TypeScript + Mantine for web, Flask for Python APIs) to eliminate repetitive setup. Each day followed a consistent workflow: scope MVP features, implement core functionality with AI integration, write tests, deploy to production, and document learnings. Created a central hub repository to organize all projects with calendar-based navigation.',
+        'Established standardised starter templates (Next.js + TypeScript + Mantine for web, Flask for Python APIs) to eliminate repetitive setup. Each day followed a consistent workflow: scope MVP features, implement core functionality with AI integration, write tests, deploy to production, and document learnings. Created a central hub repository to organize all projects with calendar-based navigation.',
 
       result:
         'Successfully delivered 19 distinct AI applications covering diverse use cases including natural language processing, image generation, data analysis, and chatbot interfaces. Maintained consistent quality standards with testing for all projects and comprehensive documentation. Developed reusable patterns for API integration, error handling, and deployment that accelerated development speed throughout the challenge.',
@@ -267,9 +267,9 @@ export const projects: Project[] = [
   },
   {
     slug: 'tyson-donnelly-vfx-portfolio',
-    title: 'VFX Compositor Portfolio - Performance Optimization & CMS Integration',
+    title: 'VFX Supervisor Portfolio - Performance Optimisation & CMS Integration',
     description:
-      "Complete performance overhaul and modernization of a professional VFX compositor's portfolio website, achieving a 45% improvement in Lighthouse score while integrating a headless CMS for easy content management.",
+      "Complete performance overhaul and modernization of a professional VFX supervisor's portfolio website, achieving a 45% improvement in Lighthouse score while integrating a headless CMS for easy content management.",
     outcome:
       'Transformed a slow, hard-coded portfolio into a high-performance, CMS-powered website with a 69% reduction in bundle size and professional content management capabilities.',
     metrics: [
@@ -288,26 +288,26 @@ export const projects: Project[] = [
     },
     featured: true,
     content: {
-      tldr: "Optimized a VFX compositor's portfolio from Lighthouse score 55 to 100, integrated Sanity CMS for client-managed content, and reduced bundle size by 69% through strategic dependency removal and image optimization.",
+      tldr: "Optimised a VFX supervisor's portfolio from Lighthouse score 55 to 100, integrated Sanity CMS for client-managed content, and reduced bundle size by 69% through strategic dependency removal and image optimisation.",
 
       role: 'Full-stack Developer & Performance Engineer',
 
       timeframe: 'October 2025 (1 week)',
 
       problem:
-        "The client's portfolio suffered from severe performance issues with a Lighthouse score of 55, caused by 22 unoptimized images (5-10MB total), 250KB of MUI/Emotion libraries used for a single hook, and hard-coded content requiring developer updates. The site needed to showcase high-quality VFX work while loading quickly and enabling independent content management.",
+        "The client's portfolio suffered from severe performance issues with a Lighthouse score of 55, caused by 22 unoptimised images (5-10MB total), 250KB of MUI/Emotion libraries used for a single hook, and hard-coded content requiring developer updates. The site needed to showcase high-quality VFX work while loading quickly and enabling independent content management.",
 
       approach:
         'Started with comprehensive performance analysis identifying critical bottlenecks. Replaced all native img tags with Next.js Image component for automatic WebP/AVIF conversion, lazy loading, and responsive sizing integrated with Sanity CDN. Removed MUI and Emotion entirely, replacing the single useMediaQuery hook with a custom 1KB implementation that eliminated 250KB of dependencies. Integrated Sanity CMS with custom schemas for Films, About, and Contact, embedding the Studio at /studio route. Implemented ISR with 60-second revalidation for near-instant content updates. Migrated to Next.js 15 App Router with Server Components for static content and Client Components only where necessary.',
 
       result:
-        'Achieved 82% improvement in Lighthouse score (55 to 100) and 69% reduction in bundle size (360KB to 110KB). Dramatically improved LCP through image optimization and reduced TTI by 30-40%. Client can now independently manage film gallery, bio, and contact information through intuitive CMS interface with changes appearing live within 60 seconds. Maintained full TypeScript strict mode compliance and WCAG accessibility standards throughout optimization process.',
+        'Achieved 82% improvement in Lighthouse score (55 to 100) and 69% reduction in bundle size (360KB to 110KB). Dramatically improved LCP through image optimisation and reduced TTI by 30-40%. Client can now independently manage film gallery, bio, and contact information through intuitive CMS interface with changes appearing live within 60 seconds. Maintained full TypeScript strict mode compliance and WCAG accessibility standards throughout optimisation process.',
 
       architecture:
-        'Built on Next.js 15 App Router with React Server Components for static content and selective Client Components for interactive elements. Sanity serves as headless CMS with custom schemas, embedded Studio at /studio, and type-safe queries with ISR revalidation. Images delivered through Sanity CDN with automatic optimization via Next.js Image component (WebP/AVIF, lazy loading, priority hints). Custom lightweight hooks replace heavy third-party dependencies. Font loading optimized with display: swap and selective weight loading.',
+        'Built on Next.js 15 App Router with React Server Components for static content and selective Client Components for interactive elements. Sanity serves as headless CMS with custom schemas, embedded Studio at /studio, and type-safe queries with ISR revalidation. Images delivered through Sanity CDN with automatic optimisation via Next.js Image component (WebP/AVIF, lazy loading, priority hints). Custom lightweight hooks replace heavy third-party dependencies. Font loading optimised with display: swap and selective weight loading.',
 
       aiUsage:
-        'Used Claude in Cursor extensively for architecture planning, generating comprehensive implementation roadmap with phased approach. AI assisted in creating Sanity schemas, TypeScript types, and type-safe query functions. Generated optimization strategies based on performance analysis and recommended targeted improvements. Created client-facing documentation (SANITY_SETUP.md, QUICK_START.md) and ensured accessibility compliance and modern Next.js patterns throughout development.',
+        'Used Claude in Cursor extensively for architecture planning, generating comprehensive implementation roadmap with phased approach. AI assisted in creating Sanity schemas, TypeScript types, and type-safe query functions. Generated optimisation strategies based on performance analysis and recommended targeted improvements. Created client-facing documentation (SANITY_SETUP.md, QUICK_START.md) and ensured accessibility compliance and modern Next.js patterns throughout development.',
 
       codeExcerpts: [
         {
@@ -353,7 +353,7 @@ export async function getFilms(): Promise<Film[]> {
           language: 'typescript',
         },
         {
-          title: 'Optimized Image Delivery with Sanity CDN',
+          title: 'Optimised Image Delivery with Sanity CDN',
           code: `const films = sanityFilms?.map(film => ({
   title: film.title,
   img_url: urlForImage(film.poster)
