@@ -49,8 +49,8 @@ export function Hero() {
                 }
               >
                 <List.Item>
-                  <strong>Higher Education sector experience</strong> — Implemented apps and components used by thousands
-                  of students and academics
+                  <strong>Higher Education sector experience</strong> — Implemented apps and
+                  components used by thousands of students and academics
                 </List.Item>
                 <List.Item>
                   <strong>AI-powered development</strong> — Leveraging modern tools to ship faster

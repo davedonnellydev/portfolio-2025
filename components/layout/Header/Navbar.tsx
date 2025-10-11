@@ -56,7 +56,7 @@ const navLinks: NavLink[] = [
       { label: 'Certificates', href: '/about#certificates' },
     ],
   },
-//   { href: 'https://blog.davedonnelly.dev', label: 'Blog', external: true },
+  //   { href: 'https://blog.davedonnelly.dev', label: 'Blog', external: true },
 ];
 
 export function Navbar() {
