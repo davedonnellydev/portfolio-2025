@@ -8,7 +8,7 @@
                 "http://localhost:3000",
                 "http://localhost:3000/about",
                 "http://localhost:3000/projects",
-                "http://localhost:3000/projects/learning-platform"
+                "http://localhost:3000/projects/portfolio-2025"
             ]
         },
         "assert": {
