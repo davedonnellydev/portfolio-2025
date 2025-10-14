@@ -49,16 +49,16 @@ export function Hero() {
                 }
               >
                 <List.Item>
-                  <strong>Higher Education sector experience</strong> — Implemented apps and
-                  components used by thousands of students and academics
-                </List.Item>
-                <List.Item>
                   <strong>AI-powered development</strong> — Leveraging modern tools to ship faster
                   without compromising quality
                 </List.Item>
                 <List.Item>
                   <strong>Test-driven mindset</strong> — Writing accessible, maintainable code with
                   comprehensive test coverage
+                </List.Item>
+                <List.Item>
+                  <strong>Higher Education sector experience</strong> — Implemented apps and
+                  components used by thousands of students and academics
                 </List.Item>
               </List>
 
