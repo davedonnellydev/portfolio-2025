@@ -2,13 +2,14 @@
 
 /* Placeholder to prevent CLS when navbar becomes fixed */
 .navBarPlaceholder {
-  height: 70px; /* Approximate height of the navbar */
+  /* Match total navbar height: container padding (2rem) + inner padding (1.5rem) + min-height (52px) + margin (1rem) */
+  height: 90px;
   width: 100%;
 }
 
 @media (max-width: 768px) {
   .navBarPlaceholder {
-    height: 140px; /* Taller on mobile due to wrapping */
+    height: 150px; /* Taller on mobile due to wrapping */
   }
 }
 
@@ -16,7 +17,8 @@
   position: relative;
   z-index: 100;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: position; /* Hint to browser for optimization */
+  will-change: transform; /* Hint to browser for optimization */
+  margin-bottom: 1rem; /* Consistent spacing below navbar */
 }
 
 .navBarWrapper.sticky {
@@ -27,36 +29,36 @@
   z-index: 999; /* Just below header (1000) */
   animation: slideDown 0.3s ease;
   contain: layout; /* Isolate layout for better performance */
+  /* Use transform for positioning to avoid CLS */
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 0; /* Remove margin when fixed */
 }
 
-/* Position below header when header is visible */
+/* Position below header when header is visible - using transform to avoid CLS */
 .navBarWrapper.belowHeader {
-  top: 70px; /* Approximate header height */
-  transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(70px); /* Approximate header height */
 }
 
 /* Support devices with notches */
 @supports (padding-top: env(safe-area-inset-top)) {
   .navBarWrapper.belowHeader {
-    top: calc(70px + env(safe-area-inset-top));
+    transform: translateY(calc(70px + env(safe-area-inset-top)));
   }
 }
 
-@keyframes slide-down {
+@keyframes slideDown {
   from {
-    transform: translateY(-100%);
     opacity: 0;
   }
-
   to {
-    transform: translateY(0);
     opacity: 1;
   }
 }
 
 .navBarContainer {
-  padding-top: clamp(0.5rem, 1vw, 0.75rem);
-  padding-bottom: clamp(0.5rem, 1vw, 0.75rem);
+  padding-top: 1rem; /* Fixed padding to ensure consistent height */
+  padding-bottom: 1rem;
 }
 
 .sticky .navBarContainer {
@@ -92,18 +94,19 @@
   background: rgb(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-radius: clamp(0.5rem, 1vw, 0.75rem);
+  border-radius: 0.75rem;
   border: 1px solid rgb(228, 228, 231, 0.3);
   box-shadow: 0 4px 16px 0 rgb(0, 0, 0, 0.06);
-  padding: clamp(0.5rem, 1vw, 0.75rem);
+  padding: 0.75rem; /* Fixed padding for consistent height */
   position: relative;
   isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(0.5rem, 2vw, 1rem);
+  gap: 1rem;
   flex-wrap: wrap;
   width: 100%;
+  min-height: 52px; /* Ensure minimum height to prevent shift */
 }
 
 [data-mantine-color-scheme='dark'] .navBarInner {

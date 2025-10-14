@@ -18,6 +18,7 @@ import { generateProjectMetadata, generateProjectSchema } from '@/lib/seo';
 import { ProjectContent } from './ProjectContent';
 import { ProjectHero } from './ProjectHero';
 import { ProjectNavBar } from './ProjectNavBar';
+import { ProjectNavBarSkeleton } from './ProjectNavBarSkeleton';
 import { ProjectOverview } from './ProjectOverview';
 import { TOCSection } from './TableOfContents';
 import styles from './ProjectHero.module.css';
@@ -109,7 +110,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
       />
-      <Suspense fallback={null}>
+      <Suspense fallback={<ProjectNavBarSkeleton />}>
         <ProjectNavBar sections={tocSections} links={project.links} />
       </Suspense>
       {/* Hero Image - Full Width */}
