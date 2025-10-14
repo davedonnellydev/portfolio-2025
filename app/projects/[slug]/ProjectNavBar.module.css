@@ -47,10 +47,11 @@
   }
 }
 
-@keyframes slideDown {
+@keyframes slide-down {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
