@@ -132,7 +132,7 @@ dist
 
 .DS_Store
 
-.npmrc
+# .npmrc
 
 # Lighthouse CI
 .lighthouseci/
